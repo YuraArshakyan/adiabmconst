@@ -1,0 +1,47 @@
+$orbit: 20vmin;
+$electron: $orbit/10;
+$core: $orbit/8;
+$circum-move: circumferential-movement;
+
+@mixin element($val) {
+    width: $val * 2;
+    height: $val * 2;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+}
+
+@keyframes #{$circum-move} {
+    from {transform: rotateZ(0) translateX($orbit) rotateZ(0) rotateY(-70deg);}
+    to {transform: rotateZ(360deg) translateX($orbit) rotateZ(-360deg) rotateY(-70deg);}
+}
+
+.core {
+	@include element($core);
+	background: firebrick;
+	background: radial-gradient(circle at 10px 10px, red, black);
+}
+
+.orbit {
+    @include element($orbit);
+    border: 3px darkgrey solid;
+    transform-style: preserve-3d;
+    .electron {
+        @include element($electron);
+        background: royalblue;
+		background: radial-gradient(circle at 10px 10px, royalblue, midnightblue);
+        animation: #{$circum-move} linear infinite;
+    }
+    @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+            transform: rotateZ($i*2*30deg) rotateY(70deg);
+            .electron {
+                animation-duration: $i * 1.2 + s;
+            }
+        }
+    }
+}

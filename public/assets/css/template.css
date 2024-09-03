@@ -1,0 +1,25 @@
+/* .p-top-bottom{
+    padding: 15px 0;
+}
+.bb-1px-gray{
+    border-bottom: 1px solid #808080;
+}
+.bt-1px-gray{
+    border-top: 1px solid #808080;
+}
+.d-grid{
+    display: grid;
+}
+::-webkit-scrollbar {
+    display: none;
+} */
+
+
+/* section {
+    float: left;
+     width: 100%; 
+    height: 50vh;
+} */
+::-webkit-scrollbar {
+    display: none;
+} 

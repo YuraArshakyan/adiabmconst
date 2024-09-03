@@ -1,0 +1,164 @@
+:root{
+    --index: calc(1vw + 1vh);
+    --gutter: 30px;
+    --side-smail: 26;
+    --size-big: 36;
+    --depth: 4000px;
+}
+body{
+    
+}
+.logo img{
+    width: 60px;
+}
+.main_menue{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+.main_menue.scrolled{
+    background: #f1f1f1;
+    transition: all 0.2s ease-in-out;
+}
+.menue_links a{
+    padding: 15px;
+}
+.main_video_slide_1 {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.main_video_slide_1 video{
+    position: absolute;
+    height: 100vh;
+    object-fit: cover;
+    width: 100%;
+}
+.devision{
+
+    z-index: 1;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 10% 20% 20% 20% 20% 10%;
+    height: 100vh;
+}
+html{
+    overflow-x: hidden;
+}
+
+
+
+
+
+
+.left{
+    height: 100vh;
+    width: 100%;
+}
+
+
+.part1{
+    overflow: hidden;
+    position: relative;
+    left: 100%;
+    transition: all 1.3s ease-in-out;
+}
+
+.part1.active{
+    position: relative;
+    left: 0%;
+}
+
+.part2{
+    overflow: hidden;
+    position: relative;
+    left: 150%;
+    transition: all 1.3s ease-in-out;
+} 
+.part2.active{
+    overflow: hidden;
+    position: relative;
+    left: 0%;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.company{
+    font-family: sans-serif;
+
+
+    text-transform: uppercase;
+    grid-column-start: 2;
+    grid-row-start: 3;
+    grid-column-end: 4;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-weight: 300;
+    font-size: 90px;
+}
+.about_text{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    grid-row-start: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-weight: 300;
+    font-size: 70px;
+}
+.border_devision{
+    grid-column-start: 2;
+    grid-row-start: 3;
+    grid-column-end: 4;
+}
+.slide2{
+    height: var(--depth);
+    color: white;
+    background-color: black;
+    font-size: calc(var(--index) * .8);
+    line-height: 1.75;
+}
+.slide2 .container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    perspective: 1500px;
+}
+.gallary{
+    transform: preserve-3d;
+    height: 100%;
+}
+.slide2 .frame{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .75s ease;
+}
