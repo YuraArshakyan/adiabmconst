@@ -16,20 +16,179 @@
         </section>
     </div> --}}
 
-    <div class="slide2 slide projects-portfolio" id="page_content1">
+
+
+
+    {{-- <div class="slide2 slide projects-portfolio" id="page_content1">
         <div class="container">
             <section class="gallary">
                 <div class="frame">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore praesentium ratione accusantium minima veniam eligendi magni aspernatur aperiam ullam, necessitatibus id incidunt, aliquid labore laudantium, delectus minus repellendus doloremque expedita.
+                    <div class="frame__content">
+                        <h2>Beautiful World</h2>
+                    </div>
                 </div>
+    
                 <div class="frame">
-                    DASFSADFSADFASDF
+                    <div class="frame__content">
+                        <div class="frame-media frame-media_left" style="background-image: url(projects/1.jpg)"></div>
+                    </div>
                 </div>
+    
+                <div class="frame frame_bg">
+                    <div class="frame__content">
+                        <video class="frame-media frame-media_right" src="first.mov" autoplay loop muted></video>
+                    </div>
+                </div>
+    
+                <div class="frame"></div>
+    
                 <div class="frame">
-                    ADSFASDFASDFASDF
+                    <div class="frame__content text-right">
+                        <h3>Pure planet</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur elit adipisicing. Nemo fugit, rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus.</p>
+                    </div>
                 </div>
+    
+                <div class="frame frame_bg">
+                    <div class="frame__content">
+                        <div class="frame-media frame-media_left" style="background-image: url(projects/1.jpg)"></div>
+                    </div>
+                </div>
+    
+                <div class="frame"></div>
+    
+                <div class="frame frame_bg">
+                    <div class="frame__content">
+                        <div class="frame-media frame-media_right" style="background-image: url(projects/1.jpg)"></div>
+                    </div>
+                </div>
+    
+                <div class="frame"></div>
+    
+                <div class="frame">
+                    <div class="frame__content text-left">
+                        <h3>Ask the Mountains</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus omnis quae eaque aliquam esse unde accusamus dolores non soluta.</p>
+                    </div>
+                </div>
+    
+                <div class="frame frame_bg">
+                    <div class="frame__content">
+                        <div class="frame-media frame-media_right" style="background-image: url(images/1.jpg)"></div>
+                    </div>
+                </div>
+    
+                <div class="frame">
+                    <div class="frame__content">
+                        <video class="frame-media frame-media_left" src="media/video_optimized.mp4" autoplay loop muted></video>
+                    </div>
+                </div>
+    
+                <div class="frame"></div>
+                <div class="frame"></div>
+    
+                <div class="frame frame_bg">
+                    <div class="frame__content">
+                        <div class="frame-media frame-media_right" style="background-image: url(images/1.jpg)"></div>
+                    </div>
+                </div>
+    
+                <div class="frame frame_bg">
+                    <div class="frame__content">
+                        <video class="frame-media" src="media/video_optimized.mp4" autoplay loop muted></video>
+                    </div>
+                </div>
+    
+                <div class="frame"></div>
+                <div class="frame"></div>
+    
+                <div class="frame">
+                    <div class="frame__content">© WebDesign Master</div>
+                </div>
+    
+            </section>
+        </div>
+    </div> --}}
+
+
+    <img src="projects/sound.gif" alt="sound_button" class="soundbutton">
+    <audio class="audio" src="projects/ambient.mp3" loop></audio>
+    <div class="slide2 slide projects-portfolio" id="page_content1">
+        <div class="container">
+            <section class="gallary ">
+                <div class="frame">
+                    <div class="frame__content ">
+                        <h2>abm studio builders</h2>
+                    </div>
+                </div>
+
+                <div class="frame">
+                    <div class="frame__content frame_bg">
+                        <div class="frame-media frame-media_left" style="background-image: url('projects/1.webp')"></div>
+                    </div>
+                </div>
+
+                <div class="frame"></div>
+
+                <div class="frame">
+                    <div class="frame__content text-right">
+                        <h3>White Style</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur elit adipisicing. Nemo fugit, rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus.</p>
+                    </div>
+                </div>
+
+                <div class="frame"></div>
+
+                <div class="frame ">
+                    <div class="frame__content">
+                        <div class="frame-media frame-media_right" style="background-image: url('projects/3.webp')"></div>
+                        {{-- <h2>Beautiful World</h2> --}}
+                    </div>
+                </div>
+
+                <div class="frame"></div>
+
+                <div class="frame frame_bg">
+                    <div class="frame__content">
+                        <div class="frame-media frame-media_left" style="background-image: url('projects/4.webp')"></div>
+                        {{-- <h2>Beautiful World</h2> --}}
+                    </div>
+                </div>
+
+                <div class="frame ">
+                    <div class="frame__content">
+                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
+                    </div>
+                </div>
+
+            </section>
         </div>
     </div>
+
+
+
+    {{-- <div class="slide2 slide projects-portfolio" id="page_content1">
+        <div class="container">
+            <section class="gallary">
+                <div class="frame">
+                    <div class="frame__content">
+                        <div class="frame-media frame-media_left" style="background-image: url('projects/1.webp')"></div>
+                         <h2>ABM STUDO PROJECTS</h2>
+                    </div>
+                </div>
+                <div class="frame frame_bg">
+                    <div class="frame-media frame-media_left" style="background-image: url('projects/1.webp')"></div>
+                        <h2>ABM STUDO PROJECTS</h2>
+                    </div>
+                </div>
+                <div class="frame frame_bg">
+                    <div class="frame-media frame-media_left" style="background-image: url('projects/1.webp')"></div>
+                        <h2>ABM STUDO PROJECTS</h2>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div> --}}
 
 
 
