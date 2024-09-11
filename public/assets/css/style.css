@@ -234,9 +234,122 @@ video.frame-media_left{
 .soundbutton.paused{
     opacity: .25;
 }
+.preloader_title h3{
+    font-size: 77px;
+    width: min-content;
+    letter-spacing: 17px;
+}
+
+.preloader1.active{
+    background: white;
+    height: 100vh;
+    width: 100vw;
+    z-index: 9999;
+    position: fixed;
+    top: 0%;
+    transition: 1.45s ease;
+}
+.preloader_under_layer{
+    background: white;
+    height: 100vh;
+    width: 100vw;
+    z-index: 9999;
+    position: fixed;
+    top: 0%;
+    transition: 2.54s ease;
+}
+.preloader_under_layer.done{
+    top: 100%;
+}
+.preloader1.active.done{
+    top: 100%;
+}
+.layer1{
+    transform: translate(124px, 10px) rotate(0deg);
+    animation-duration: 1.35s;
+    animation-name: changewidth;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes changewidth {
+    from {
+        transform: translate(124px, 10px) rotate(0deg);
+    }
+  
+    to {
+        transform: translate(124px, 10px) rotate(10deg);
+    }
+}
+.progress_bar{
+    margin-top: -50px;
+    position: relative;
+}
+.process_card{
+    margin-top: 400%;
+    transition: all 1.25s ease;
+    position: absolute;
+}
+
+.process_card.active{
+    margin-top: 0%;
+    transition: all 1.25s ease;
+    position: absolute;
+}
+.process_card.deactive{
+    margin-top: -400%;
+    transition: all 1.25s ease;
+    position: absolute;
+}
 
 
-/*  
+
+.process_stages{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}
+.cards_for_process{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+.header_text{
+    font-size: 50px;
+    font-weight: 700;
+    color: #a3923c8a;
+}
+.process_stages .text{
+    padding: 15px;
+}
+
+.step{
+    font-weight: 400;
+    font-size: 50px;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+    font-weight: 700;
+    text-align: center;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+}
+.image img{
+    width: 560px;
+}
+
+
+/*
 
 * {
 	margin: 0;

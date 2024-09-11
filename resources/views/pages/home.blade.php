@@ -2,235 +2,147 @@
 @section('title', 'Home')
 @section('content')
 
-    {{-- <div class="slide1 w-100" style="height: 100vh">
-        <video  width= "100%" autoplay loop muted id = "vid" class="d-none">
-            <source src="first.mov" type="video/mp4">
-        </video>
+    <div class="process" style="width:100vw; height:100vh;">
 
-
-        <section class="part1">
-            <canvas id="canvas0" ></canvas>
-        </section>
-        <section class="part2">
-            <canvas id="canvas1"></canvas>
-        </section>
-    </div> --}}
-
-
-
-
-    {{-- <div class="slide2 slide projects-portfolio" id="page_content1">
-        <div class="container">
-            <section class="gallary">
-                <div class="frame">
-                    <div class="frame__content">
-                        <h2>Beautiful World</h2>
+            <div class="process_stages">
+                <div class="container">
+                    <div class="cards_for_process">
+                        <div class="card process_card">
+                            <div class="step">
+                                1
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="small_icone">
+                                    </div>
+                                    <div class="header_text">
+                                        Goals and vision
+                                    </div>
+                                    <div class="text">
+                                        Every project starts by discovering where you are—and where you want to go. By understanding what you want, we can start to build your vision.
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image">
+                                        <img src="process/1_for_process.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card process_card">
+                            <div class="step">
+                                2
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="small_icone">
+                                    </div>
+                                    <div class="header_text">
+                                        Proposal
+                                    </div>
+                                    <div class="text">
+                                        To quote your project, we scope it and send it out to bid. With our industry expertise, we can value engineer elements of the proposal to fit both your vision and budget.
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image">
+                                        <img src="process/2_for_process.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card process_card">
+                            <div class="step">
+                                3
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="small_icone">
+                                    </div>
+                                    <div class="header_text">
+                                        Planning and logistics4
+                                    </div>
+                                    <div class="text">
+                                        Next, we create a plan for the work with timelines and schedules. Because we’re highly experienced in working in occupied spaces, we’ll ensure everything is business as usual for you.
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image">
+                                        <img src="process/3_for_process.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card process_card">
+                            <div class="step">
+                                4
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="small_icone">
+                                    </div>
+                                    <div class="header_text">
+                                        Project kickoff
+                                    </div>
+                                    <div class="text">
+                                        We attend to all necessary documents and permits in preconstruction meetings so your work proceeds smoothly. We also place long lead-time and submittal orders.
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image">
+                                        <img src="process/4_for_process.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card process_card">
+                            <div class="step">
+                                5
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="small_icone">
+                                    </div>
+                                    <div class="header_text">
+                                        Building begins
+                                    </div>
+                                    <div class="text">
+                                        When our tradesmen arrive, everything is in place, from temporary partitions to plans and permits. Our attentive team handles ongoing on-site adjustments and maintains a clean and safe work site. Weekly construction meetings keep things proceeding smoothly.
+                                    </div>  
+                                </div>
+                                <div class="col">
+                                    <div class="image">
+                                        <img src="process/5_for_process.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card process_card">
+                            <div class="step">
+                                6
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="small_icone">
+                                    </div>
+                                    <div class="header_text">
+                                        Project completion
+                                    </div>
+                                    <div class="text">
+                                        From creating a punch list to walking the entire project, we fine-tune every detail so your site is in tip-top shape. You receive a closeout book with as-builts, warranties, and operating manuals.
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image">
+                                        <img src="process/6_for_process.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-    
-                <div class="frame">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_left" style="background-image: url(projects/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <video class="frame-media frame-media_right" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-    
-                <div class="frame">
-                    <div class="frame__content text-right">
-                        <h3>Pure planet</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur elit adipisicing. Nemo fugit, rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus.</p>
-                    </div>
-                </div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_left" style="background-image: url(projects/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_right" style="background-image: url(projects/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-    
-                <div class="frame">
-                    <div class="frame__content text-left">
-                        <h3>Ask the Mountains</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus omnis quae eaque aliquam esse unde accusamus dolores non soluta.</p>
-                    </div>
-                </div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_right" style="background-image: url(images/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame">
-                    <div class="frame__content">
-                        <video class="frame-media frame-media_left" src="media/video_optimized.mp4" autoplay loop muted></video>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-                <div class="frame"></div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_right" style="background-image: url(images/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <video class="frame-media" src="media/video_optimized.mp4" autoplay loop muted></video>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-                <div class="frame"></div>
-    
-                <div class="frame">
-                    <div class="frame__content">© WebDesign Master</div>
-                </div>
-    
-            </section>
-        </div>
-    </div> --}}
+            </div>
 
-
-    <img src="projects/sound.gif" alt="sound_button" class="soundbutton">
-    <audio class="audio" src="projects/ambient.mp3" loop></audio>
-    <div class="slide2 slide projects-portfolio" id="page_content1">
-        <div class="container">
-            <section class="gallary ">
-                <div class="frame">
-                    <div class="frame__content ">
-                        <h2>abm studio builders</h2>
-                    </div>
-                </div>
-
-                <div class="frame">
-                    <div class="frame__content frame_bg">
-                        <div class="frame-media frame-media_left" style="background-image: url('projects/1.webp')"></div>
-                    </div>
-                </div>
-
-                <div class="frame"></div>
-
-                <div class="frame">
-                    <div class="frame__content text-right">
-                        <h3>White Style</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur elit adipisicing. Nemo fugit, rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus.</p>
-                    </div>
-                </div>
-
-                <div class="frame"></div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_right" style="background-image: url('projects/3.webp')"></div>
-                        {{-- <h2>Beautiful World</h2> --}}
-                    </div>
-                </div>
-
-                <div class="frame"></div>
-
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_left" style="background-image: url('projects/4.webp')"></div>
-                        {{-- <h2>Beautiful World</h2> --}}
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-            </section>
-        </div>
     </div>
-
-
-
-    {{-- <div class="slide2 slide projects-portfolio" id="page_content1">
-        <div class="container">
-            <section class="gallary">
-                <div class="frame">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_left" style="background-image: url('projects/1.webp')"></div>
-                         <h2>ABM STUDO PROJECTS</h2>
-                    </div>
-                </div>
-                <div class="frame frame_bg">
-                    <div class="frame-media frame-media_left" style="background-image: url('projects/1.webp')"></div>
-                        <h2>ABM STUDO PROJECTS</h2>
-                    </div>
-                </div>
-                <div class="frame frame_bg">
-                    <div class="frame-media frame-media_left" style="background-image: url('projects/1.webp')"></div>
-                        <h2>ABM STUDO PROJECTS</h2>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div> --}}
-
-
-
-
-    {{-- <div class="left">
-        <video autoplay muted loop>
-            <source src="first.mov">
-        </video>
-    </div>
-    <div class="right">
-        <video autoplay muted loop>
-            <source src="first.mov">
-        </video>
-    </div> --}}
-
-    {{-- <div class="slide1 slide active" id="page_content1">
-        <div class="main_video_slide_1">
-            <video autoplay muted loop>
-                <source src="first.mov">
-            </video>
-        </div>
-        <div class="d-grid w-10 devision ">
-            <div class = "company ">
-                studio abm builders
-            </div>
-            <div class="border_devision bb-1px-gray">
-            </div>
-            <div class = "about_text">
-                create art in your kitchen
-            </div>
-        </div>
-    </div>
-    <div class="slide2 slide" id="page_content1">
-        <div class="d-grid w-10 devision">
-            <div class = "company ">
-                studio abm builders
-            </div>
-            <div class="border_devision bb-1px-gray">
-            </div>
-            <div class = "about_text">
-                create art in your kitchen
-            </div>
-        </div>
-    </div> --}}
+    
 @endsection

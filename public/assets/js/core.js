@@ -81,14 +81,20 @@
 
 
 
-//SLIDE2
+
+
+
+
+
+
+//Projects 
 // 3D Scroll
 
 let zSpacing = -1000,
-		lastPos = zSpacing / 5,
-		$frames = document.getElementsByClassName('frame'),
-		frames = Array.from($frames),
-		zVals = []
+	lastPos = zSpacing / 5,
+	$frames = document.getElementsByClassName('frame'),
+	frames = Array.from($frames),
+	zVals = []
 
 window.onscroll = function() {
 
@@ -113,10 +119,10 @@ window.scrollTo(0, 1)
 let soundbutton = document.querySelector('.soundbutton'),
 	audio =document.querySelector('.audio')
 
-soundbutton.addEventListener('click', e => {
-	soundbutton.classList.toggle('paused')
-	audio.paused ? audio.play() : audio.pause()
-})
+// soundbutton.addEventListener('click', e => {
+// 	soundbutton.classList.toggle('paused')
+// 	audio.paused ? audio.play() : audio.pause()
+// })
 
 window.onfocus = function() {
 	soundbutton.classList.contains('paused') ? audio.pause() : audio.play()
@@ -124,3 +130,68 @@ window.onfocus = function() {
 window.onblur = function() {
 	audio.pause()
 }
+
+window.onload = function() {
+	// document.querySelector('.preloader1').classList.add('done');
+}
+
+$(document).ready(function (){
+	setTimeout(() => {
+		document.querySelector('.preloader1').classList.add('done');
+		document.querySelector('.process_card').classList.add('active');
+		document.querySelector('.preloader_under_layer').classList.add('done');
+	}, "2000");
+});
+
+
+
+
+
+
+
+
+
+
+
+// process
+$(document).ready(function (){
+	setTimeout(() => {
+		document.querySelector('.process_card').classList.add('active');
+	}, "100");
+});
+
+addEventListener("wheel", (event) => {
+	let $card = document.getElementsByClassName('process_card')
+		cards = Array.from($card)
+	let current_index;
+
+	for(let i = 0; i <= cards.length-1; i++){
+		if(cards[i].classList.contains('active')){
+			current_index = i;
+			break;
+		}
+	}
+
+	console.log(current_index);
+	var card_active = cards[current_index];
+	if(current_index != cards.length-1){
+		card_active.classList.remove('active');
+		card_active.classList.add('deactive')
+		var card_for_active = cards[current_index+1];
+		card_for_active.classList.add('active');
+	}else{
+		for(let i = 0; i <= cards.length-1; i++){
+			if(cards[i].classList.contains('deactive')){
+				cards[i].classList.remove('deactive');
+				// current_index = i;
+				// break;
+			}else if(cards[i].classList.contains('active')){
+				cards[i].classList.remove('active');
+			}
+
+		}
+		cards[0].classList.add('active');
+		current_index = 0;
+	}
+});
+// processEnd
