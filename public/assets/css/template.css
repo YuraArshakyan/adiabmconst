@@ -51,6 +51,9 @@
 .borderr{
     border-right: 1px solid white;
 }
+.borderb{
+    /* border-bottom: 1px solid white; */
+}
 .borderradius0{
     border-radius: 0px;
 }
@@ -107,4 +110,7 @@
 }
 .p-15{
     padding: 15px;
+}
+.flex-column-reverse{
+    flex-direction: column-reverse;
 }

@@ -202,3 +202,95 @@ $(document).ready(function (){
 		this.classList.toggle('active');
 	});
 });
+
+var links = document.querySelectorAll('.nav_item');
+var rightContainer = document.querySelector('.silde_right_menue');
+var img_for_right_container =  rightContainer.querySelectorAll('img');
+let currentIndexfor_right = 0;
+let scroll_index_for_right_bar = 0;
+let right_image_top_offset;
+let right_next_image;
+
+var leftContainer = document.querySelector('.side_left_menue');
+var img_for_left_container =  leftContainer.querySelectorAll('img');
+let currentIndexfor_left = 0;
+let scroll_index_for_left_bar = 0;
+let left_image_top_offset;
+let left_next_image;
+
+$(document).ready(function(){
+	
+
+	links.forEach(links =>{
+		links.addEventListener("mouseover", function(){
+			
+			currentIndexfor_right++;
+			right_next_image = img_for_right_container[currentIndexfor_right];
+			right_image_top_offset = right_next_image.offsetTop;
+			scroll_index_for_right_bar = right_image_top_offset - (rightContainer.clientHeight / 2) + (right_next_image.clientHeight / 2);
+			rightContainer.scrollTo({
+				top: scroll_index_for_right_bar,
+				behavior: 'smooth'
+			});
+			scroll_index_for_right_bar
+
+
+			currentIndexfor_left++;
+
+			left_next_image = img_for_left_container[currentIndexfor_left];
+
+			left_image_top_offset = left_next_image.offsetTop;
+			console.log(left_next_image);
+
+			scroll_index_for_left_bar = left_image_top_offset - (leftContainer.clientHeight / 2) + (left_next_image.clientHeight / 2);
+			leftContainer.scrollTo({
+				top: scroll_index_for_left_bar,
+				behavior: 'smooth'
+			});
+
+
+			// scroll_index_for_right_bar = 
+
+			// nextContainer.scrollTo({
+			// 	top: scroll_index_for_right_bar,
+			// 	behavior: 'smooth'
+			// });
+
+			var lines = links.querySelectorAll('.transperent_line');
+			lines.forEach(lines => {
+				lines.classList.add('active');
+			});
+			
+
+			// let currentIndex = 0;
+
+
+			// currentIndex = (currentIndex + 1) % images.length;
+
+			
+			// // Get the next image
+			// const nextImage = images[currentIndex];
+	
+			// // Calculate the position to center the image
+			// const containerHeight = container.clientHeight;
+			// console.log(containerHeight);
+
+
+			// const imageHeight = nextImage.clientHeight;
+			// const scrollTop = nextImage.offsetTop - (containerHeight / 2) + (imageHeight / 2);
+	
+			// // Scroll to the calculated position
+			// container.scrollTo({
+			// 	top: scrollTop,
+			// 	behavior: 'smooth'
+			// });
+	
+		});
+		links.addEventListener("mouseout", function(){
+			var lines = links.querySelectorAll('.transperent_line');
+			lines.forEach(lines => {
+				lines.classList.remove('active');
+			});
+		});
+	});
+});

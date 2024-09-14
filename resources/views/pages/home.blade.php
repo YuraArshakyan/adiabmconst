@@ -1,24 +1,20 @@
 @extends('layout.index')
 @section('title', 'Contacts')
 @section('content')
-    <div class="header w-100">
-        <div class="container">
-            <div class="header_section">
-                <div class="header_section1 d-flex align-items-center justify-content-center">
-                    <img src="logo.webp" width="70px">
-                </div>
-                <div class="header_section2 d-flex align-items-center justify-content-center">
-                    <button type="button" class="btn btn-info">Contacts</button>
-                </div>
-                <div class="header_section3 d-flex align-items-center justify-content-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 3 4">
-                        <path id="topsvgpath" d="M0 0H3 " stroke="#B19668" stroke-width="0.1" fill="#000000"/>
-                        <path id="middlesvgpath" d="M0 1H3 " stroke="#B19668" stroke-width="0.1" fill="#000000"/>
-                        <path id="bottomsvgpath" d="M1 2H3 " stroke="#B19668" stroke-width="0.1" fill="#000000"/>
-                    </svg>
-                </div>
-            </div>
-            
-        </div>
+
+    <div class="front" style="height: 4000px">
+        <img src="form-contact-right.jpg" style="width:90vw;height:90vh" class="image">
     </div>
+    <script>
+        var x = document.querySelector('.front');
+        var ysa = document.querySelector('.image');
+        x.onmousemove = function(e){
+            var xy = [e.clientX, e.clientY];
+            var pos = xy.concat([ysa]);
+            ysa.style.transform = transforms.applay
+            console.warn(pos);
+            tra
+        }
+        console.log(document.querySelector('.front'));
+    </script>
 @endsection
