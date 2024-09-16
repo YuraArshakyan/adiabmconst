@@ -44,6 +44,80 @@
 .logo img{
     width: 60px;
 }
+.firstline{
+    text-transform: uppercase;
+    font-size: 44px;
+    letter-spacing: 20px;
+    /* margin-right: -37px; */
+}
+.slogon{
+    width: 134px;
+    line-height: 16px;
+    text-align: center;
+}
+.frontFirstImg img{
+    transition: 2.25s ease-in-out;
+}
+.frontFirstImg img{
+    transition: 2.25s ease-in-out;
+}
+.frontFirstImg .active{
+    scale: 1;
+    width:100vw;
+    height:100vh
+}
+
+.secondline{
+    text-transform: uppercase;
+    font-size: 53px;
+    font-weight: 200;
+}
+.titleforslide{
+    font-size: 41px;
+    font-weight: 600;
+}
+.titletext{
+    width: 60%;
+}
+.titleexplanation{
+    font-size: 28px;
+    color: #808080c7;
+    width: 32%;
+    font-weight: 100;
+}
+.frontSecond{
+    height: calc(100vh);
+    position: sticky;
+    top: 0;
+    background-color: #DBFF00;
+}
+.frontSecond .slidecontent{
+    position: sticky;
+    top: 0;
+}
+.frontTirth {
+    position: relative;
+}
+.image_intro{
+    width: 100%;
+    transition: 2.25s ease-in-out;
+    transform: scale(0.3);
+}
+.deactivated{
+    border-radius: 40px;
+    top: 0;
+    position: absolute;
+    left: 0;
+    display: flex;
+    width: 100vw;
+    scale: 0.1;
+    height: 100vh;
+    z-index: 99;
+}
+.other{
+    position: relative;
+    background: black;
+}
 .main_menue{
     position: fixed;
     z-index: 99;

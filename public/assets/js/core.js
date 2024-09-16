@@ -160,40 +160,40 @@ $(document).ready(function (){
 	}, "100");
 });
 
-addEventListener("wheel", (event) => {
-	let $card = document.getElementsByClassName('process_card')
-		cards = Array.from($card)
-	let current_index;
+// addEventListener("wheel", (event) => {
+// 	let $card = document.getElementsByClassName('process_card')
+// 		cards = Array.from($card)
+// 	let current_index;
 
-	for(let i = 0; i <= cards.length-1; i++){
-		if(cards[i].classList.contains('active')){
-			current_index = i;
-			break;
-		}
-	}
+// 	for(let i = 0; i <= cards.length-1; i++){
+// 		if(cards[i].classList.contains('active')){
+// 			current_index = i;
+// 			break;
+// 		}
+// 	}
 
-	console.log(current_index);
-	var card_active = cards[current_index];
-	if(current_index != cards.length-1){
-		card_active.classList.remove('active');
-		card_active.classList.add('deactive')
-		var card_for_active = cards[current_index+1];
-		card_for_active.classList.add('active');
-	}else{
-		for(let i = 0; i <= cards.length-1; i++){
-			if(cards[i].classList.contains('deactive')){
-				cards[i].classList.remove('deactive');
-				// current_index = i;
-				// break;
-			}else if(cards[i].classList.contains('active')){
-				cards[i].classList.remove('active');
-			}
+// 	console.log(current_index);
+// 	var card_active = cards[current_index];
+// 	if(current_index != cards.length-1){
+// 		card_active.classList.remove('active');
+// 		card_active.classList.add('deactive')
+// 		var card_for_active = cards[current_index+1];
+// 		card_for_active.classList.add('active');
+// 	}else{
+// 		for(let i = 0; i <= cards.length-1; i++){
+// 			if(cards[i].classList.contains('deactive')){
+// 				cards[i].classList.remove('deactive');
+// 				// current_index = i;
+// 				// break;
+// 			}else if(cards[i].classList.contains('active')){
+// 				cards[i].classList.remove('active');
+// 			}
 
-		}
-		cards[0].classList.add('active');
-		current_index = 0;
-	}
-});
+// 		}
+// 		cards[0].classList.add('active');
+// 		current_index = 0;
+// 	}
+// });
 // processEnd
 
 //menue click
@@ -203,20 +203,20 @@ $(document).ready(function (){
 	});
 });
 
-var links = document.querySelectorAll('.nav_item');
-var rightContainer = document.querySelector('.silde_right_menue');
-var img_for_right_container =  rightContainer.querySelectorAll('img');
-let currentIndexfor_right = 0;
-let scroll_index_for_right_bar = 0;
-let right_image_top_offset;
-let right_next_image;
+// var links = document.querySelectorAll('.nav_item');
+// var rightContainer = document.querySelector('.silde_right_menue');
+// var img_for_right_container =  rightContainer.querySelectorAll('img');
+// let currentIndexfor_right = 0;
+// let scroll_index_for_right_bar = 0;
+// let right_image_top_offset;
+// let right_next_image;
 
-var leftContainer = document.querySelector('.side_left_menue');
-var img_for_left_container =  leftContainer.querySelectorAll('img');
-let currentIndexfor_left = 0;
-let scroll_index_for_left_bar = 0;
-let left_image_top_offset;
-let left_next_image;
+// var leftContainer = document.querySelector('.side_left_menue');
+// var img_for_left_container =  leftContainer.querySelectorAll('img');
+// let currentIndexfor_left = 0;
+// let scroll_index_for_left_bar = 0;
+// let left_image_top_offset;
+// let left_next_image;
 
 $(document).ready(function(){
 	
@@ -293,4 +293,26 @@ $(document).ready(function(){
 			});
 		});
 	});
+});
+
+
+
+
+var deactivated = document.querySelectorAll('.deactivated');
+
+$(document).ready(function (){
+
+	// deactivated.forEach(deactivated =>{
+		document.addEventListener("click", function(event){
+			if (event.target.classList.contains('deactivated')) {
+				var activated = document.querySelector('.active');
+				if (activated) {
+					activated.classList.remove('active');
+					activated.classList.add('deactivated');
+				}
+	
+				event.target.classList.remove('deactivated');
+				event.target.classList.add('active');
+			}
+		});
 });

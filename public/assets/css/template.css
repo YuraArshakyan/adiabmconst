@@ -23,6 +23,9 @@
      width: 100%; 
     height: 50vh;
 } */
+ .text-end{
+    text-align: end;
+ }
 .feather{
 	font-style: normal;
 	font-family: 'feather' !important;
@@ -38,6 +41,9 @@
 }
 .w-85{
     width: 85%;
+}
+.lh-45{
+    line-height: 45px;
 }
 .color-w{
     color: white !important;
@@ -59,6 +65,9 @@
 }
 .br-15{
     border-radius: 15px;
+}
+.br-20{
+    border-radius: 20px;
 }
 .feather-map-pin::before{
     content: '\e98c';
@@ -113,4 +122,7 @@
 }
 .flex-column-reverse{
     flex-direction: column-reverse;
+}
+.top-0{
+    top: 0;
 }
