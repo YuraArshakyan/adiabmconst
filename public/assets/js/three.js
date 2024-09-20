@@ -33,6 +33,8 @@ function projects() {
             const z = radius * Math.sin(angle);
     
             plane.position.set(x, y, z);
+            plane.quaternion.copy(camera.quaternion);
+
             // plane.lookAt(0, 0, 0); // Повернуть изображение к центру
     
             images.push(plane);
