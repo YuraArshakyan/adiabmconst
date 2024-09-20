@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/template.css">
     <title>@yield('title') - {{ config('app.name') }}</title>
+   
 </head>
 
 {{-- <div class="preloader_under_layer">
