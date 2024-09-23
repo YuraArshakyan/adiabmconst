@@ -44,7 +44,7 @@
 </div> --}}
 <body>
     <div class="main_menue">
-        {{-- @include('layout.headerTop') --}}
+        @include('layout.headerTop')
     </div>
     <div class="main-content">
         <div class="page">

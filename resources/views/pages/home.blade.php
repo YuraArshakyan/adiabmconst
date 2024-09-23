@@ -117,14 +117,14 @@
 </script>
 <div class="other">
 
-    <script>
+    <script defer>
         function PreventSctoll(event){
             console.log('stop');
 
             event.preventDefault();
             
         }
-        const Preventer = document.querySelector('.projects');
+        const Preventer = document.querySelector('.threeTest');
         Preventer.addEventListener('wheel', PreventSctoll);
     </script>
     
@@ -136,17 +136,17 @@
                     WE’RE CREATING INSPIRING SPACES THAT ELEVATE LIVING
                     AND BRING FAMILIES TOGETHER
                 </div>
-                <div class="projects" style="
-                    width: 100vw;
-                    height: 100vh;
-                    position: sticky;
-                    top: 0;
-                    z-index: 999;
-                " >
+               
+                    <div class="projects" style="
+                        width: 100vw;
+                        height: 100vh;
+                        position: fixed;
+                        top: 0;
+                        z-index: 999;
+                    " >
                     
-                </div>
-                <div class="threeTest">
-
+                    </div>
+                    <div class="threeTest">
                 </div>
                 <div class="titleexplanation color-w">
                     STUDIO ABM is on a 

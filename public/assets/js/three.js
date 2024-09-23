@@ -6,7 +6,7 @@ import { Vector3 } from 'three';
 function projects() {
     const canvas = document.querySelector('.projects')
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     renderer.setAnimationLoop( animate );
@@ -60,8 +60,8 @@ function projects() {
     // camera.rotation.y = Math.cos(-500); 
     // camera.rotation.y = Math.cos(Math.PI+2); 
 
-    camera.position.set(images[current_index].position.x, images[current_index].position.y, 5);
-    camera.lookAt(images[current_index].position);
+    camera.position.set(0, 10, 5);
+    camera.lookAt(0,8,0);
 
 
     // const controls = new OrbitControls( camera, renderer.domElement );

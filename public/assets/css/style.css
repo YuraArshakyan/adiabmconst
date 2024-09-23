@@ -120,7 +120,7 @@
 }
 .main_menue{
     position: fixed;
-    z-index: 99;
+    z-index: 999;
     width: 100%;
     transition: all 0.2s ease-in-out;
 }
