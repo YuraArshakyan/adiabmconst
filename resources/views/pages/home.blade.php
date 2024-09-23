@@ -116,6 +116,18 @@
     body.addEventListener('wheel', zoom1);
 </script>
 <div class="other">
+
+    <script>
+        function PreventSctoll(event){
+            console.log('stop');
+
+            event.preventDefault();
+            
+        }
+        const Preventer = document.querySelector('.projects');
+        Preventer.addEventListener('wheel', PreventSctoll);
+    </script>
+    
     <div class="frontTirth text-center p-30" style="">
         <small class="color-w">WHO WE ARE?</small>
         <div class="container" style="">
@@ -127,7 +139,7 @@
                 <div class="projects" style="
                     width: 100vw;
                     height: 100vh;
-                    position: fixed;
+                    position: sticky;
                     top: 0;
                     z-index: 999;
                 " >
