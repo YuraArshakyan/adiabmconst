@@ -109,7 +109,7 @@
     color: white;
 }
 ::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
 } 
 .p-30{
     padding: 30px;
@@ -125,4 +125,7 @@
 }
 .top-0{
     top: 0;
+}
+.blur{
+    backdrop-filter: blur(1px);
 }

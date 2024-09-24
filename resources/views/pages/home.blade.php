@@ -11,123 +11,107 @@
     </div>
     <div class="company_name p-30 lh-45 d-flex flex-column position-absolute top-0 h-100 w-100 color-w justify-content-between align-items-center">
         <div class="top w-100 d-flex flex-column">
-            <span class="firstline">ABM</span>
+            
+        </div>
+        <div class="bottom w-100 text-end">
+            
+        </div>
+    </div>
+    <div class="company_and_losung d-grid">
+        <div class="name d-flex flex-column align-items-center justify-content-center">
+            <span class="firstline">A<span class="p-30">B</span>M</span>
             <span class="slogon">
                 Create art in your kitchen
             </span>
         </div>
-        <div class="bottom w-100 text-end">
-            <span class="secondline">STUDIO</span>
+        <div class="name d-flex flex-column justify-content-center">
+            <span class="slogon p-15">
+                At ABM Studio Builders, we specialize in creating beautiful, functional kitchens tailored to your lifestyle. Our team is dedicated to bringing your vision to life with quality craftsmanship and innovative designs. Transform your culinary space into the heart of your home with ABM Studio!
+            </span>
         </div>
     </div>
+    <div class="company_layer_for_animation"></div>
 </div>
+<script>
+    $( document ).ready(function() {
+        document.querySelector('.company_and_losung').classList.add('animation');
+        document.querySelector('.company_layer_for_animation').classList.add('animation');
+    });
+</script>
 <div class="frontSecond text-center">
+    <div class="frontsecond_content">
     <small>WELCOME TO ABM STUDIO</small>
-    <div class="container p-30">
-        <div class="titleforslide d-flex justify-content-center align-items-center">
-            <div class="titletext">
-                DISCOVER THE ART OF KITCHEN CRAFTSMANSHIP, DESIGNED AND BUILT FOR YOUR LIFESTYLE.
+        <div class="container p-30">
+            <div class="titleforslide d-flex justify-content-center align-items-center">
+                <div class="titletext">
+                    DISCOVER THE ART OF KITCHEN CRAFTSMANSHIP, DESIGNED AND BUILT FOR YOUR LIFESTYLE.
+                </div>
+            </div>
+        </div>
+        <div class="fixed_container_for_img top-0 position-absolute">
+            <div class="slidecontent">
+                <img src="contact.jpg" class="image image_intro br-20">
             </div>
         </div>
     </div>
-    <div class="fixed_container_for_img top-0 position-absolute">
-        <div class="slidecontent">
-            <img src="contact.jpg" class="image image_intro br-20">
-        </div>
-    </div>
 </div>
 <script>
-    function zoom1(event){
-        event.preventDefault();
-    }
-    function zoom(event){
-        if(scale != 1 && scale != 0.3){
-            event.preventDefault();
-        }
-        if(event.deltaY > 0){
-            scale += scale + 0.05;
-            if(scale > 1){
-                scale = 1;
-            }
-        }else{
-            if(scale > 0.3){
-                scale = scale - 0.05;
-            }else{
-                scale = 0.3
-            }
-            
-        }
-        
-        console.log(event.deltaY);
-        if(scale == 1){
-            el.style = `border-radius: 0`;
-        }
-        if(scale == 0.3){
-            el.style = `border-radius: 20px`;
-        }
-        el.style.transform = `scale(${scale})`;
-    }
     let scale = 0.3;
+    let windows;
+    var distance = $('.frontSecond').offset().top,
+    $window = $(window);
+    var scrollDisabled = false;
+    $window.on('wheel', function(e) {
+        windows = $window.scrollTop();
+        if ($window.scrollTop() >= distance && scale != 1) {
+            scrollDisabled = true;
+            $window.scrollTop(distance)
+        }
+    });
+
     const el = document.querySelector('.image_intro');
-    const container = document.querySelector('.frontSecond');
     
-    // if(scale < 1){
-    //     document.container.onwheel = zoom;
-    // }
-    container.addEventListener('wheel', zoom);
-    body.addEventListener('wheel', zoom1);
-</script>
-<script>
-    function zoom(event){
-        if(scale != 1 && scale != 0.3){
-            event.preventDefault();
-        }
-        if(event.deltaY > 0){
-            scale += scale + 0.05;
-            if(scale > 1){
-                scale = 1;
-            }
-        }else{
-            if(scale > 0.3){
-                scale = scale - 0.05;
+    window.addEventListener('wheel', function(e){
+        if(scrollDisabled){
+            if(e.deltaY > 0){
+                if(scale != 1){
+                    if(scale > 1){
+                        scale = 1;
+                    }else{
+                        scale += scale + 0.05;
+                    }
+                    
+                    if(scale == 1){
+                        scrollDisabled = false;
+                        el.style = `border-radius: 0; height:100vh`;
+                    }
+                }
+                el.style.transform = `scale(${scale})`;
+
+                e.preventDefault();
             }else{
-                scale = 0.3
+                if(scale != 0.3){
+                    e.preventDefault();
+                    scrollDisabled = true;
+                }
+                if(scale > 0.3){
+                    scale = scale - 0.05;
+                }else{
+                    scale = 0.3
+                    scrollDisabled = false;
+                }
+                if(scrollDisabled){
+                    e.preventDefault();
+                }
+                el.style.transform = `scale(${scale})`;
             }
-            
         }
         
-        console.log(event.deltaY);
-        if(scale == 1){
-            el.style = `border-radius: 0`;
-        }
-        if(scale == 0.3){
-            el.style = `border-radius: 20px`;
-        }
-        el.style.transform = `scale(${scale})`;
-    }
-    let scale = 0.3;
-    const el = document.querySelector('.image1');
-    const img1 = document.querySelector('.image1');
-    
-    // if(scale < 1){
-    //     document.container.onwheel = zoom;
-    // }
-    container.addEventListener('wheel', zoom);
-    body.addEventListener('wheel', zoom1);
+        
+    }, {passive:false});
 </script>
-<div class="other">
 
-    <script defer>
-        function PreventSctoll(event){
-            console.log('stop');
-
-            event.preventDefault();
-            
-        }
-        const Preventer = document.querySelector('.threeTest');
-        Preventer.addEventListener('wheel', PreventSctoll);
-    </script>
-    
+<div class="other">    
     <div class="frontTirth text-center p-30" style="">
         <small class="color-w">WHO WE ARE?</small>
         <div class="container" style="">
@@ -140,7 +124,7 @@
                     <div class="projects" style="
                         width: 100vw;
                         height: 100vh;
-                        position: fixed;
+                        /* position: fixed; */
                         top: 0;
                         z-index: 999;
                     " >
@@ -154,6 +138,27 @@
                     heart of every home.
                 </div>
             </div>
+            <script>
+                let animat_distance = $('.projects').offset().top,
+                    $windows = $(window);
+            
+                    console.log(animat_distance);
+                var scrollDisabled_for_animate = false;
+                $windows.on('wheel', function(e) {
+                    windows = $windows.scrollTop();
+                    if ($windows.scrollTop() >= animat_distance) {
+                        scrollDisabled_for_animate = true;
+                        console.log('reached');
+                        $window.scrollTop(animat_distance)
+                    }
+                });
+
+                window.addEventListener('wheel', function(e){
+                    if(scrollDisabled_for_animate){
+                        e.preventDefault();
+                    }
+                }, {passive:false});
+            </script>
             <div class="slidecontent" >
                 <span class="p-30 content1 w-100 d-flex flex-column d-flex flex-column align-items-center">
                     <img src="contact.jpg" class="image image1 br-20" width="300px" style="">

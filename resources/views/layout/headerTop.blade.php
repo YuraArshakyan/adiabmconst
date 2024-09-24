@@ -1,11 +1,11 @@
-<div class="header w-100">
+<div class="header w-100 blur">
     <div class="container">
-        <div class="header_section">
+        <div class="header_section p-15">
             <div class="header_section1 d-flex align-items-center justify-content-center">
-                <img src="logo.webp" width="70px">
+                <img src="just-logo-removebg-preview.png" width="70px">
             </div>
             <div class="header_section2 d-flex align-items-center justify-content-center">
-                <button type="button" class="btn btn-info">CONTACTS</button>
+                {{-- <button type="button" class="btn btn-info">CONTACTS</button> --}}
             </div>
             <div class="header_section3 d-flex align-items-center justify-content-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 3 4">

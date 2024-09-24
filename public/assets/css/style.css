@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 .header_section3:hover #bottomsvgpath{
-    opacity: 0;
+    opacity: 1;
     transform: matrix(1, 0, -0.25, 1, 0, 0);
 }
 .header_section3.active #bottomsvgpath{
@@ -47,11 +47,13 @@
 .firstline{
     text-transform: uppercase;
     font-size: 44px;
-    letter-spacing: 20px;
+    /* letter-spacing: 20px; */
     /* margin-right: -37px; */
 }
 .slogon{
-    width: 134px;
+    font-size: 17px;
+    color: #5b5b5b;
+    width: 100%;
     line-height: 16px;
     text-align: center;
 }
@@ -86,10 +88,52 @@
     font-weight: 100;
 }
 .frontSecond{
-    height: calc(100vh);
+    height: 155vh;
     position: sticky;
     top: 0;
     background-color: #DBFF00;
+}
+.frontsecond_content{
+    height: 100vh;
+}
+.company_and_losung{
+
+    position: absolute;
+    bottom: 0;
+    height: 208px;
+    width: 70%;
+    left: -110%;
+    background: white;
+    transition: all 2.9s ease-in-out;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+}
+.company_and_losung.animation{
+    left: 0;
+}
+
+.company_layer_for_animation{
+    position: absolute;
+    bottom: 0;
+    height: 208px;
+    left: -180%;
+    width: 70%;
+    background: red;
+    animation: slideIn 5s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        left: -180%;
+    }
+    
+    50% {
+        left: 0;
+    }
+    100%{
+        left: -110%;
+    }
 }
 .frontSecond .slidecontent{
     position: sticky;

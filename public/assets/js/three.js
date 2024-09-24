@@ -74,12 +74,12 @@ function projects() {
         current_index--;
         if(event.deltaY > 0){
             scene.rotation.y -= 0.1;
-            scene.position.y += 0.06;
+            scene.position.y += 0.065;
 
             // console.log((current_index/30)*10);
         }else{
             scene.rotation.y += 0.1;
-            scene.position.y -= 0.06;
+            scene.position.y -= 0.065;
             // scene.position.y += (current_index/30)*10 -3;
             // scene.position.x -= canvas.scrollY/10000;
         }
