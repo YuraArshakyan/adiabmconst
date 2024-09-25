@@ -195,9 +195,16 @@
     background: -webkit-linear-gradient(left, rgba(30, 87, 153, 0) 0%, rgba(181, 163, 122, 0.98) 50%, rgba(181, 163, 122, 1) 51%, rgba(225, 228, 226, 0) 99%, rgba(229, 229, 229, 0) 100%);
 }
 .open_menue{
+    position: relative;
+    margin-top: -200%;
     width: 100vw;
     height: 100vh;
     background-color: black;
+    transition: all 0.99s ease-in-out;
+}
+.open_menue.active{
+    margin-top: 0%;
+    transition: all .99s ease-in-out;
 }
 .side_left_menue img{
     padding: 5px 0;

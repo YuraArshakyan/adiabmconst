@@ -65,13 +65,14 @@
         windows = $window.scrollTop();
         if ($window.scrollTop() >= distance && scale != 1) {
             scrollDisabled = true;
-            $window.scrollTop(distance)
+            // $window.scrollTop(distance)
         }
     });
 
     const el = document.querySelector('.image_intro');
     
     window.addEventListener('wheel', function(e){
+        // e.preventDefault();
         if(scrollDisabled){
             if(e.deltaY > 0){
                 if(scale != 1){
@@ -88,10 +89,10 @@
                 }
                 el.style.transform = `scale(${scale})`;
 
-                e.preventDefault();
+                // e.preventDefault();
             }else{
                 if(scale != 0.3){
-                    e.preventDefault();
+                    // e.preventDefault();
                     scrollDisabled = true;
                 }
                 if(scale > 0.3){
@@ -101,7 +102,7 @@
                     scrollDisabled = false;
                 }
                 if(scrollDisabled){
-                    e.preventDefault();
+                    // e.preventDefault();
                 }
                 el.style.transform = `scale(${scale})`;
             }
@@ -126,7 +127,7 @@
                         height: 100vh;
                         /* position: fixed; */
                         top: 0;
-                        z-index: 999;
+                        z-index: 99;
                     " >
                     
                     </div>
@@ -149,13 +150,13 @@
                     if ($windows.scrollTop() >= animat_distance) {
                         scrollDisabled_for_animate = true;
                         console.log('reached');
-                        $window.scrollTop(animat_distance)
+                        // $window.scrollTop(animat_distance)
                     }
                 });
 
                 window.addEventListener('wheel', function(e){
                     if(scrollDisabled_for_animate){
-                        e.preventDefault();
+                        // e.preventDefault();
                     }
                 }, {passive:false});
             </script>
@@ -217,8 +218,8 @@
 <script type="importmap">
     {
         "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
-            "/three/addons": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.119.1/build/three.module.js",
+            "three/addons": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
         }
     }
 </script>

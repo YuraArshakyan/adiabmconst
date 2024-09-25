@@ -1,4 +1,4 @@
-<div class="header w-100 blur">
+<div class="header w-100 blur position-absolute" style="z-index: 999;">
     <div class="container">
         <div class="header_section p-15">
             <div class="header_section1 d-flex align-items-center justify-content-center">

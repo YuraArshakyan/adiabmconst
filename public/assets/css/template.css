@@ -109,7 +109,7 @@
     color: white;
 }
 ::-webkit-scrollbar {
-    /* display: none; */
+    display: none;
 } 
 .p-30{
     padding: 30px;

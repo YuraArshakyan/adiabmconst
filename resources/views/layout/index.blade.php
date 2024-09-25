@@ -46,6 +46,7 @@
 <body class="">
     <div class="main_menue">
         @include('layout.headerTop')
+        @include('layout.menue')
     </div>
     <div class="main-content">
         <div class="page">

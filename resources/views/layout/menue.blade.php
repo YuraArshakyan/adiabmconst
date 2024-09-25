@@ -1,4 +1,4 @@
-<div class="open_menue">
+<div class="open_menue ">
     <div class="transparent_bg_menue_header"></div>
     <div class="side_left_menue d-flex flex-column-reverse position-absolute">
         <img src="logo.webp">
