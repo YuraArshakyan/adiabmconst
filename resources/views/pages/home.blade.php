@@ -34,8 +34,10 @@
 </div>
 <script>
     $( document ).ready(function() {
-        document.querySelector('.company_and_losung').classList.add('animation');
-        document.querySelector('.company_layer_for_animation').classList.add('animation');
+        setTimeout(() => {
+            document.querySelector('.company_and_losung').classList.add('animation');
+            document.querySelector('.company_layer_for_animation').classList.add('animation');
+        }, "2500");
     });
 </script>
 <div class="frontSecond text-center">
@@ -117,7 +119,7 @@
         <small class="color-w">WHO WE ARE?</small>
         <div class="container" style="">
             <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
-                <div class="titletext color-w">
+                <div class="titletext text_before_animation color-w">
                     WE’RE CREATING INSPIRING SPACES THAT ELEVATE LIVING
                     AND BRING FAMILIES TOGETHER
                 </div>
@@ -140,16 +142,22 @@
                 </div>
             </div>
             <script>
+                let div_height = document.querySelector('.text_before_animation');
+                let div_position = div_height.getBoundingClientRect();
+
+                
+
+
+
                 let animat_distance = $('.projects').offset().top,
                     $windows = $(window);
             
-                    console.log(animat_distance);
+                    // console.log(animat_distance);
                 var scrollDisabled_for_animate = false;
                 $windows.on('wheel', function(e) {
                     windows = $windows.scrollTop();
                     if ($windows.scrollTop() >= animat_distance) {
                         scrollDisabled_for_animate = true;
-                        console.log('reached');
                         // $window.scrollTop(animat_distance)
                     }
                 });
@@ -179,38 +187,48 @@
             </div>
         </div>
     </div>
+    <div class="iphoneContainer">
+        <div class="titleexplanation213 color-w " style="position: absolute; z-index: 1; display: none;">
+            STUDIO ABM is on a 
+            mission to transform kitchens into the 
+            heart of every home.
+        </div>
 
-    <div class="frontlast text-center p-30">
-        <small class="color-w">ABM STUDIO</small>
-        <div class="container">
-            <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
-                <div class="titletext color-w">
-                    LET’S BUILD THE
-                    NEW ERA OF KITCHEN
-                    DESIGN TOGETHER.
+        <div class="iponemodel" style="height: 100vh; width:100vw; position:absolute; z-index:99">
+            
+        </div>
+        <div class="frontlast text-center p-30">
+            <small class="color-w">ABM STUDIO</small>
+            <div class="container">
+                <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
+                    <div class="titletext color-w">
+                        LET’S BUILD THE
+                        NEW ERA OF KITCHEN
+                        DESIGN TOGETHER.
+                    </div>
+                    <div class="titleexplanation color-w">
+                        STUDIO ABM is on a 
+                        mission to transform kitchens into the 
+                        heart of every home.
+                    </div>
                 </div>
-                <div class="titleexplanation color-w">
-                    STUDIO ABM is on a 
-                    mission to transform kitchens into the 
-                    heart of every home.
+                <div class="slidecontent">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    
+                    <div class="input-group">
+                        <textarea class="form-control" placeholder="Message" aria-label="With textarea"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-info mb-3 mt-3">Submit</button>
                 </div>
-            </div>
-            <div class="slidecontent">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                
-                <div class="input-group">
-                    <textarea class="form-control" placeholder="Message" aria-label="With textarea"></textarea>
-                </div>
-                <button type="button" class="btn btn-info mb-3 mt-3">Submit</button>
-            </div>
             </div>
         </div>
     </div>

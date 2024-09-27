@@ -120,7 +120,9 @@
     left: -180%;
     width: 70%;
     background: red;
-    animation: slideIn 5s ease-in-out forwards;
+}
+.company_layer_for_animation.animation{
+    animation: slideIn 4s ease-in-out forwards;
 }
 
 @keyframes slideIn {
@@ -133,6 +135,7 @@
     }
     100%{
         left: -110%;
+        display: none;
     }
 }
 .frontSecond .slidecontent{
@@ -783,4 +786,7 @@ h1, h2, h3, h4 {
     color: white;
     text-align: center;
     font-weight: 700
+}
+.frontlast{
+    height: 100vh;
 }

@@ -19,7 +19,7 @@ window.addEventListener('wheel', function(e){
     }
     // console.info(e.deltaY);
 },{ passive:false })
- 
+
 window.onscroll = function (e) {
     if(window.scrollY > 0){
         document.querySelector('.main_menue').classList.add('scrolled');
@@ -28,25 +28,25 @@ window.onscroll = function (e) {
         document.querySelector('.main_menue').classList.remove('scrolled');
         document.querySelector('.menue').classList.add('bb-1px-gray');
     }
-    console.log(window.scrollY); // Value of scroll Y in px
+    // console.log(window.scrollY); // Value of scroll Y in px
 };
 
 
 // document.getElementById('vid').play();
 
 
-const v = document.querySelector("video");
+// const v = document.querySelector("video");
 
-let c = document.querySelector("#canvas0");
+// let c = document.querySelector("#canvas0");
 
-setInterval(setActive, 1000)
+// setInterval(setActive, 1000)
 
-function setActive(){
-    let SC1 = document.querySelector(".part1");
-    let SC2 = document.querySelector(".part2");
-    SC1.classList.add('active');
-    SC2.classList.add('active');
-}
+// function setActive(){
+//     let SC1 = document.querySelector(".part1");
+//     let SC2 = document.querySelector(".part2");
+//     SC1.classList.add('active');
+//     SC2.classList.add('active');
+// }
 
 
 // let ctx = c.getContext("2d");
@@ -138,7 +138,7 @@ window.onload = function() {
 $(document).ready(function (){
 	setTimeout(() => {
 		document.querySelector('.preloader1').classList.add('done');
-		document.querySelector('.process_card').classList.add('active');
+		// document.querySelector('.process_card').classList.add('active');
 		document.querySelector('.preloader_under_layer').classList.add('done');
 	}, "2000");
 });
@@ -160,40 +160,40 @@ $(document).ready(function (){
 	}, "100");
 });
 
-addEventListener("wheel", (event) => {
-	let $card = document.getElementsByClassName('process_card')
-		cards = Array.from($card)
-	let current_index;
+// addEventListener("wheel", (event) => {
+// 	let $card = document.getElementsByClassName('process_card')
+// 		cards = Array.from($card)
+// 	let current_index;
 
-	for(let i = 0; i <= cards.length-1; i++){
-		if(cards[i].classList.contains('active')){
-			current_index = i;
-			break;
-		}
-	}
+// 	for(let i = 0; i <= cards.length-1; i++){
+// 		if(cards[i].classList.contains('active')){
+// 			current_index = i;
+// 			break;
+// 		}
+// 	}
 
-	console.log(current_index);
-	var card_active = cards[current_index];
-	if(current_index != cards.length-1){
-		card_active.classList.remove('active');
-		card_active.classList.add('deactive')
-		var card_for_active = cards[current_index+1];
-		card_for_active.classList.add('active');
-	}else{
-		for(let i = 0; i <= cards.length-1; i++){
-			if(cards[i].classList.contains('deactive')){
-				cards[i].classList.remove('deactive');
-				// current_index = i;
-				// break;
-			}else if(cards[i].classList.contains('active')){
-				cards[i].classList.remove('active');
-			}
+// 	console.log(current_index);
+// 	var card_active = cards[current_index];
+// 	if(current_index != cards.length-1){
+// 		card_active.classList.remove('active');
+// 		card_active.classList.add('deactive')
+// 		var card_for_active = cards[current_index+1];
+// 		card_for_active.classList.add('active');
+// 	}else{
+// 		for(let i = 0; i <= cards.length-1; i++){
+// 			if(cards[i].classList.contains('deactive')){
+// 				cards[i].classList.remove('deactive');
+// 				// current_index = i;
+// 				// break;
+// 			}else if(cards[i].classList.contains('active')){
+// 				cards[i].classList.remove('active');
+// 			}
 
-		}
-		cards[0].classList.add('active');
-		current_index = 0;
-	}
-});
+// 		}
+// 		cards[0].classList.add('active');
+// 		current_index = 0;
+// 	}
+// });
 // processEnd
 
 //menue click
