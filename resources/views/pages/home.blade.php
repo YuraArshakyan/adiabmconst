@@ -194,7 +194,7 @@
             heart of every home.
         </div>
 
-        <div class="iponemodel" style="height: 100vh; width:100vw; position:absolute; z-index:99">
+        {{-- <div class="iponemodel" style="height: 100vh; width:100vw; position:absolute; z-index:99"> --}}
             
         </div>
         <div class="frontlast text-center p-30">
@@ -232,6 +232,113 @@
             </div>
         </div>
     </div>
+    <div class="w-100">
+        <div class="container text-center">
+            <p>What we provide?</p>
+            <div class="gsap_container_for_services">
+                <div class="description panel blue">
+                  <div><h1>Horizontal snapping sections (simple)</h1>
+                    <p>Scroll vertically to scrub the horizontal animation. It also dynamically snaps to the sections in an organic way based on the velocity. The snapping occurs based on the natural ending position after momentum is applied, not a simplistic "wherever it is when the user stops".</p>
+                    <div class="scroll-down">Scroll down<div class="arrow"></div></div>
+                  </div>
+                </div>
+              
+                <section class="panel red">
+                  ONE
+                </section>
+                <section class="panel orange">
+                  TWO
+                </section>
+                <section class="panel purple">
+                  THREE
+                </section>
+                <section class="panel green">
+                  FOUR
+                </section>
+                <section class="panel gray">
+                  FIVE
+                </section>
+              
+            </div>
+              
+              
+            {{-- <div class="line">
+                
+                <div class="item">
+                    <div class="in_circle_icone">
+                        <i class="feather feather-instagram"></i>
+                    </div>
+                    <div class="description">
+                        <p>kitchen Remodeling</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="in_circle_icone">
+                        <i class="feather feather-instagram"></i>
+                    </div>
+                    <div class="description">
+                        <p>Bathroom Remodeling</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="in_circle_icone">
+                        <i class="feather feather-instagram"></i>
+                    </div>
+                    <div class="description">
+                        <p>Electrical</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="in_circle_icone">
+                        <i class="feather feather-instagram"></i>
+                    </div>
+                    <div class="description">
+                        <p>Plumbing</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="in_circle_icone">
+                        <i class="feather feather-instagram"></i>
+                    </div>
+                    <div class="description">
+                        <p>Flooring</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="in_circle_icone">
+                        <i class="feather feather-instagram"></i>
+                    </div>
+                    <div class="description">
+                        <p>Counter Tops</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="in_circle_icone">
+                        <i class="feather feather-instagram"></i>
+                    </div>
+                    <div class="description">
+                        <p>Clousets</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="in_circle_icone">
+                        <i class="feather feather-instagram"></i>
+                    </div>
+                    <div class="description">
+                        <p>Painting Interiors</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="in_circle_icone">
+                        <i class="feather feather-instagram"></i>
+                    </div>
+                    <div class="description">
+                        <p>Tails</p>
+                    </div>
+                </div>
+            </div> --}}
+        </div>
+    </div>
 </div>
 <script type="importmap">
     {
@@ -242,4 +349,6 @@
     }
 </script>
 <script src="assets/js/three.js" type="module" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="assets/js/gsap.js" type="module" defer></script>
 @endsection

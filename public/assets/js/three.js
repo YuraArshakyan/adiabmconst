@@ -121,7 +121,7 @@ projects();
 function iphoneScreen() {
     const canvas = document.querySelector('.iponemodel')
     const renderer = new THREE.WebGLRenderer({alpha: true});
-
+    let group;
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     renderer.setClearColor(0xffffff, 1);
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -133,7 +133,7 @@ function iphoneScreen() {
 
 
     camera.position.z = 0;
-    // camera.lookAt(0,8,0);
+    camera.lookAt(0,0,0);
 
     const bgGeometry = new THREE.PlaneGeometry(0.01, 0.01); // Adjust size as needed
     const bgMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
@@ -144,24 +144,28 @@ function iphoneScreen() {
   
 
     let mesh;
-
+    let cutScreen;
    
 
-
-    const Ambient = new THREE.AmbientLight(0xffffff, 1);
-    // spotLight.shadow.mapSize.width = 1024;
-    // spotLight.shadow.mapSize.height = 1024;
-    // spotLight.position.set(90, 50, 60);
+    const Ambient = new THREE.SpotLight(0xffffff, 2)
+    // const Ambient = new THREE.AmbientLight(0xffffff, 45);
+    Ambient.shadow.mapSize.width = 1024;
+    Ambient.shadow.mapSize.height = 1024;
+    Ambient.position.set(90, 50, 60);
 
     scene.add(Ambient);
   
 //    const controls = new OrbitControls( camera, renderer.domElement );
 //     controls.update();
     const loader = new GLTFLoader().setPath('/assets/js/models/');
-    loader.load( 'scene.gltf', ( gltf ) => {
+    loader.load( 'Sketchfab_Scene1.gltf', ( gltf ) => {
         mesh = gltf.scene;
         
+        mesh.position.z = -0.5433;
+
+
         const box = new THREE.Box3().setFromObject(mesh);
+
         const size = box.getSize(new THREE.Vector3());
 
         const desiredWidth = size.x * 0.898; 
@@ -185,42 +189,63 @@ function iphoneScreen() {
             opacity: 0.0, 
         });
         
-        const cutScreen = new THREE.Mesh(cutoutScreen, cutoutMaterial);
-        cutScreen.position.set(box.getCenter(new THREE.Vector3()).x- 0.0779, 
-        box.getCenter(new THREE.Vector3()).y-0.33, 
+        cutScreen = new THREE.Mesh(cutoutScreen, cutoutMaterial);
+        cutScreen.geometry.center();
+      
+
+        cutScreen.position.set(box.getCenter(new THREE.Vector3()).x+0.0801, 
+        box.getCenter(new THREE.Vector3()).y, 
         0); 
 
         cutScreen.position.z = -0.53; 
         
-        scene.add(cutScreen);
         
         mesh.rotation.y = 91.11;
 
         scene.add(mesh);
 
-    })
-    camera.position.z = -0.43;
+        group = new THREE.Group();
+        group.add(cutScreen);
+        group.add(mesh);
+        scene.add(group);
 
-    window.addEventListener('wheel', function(e){
-        // console.log(e.deltaY);
-        // console.log(camera.position.z);
-        if(e.deltaY > 0 && camera.position.z < 0){
-            camera.position.z += 0.02;
-            console.log(camera.position.z);
-        }
-        if(camera.position.z >= 0){
-            // scene.rotateY -= 0.1;
-        }
-    }, {passive:false});
+        
+    })
+    camera.position.z = 0;
+
+    // window.addEventListener('wheel', function(e){
+    //     console.log(e.deltaY);
+    //     console.log(camera.position.z);
+    //     if(e.deltaY > 0 && camera.position.z < 0){
+    //         camera.position.z += 0.02;
+    //         console.log(camera.position.z);
+    //     }
+    //     if(camera.position.z >= 0){
+    //         // scene.rotateY -= 0.1;
+    //     }
+    // }, {passive:false});
 
     // camera.position.x = 0.04;
     function animate() {
+
+        // camera.rotation.y += 0.01;
         if (mesh) {
-            // mesh.rotation.y += 0.1; 
+            // scene.rotation.y += 0.1;
+            // group.rotateY(0.005)
         }
+        
         renderer.render(scene, camera);
 
     }
     animate();
+    // var text2 = document.createElement('div');
+    // text2.style.textAlign = 'center';
+    // //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+    // text2.style.width = 100;
+    // text2.style.height = 100;
+    // text2.innerHTML = "What we provide?";
+    // text2.style.bottom = 0;
+    // text2.style.left = 0;
+    // canvas.appendChild(text2);
 }
 iphoneScreen()
