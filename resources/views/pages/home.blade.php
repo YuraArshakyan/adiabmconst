@@ -6,8 +6,8 @@
     
 <div class="frontFirst" >
     <div class="frontFirstImg">
-        <img src="contact.jpg" class="active">
-        <img src="logo.webp" class="deactivated">
+        <video src="front-first/3773488-hd_1920_1080_30fps.mp4" class="activated" muted autoplay loop></video>
+        <video src="front-first/gettyimages-1319150896-640_adpp.mp4" class="deactivated" muted autoplay loop></video>
     </div>
     <div class="company_name p-30 lh-45 d-flex flex-column position-absolute top-0 h-100 w-100 color-w justify-content-between align-items-center">
         <div class="top w-100 d-flex flex-column">
@@ -33,6 +33,26 @@
     <div class="company_layer_for_animation"></div>
 </div>
 <script>
+    let mouse = {
+        x: 0,
+        y: 0
+    };
+    window.addEventListener("mousemove", function(event) {
+  
+        mouse.x = event.pageX;
+        mouse.y = event.pageY;
+        // console.log(mouse.x);
+
+        var line = document.querySelector('.deactivated');
+    
+        var dx = mouse.x;
+        var dy = mouse.y;
+
+        // var transform = "rotateY(" + Math.atan2(dy, dx) + "rad)";
+        // var transformX = "rotateX(" + Math.atan2(dx, dy) + "rad)";
+        // line.style.transform = transform + transformX;
+    });
+
     $( document ).ready(function() {
         setTimeout(() => {
             document.querySelector('.company_and_losung').classList.add('animation');
@@ -93,6 +113,7 @@
 
                 // e.preventDefault();
             }else{
+                console.log();
                 if(scale != 0.3){
                     // e.preventDefault();
                     scrollDisabled = true;
@@ -103,9 +124,6 @@
                     scale = 0.3
                     scrollDisabled = false;
                 }
-                if(scrollDisabled){
-                    // e.preventDefault();
-                }
                 el.style.transform = `scale(${scale})`;
             }
         }
@@ -114,6 +132,27 @@
     }, {passive:false});
 </script>
 
+<style>
+    .card_model{
+        height: 350px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+    .card_model_body{
+        height: 420px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        height: 100%;
+    }
+    .card_model_body img{
+        border-radius: .25rem;
+        width: 100%;
+        height: 100%;
+    }
+    .text_for_model_card{}
+</style>
 <div class="other">    
     <div class="frontTirth text-center p-30" style="">
         <small class="color-w">WHO WE ARE?</small>
@@ -123,7 +162,80 @@
                     WE’RE CREATING INSPIRING SPACES THAT ELEVATE LIVING
                     AND BRING FAMILIES TOGETHER
                 </div>
-               
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 p-15">
+                                <div class="card card_model bg_img1">
+                                    <div class="card-body card_model_body">
+                                        <div class="text_for_model_card position-absolute p-15">
+                                            <h1>Old Style</h1>
+                                        </div>
+                                        <img src="styles/1405446421782.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-8 p-15">
+                                <div class="card card_model bg_img1">
+                                    <div class="card-body card_model_body">
+                                        <div class="text_for_model_card position-absolute p-15">
+                                            <h1>Old Style</h1>
+                                        </div>
+                                        <img src="styles/1495149887363.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 p-15">
+                                <div class="card card_model bg_img1">
+                                    <div class="card-body card_model_body">
+                                        <div class="text_for_model_card position-absolute p-15">
+                                            <h1>Old Style</h1>
+                                        </div>
+                                        <img src="styles/1549664897706.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 p-15">
+                                <div class="card card_model bg_img1">
+                                    <div class="card-body card_model_body">
+                                        <div class="text_for_model_card position-absolute p-15">
+                                            <h1>Old Style</h1>
+                                        </div>
+                                        <img src="styles/1592932554591.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-8 p-15">
+                                <div class="card card_model bg_img1">
+                                    <div class="card-body card_model_body">
+                                        <div class="text_for_model_card position-absolute p-15">
+                                            <h1>Old Style</h1>
+                                        </div>
+                                        <img src="styles/1625682166094.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-7 p-15">
+                                <div class="card card_model bg_img1">
+                                    <div class="card-body card_model_body">
+                                        <div class="text_for_model_card position-absolute p-15">
+                                            <h1>Old Style</h1>
+                                        </div>
+                                        <img src="styles/1657576773385.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5 p-15">
+                                <div class="card card_model bg_img1">
+                                    <div class="card-body card_model_body">
+                                        <div class="text_for_model_card position-absolute p-15">
+                                            <h1>Old Style</h1>
+                                        </div>
+                                        <img src="styles/1663013872428.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="projects" style="
                         width: 100vw;
                         height: 100vh;
@@ -169,12 +281,255 @@
                 }, {passive:false});
             </script>
             <div class="slidecontent" >
-                <span class="p-30 content1 w-100 d-flex flex-column d-flex flex-column align-items-center">
-                    <img src="contact.jpg" class="image image1 br-20" width="300px" style="">
-                </span>
-                <span class="p-30 content2 w-100 d-flex flex-column d-flex flex-column align-items-center">
-                    <img src="contact.jpg" class="image image2 br-20" width="300px" style="transform: matrix3d(1, 0, 0, 0.001, 0, 1.1, 0, 0, 0, 0, 1, 0, 280, 0, 0, 1);">
-                </span>
+                <style>
+                    .pages{
+                        position: relative;
+                        width: 48%;
+                    }
+                    .page_book{
+                        z-index: -1;
+                        position: absolute;
+                        top: 0;
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        background: white
+                    }
+                    .side1{
+                        flex-direction: column;
+                        justify-content: center;
+                        display: flex;
+                        width: 50%;
+                        height: 100%;
+                    }
+                    .side1 .item{
+                        padding: 0 !important;
+                    }
+                    .side1 .item img{
+                        width: 100%;
+                    }
+                    .side2{
+                        flex-direction: column;
+                        justify-content: center;
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .cover{
+                        z-index: 1;
+                        position: relative;
+                        background-color: #626262;
+                        color: white;
+                        text-transform: uppercase;
+                        padding: 60px;
+                    }
+                    .bookTitle{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 260px 0;
+                    }
+                    .bookTitle h1{
+                        text-align: center;
+                        width: min-content;
+                    }
+                    .book .pages .cover .logo img{
+                        width: 170px !important;
+                    }
+                    .coverback{
+                        top: 0;
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background: black;
+                    }
+                    .first{
+                        position: relative;
+                        z-index: 99;
+                    }
+                </style>
+                <div class="w-100">
+                    <div class="container text-center" style="height: 100vh">
+                        <p>What we provide?</p>
+                        
+                        <div class="book d-flex ">
+                            <div class="w-100">
+            
+                            </div>
+                            <div class="pages w-100">
+                                <div class="first">
+                                    <div class="cover" id="cover">
+                                        <div class="logo">
+                                            <img src="just-logo-removebg-preview.png" alt="logo">
+                                        </div>
+                                        <div class="bookTitle">
+                                            <h1>studio abm builders</h1>
+                                        </div>
+                                    </div>
+                                    <div class="coverback" id="coverback">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div>
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Kittchen Remodeling</h1>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div>
+            
+                                
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Electrical</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Plumbing</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Flooring</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Drywall</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Backsplash</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Counter tops</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Clousets</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Interior painting</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <div class="description">
+                                            <h1>Tails</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <button id="flip-page">Flip Page</button>
+                          
+                        {{-- <div class="line">
+                            
+                            <div class="item">
+                                <div class="in_circle_icone">
+                                    <i class="feather feather-instagram"></i>
+                                </div>
+                                <div class="description">
+                                    <p>kitchen Remodeling</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="in_circle_icone">
+                                    <i class="feather feather-instagram"></i>
+                                </div>
+                                <div class="description">
+                                    <p>Bathroom Remodeling</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="in_circle_icone">
+                                    <i class="feather feather-instagram"></i>
+                                </div>
+                                <div class="description">
+                                    <p>Electrical</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="in_circle_icone">
+                                    <i class="feather feather-instagram"></i>
+                                </div>
+                                <div class="description">
+                                    <p>Plumbing</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="in_circle_icone">
+                                    <i class="feather feather-instagram"></i>
+                                </div>
+                                <div class="description">
+                                    <p>Flooring</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="in_circle_icone">
+                                    <i class="feather feather-instagram"></i>
+                                </div>
+                                <div class="description">
+                                    <p>Counter Tops</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="in_circle_icone">
+                                    <i class="feather feather-instagram"></i>
+                                </div>
+                                <div class="description">
+                                    <p>Clousets</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="in_circle_icone">
+                                    <i class="feather feather-instagram"></i>
+                                </div>
+                                <div class="description">
+                                    <p>Painting Interiors</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="in_circle_icone">
+                                    <i class="feather feather-instagram"></i>
+                                </div>
+                                <div class="description">
+                                    <p>Tails</p>
+                                </div>
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
                 {{-- <span class="p-30 contentChoose w-100 d-flex flex-column d-flex flex-column align-items-center">
                     <img src="contact.jpg" class="image br-20" width="300px" style="transform: matrix3d(1, 0, 0, 0.001, 0, 1.1, 0, 0, 0, 0, 1, 0, 470, 0, 0, 1);">
                 </span> --}}
@@ -194,7 +549,7 @@
             heart of every home.
         </div>
 
-        {{-- <div class="iponemodel" style="height: 100vh; width:100vw; position:absolute; z-index:99"> --}}
+        <div class="iponemodel" style="height: 100vh; width:100vw; position:absolute; z-index:99">
             
         </div>
         <div class="frontlast text-center p-30">
@@ -230,255 +585,6 @@
                 </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <style>
-        .pages{
-            position: relative;
-            width: 48%;
-        }
-        .page_book{
-            z-index: -1;
-            position: absolute;
-            top: 0;
-            display: flex;
-            width: 100%;
-            height: 100%;
-            background: white
-        }
-        .side1{
-            flex-direction: column;
-            justify-content: center;
-            display: flex;
-            width: 50%;
-            height: 100%;
-        }
-        .side1 .item{
-            padding: 0 !important;
-        }
-        .side1 .item img{
-            width: 100%;
-        }
-        .side2{
-            flex-direction: column;
-            justify-content: center;
-            display: flex;
-            width: 100%;
-            height: 100%;
-        }
-        .cover{
-            z-index: 1;
-            position: relative;
-            background-color: #626262;
-            color: white;
-            text-transform: uppercase;
-            padding: 60px;
-        }
-        .bookTitle{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 260px 0;
-        }
-        .bookTitle h1{
-            text-align: center;
-            width: min-content;
-        }
-        .book .pages .cover .logo img{
-            width: 170px !important;
-        }
-        .coverback{
-            top: 0;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: black;
-        }
-        .first{
-            position: relative;
-            z-index: 99;
-        }
-    </style>
-    <div class="w-100">
-        <div class="container text-center" style="height: 100vh">
-            <p>What we provide?</p>
-            
-            <div class="book d-flex ">
-                <div class="w-100">
-
-                </div>
-                <div class="pages w-100">
-                    <div class="first">
-                        <div class="cover" id="cover">
-                            <div class="logo">
-                                <img src="just-logo-removebg-preview.png" alt="logo">
-                            </div>
-                            <div class="bookTitle">
-                                <h1>studio abm builders</h1>
-                            </div>
-                        </div>
-                        <div class="coverback" id="coverback">
-                            <img src="just-logo-removebg-preview.png" alt="logo">
-                        </div>
-                    </div>
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Kittchen Remodeling</h1>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="page_book">
-                        <div class="side2">
-                            <img src="just-logo-removebg-preview.png" alt="logo">
-                        </div>
-                    </div>
-
-                    
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Electrical</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Plumbing</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Flooring</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Drywall</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Backsplash</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Counter tops</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Clousets</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Interior painting</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page_book">
-                        <div class="side2">
-                            <div class="description">
-                                <h1>Tails</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-              <button id="flip-page">Flip Page</button>
-              
-            {{-- <div class="line">
-                
-                <div class="item">
-                    <div class="in_circle_icone">
-                        <i class="feather feather-instagram"></i>
-                    </div>
-                    <div class="description">
-                        <p>kitchen Remodeling</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="in_circle_icone">
-                        <i class="feather feather-instagram"></i>
-                    </div>
-                    <div class="description">
-                        <p>Bathroom Remodeling</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="in_circle_icone">
-                        <i class="feather feather-instagram"></i>
-                    </div>
-                    <div class="description">
-                        <p>Electrical</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="in_circle_icone">
-                        <i class="feather feather-instagram"></i>
-                    </div>
-                    <div class="description">
-                        <p>Plumbing</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="in_circle_icone">
-                        <i class="feather feather-instagram"></i>
-                    </div>
-                    <div class="description">
-                        <p>Flooring</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="in_circle_icone">
-                        <i class="feather feather-instagram"></i>
-                    </div>
-                    <div class="description">
-                        <p>Counter Tops</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="in_circle_icone">
-                        <i class="feather feather-instagram"></i>
-                    </div>
-                    <div class="description">
-                        <p>Clousets</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="in_circle_icone">
-                        <i class="feather feather-instagram"></i>
-                    </div>
-                    <div class="description">
-                        <p>Painting Interiors</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="in_circle_icone">
-                        <i class="feather feather-instagram"></i>
-                    </div>
-                    <div class="description">
-                        <p>Tails</p>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </div>
 </div>

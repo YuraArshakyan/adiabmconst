@@ -54,16 +54,17 @@
     font-size: 17px;
     color: #5b5b5b;
     width: 100%;
-    line-height: 16px;
     text-align: center;
 }
-.frontFirstImg img{
+.frontFirstImg video{
     transition: 2.25s ease-in-out;
 }
-.frontFirstImg img{
+.frontFirstImg video{
+    object-fit: cover;
     transition: 2.25s ease-in-out;
 }
-.frontFirstImg .active{
+.frontFirstImg .activated{
+    object-fit: cover;
     scale: 1;
     width:100vw;
     height:100vh
@@ -88,10 +89,10 @@
     font-weight: 100;
 }
 .frontSecond{
-    height: 155vh;
+    height: 100vh;
     position: sticky;
     top: 0;
-    background-color: #DBFF00;
+    background-color: #fdfdfd;
 }
 .frontsecond_content{
     height: 100vh;
@@ -110,11 +111,13 @@
     grid-template-rows: 100%;
 }
 .company_and_losung.animation{
+    z-index: 2;
     left: 0;
 }
 
 .company_layer_for_animation{
     position: absolute;
+    z-index: 3;
     bottom: 0;
     height: 208px;
     left: -180%;
@@ -159,7 +162,10 @@
     width: 100vw;
     scale: 0.1;
     height: 100vh;
-    z-index: 99;
+    z-index: 1;
+}
+video.deactivated:hover {
+    scale: 0.3;
 }
 .other{
     position: relative;

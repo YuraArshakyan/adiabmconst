@@ -132,7 +132,7 @@ function iphoneScreen() {
     const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 
-    camera.position.z = 0;
+    // camera.position.z = 0;
     camera.lookAt(0,0,0);
 
     const bgGeometry = new THREE.PlaneGeometry(0.01, 0.01); // Adjust size as needed
@@ -211,19 +211,18 @@ function iphoneScreen() {
 
         
     })
-    camera.position.z = 0;
+    camera.position.z = -0.43;
+    camera.position.x = 0.01;
 
-    // window.addEventListener('wheel', function(e){
-    //     console.log(e.deltaY);
-    //     console.log(camera.position.z);
-    //     if(e.deltaY > 0 && camera.position.z < 0){
-    //         camera.position.z += 0.02;
-    //         console.log(camera.position.z);
-    //     }
-    //     if(camera.position.z >= 0){
-    //         // scene.rotateY -= 0.1;
-    //     }
-    // }, {passive:false});
+    window.addEventListener('wheel', function(e){
+        if(e.deltaY > 0 && camera.position.z < 0){
+            camera.position.z += 0.01;
+        }
+        else if(e.deltaY < 0 && camera.position.z >= -0.429){
+            camera.position.z -= 0.01;
+            // scene.rotateY -= 0.1;
+        }
+    }, {passive:false});
 
     // camera.position.x = 0.04;
     function animate() {

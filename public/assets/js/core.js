@@ -303,18 +303,17 @@ $(document).ready(function(){
 var deactivated = document.querySelectorAll('.deactivated');
 
 $(document).ready(function (){
-
 	// deactivated.forEach(deactivated =>{
 		document.addEventListener("click", function(event){
 			if (event.target.classList.contains('deactivated')) {
-				var activated = document.querySelector('.active');
+				var activated = document.querySelector('.activated');
 				if (activated) {
-					activated.classList.remove('active');
+					activated.classList.remove('activated');
 					activated.classList.add('deactivated');
 				}
 	
 				event.target.classList.remove('deactivated');
-				event.target.classList.add('active');
+				event.target.classList.add('activated');
 			}
 		});
 });
