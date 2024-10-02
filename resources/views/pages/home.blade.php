@@ -232,35 +232,177 @@
             </div>
         </div>
     </div>
+    <style>
+        .pages{
+            position: relative;
+            width: 48%;
+        }
+        .page_book{
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background: white
+        }
+        .side1{
+            flex-direction: column;
+            justify-content: center;
+            display: flex;
+            width: 50%;
+            height: 100%;
+        }
+        .side1 .item{
+            padding: 0 !important;
+        }
+        .side1 .item img{
+            width: 100%;
+        }
+        .side2{
+            flex-direction: column;
+            justify-content: center;
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .cover{
+            z-index: 1;
+            position: relative;
+            background-color: #626262;
+            color: white;
+            text-transform: uppercase;
+            padding: 60px;
+        }
+        .bookTitle{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 260px 0;
+        }
+        .bookTitle h1{
+            text-align: center;
+            width: min-content;
+        }
+        .book .pages .cover .logo img{
+            width: 170px !important;
+        }
+        .coverback{
+            top: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+        .first{
+            position: relative;
+            z-index: 99;
+        }
+    </style>
     <div class="w-100">
-        <div class="container text-center">
+        <div class="container text-center" style="height: 100vh">
             <p>What we provide?</p>
-            <div class="gsap_container_for_services">
-                <div class="description panel blue">
-                  <div><h1>Horizontal snapping sections (simple)</h1>
-                    <p>Scroll vertically to scrub the horizontal animation. It also dynamically snaps to the sections in an organic way based on the velocity. The snapping occurs based on the natural ending position after momentum is applied, not a simplistic "wherever it is when the user stops".</p>
-                    <div class="scroll-down">Scroll down<div class="arrow"></div></div>
-                  </div>
+            
+            <div class="book d-flex ">
+                <div class="w-100">
+
                 </div>
-              
-                <section class="panel red">
-                  ONE
-                </section>
-                <section class="panel orange">
-                  TWO
-                </section>
-                <section class="panel purple">
-                  THREE
-                </section>
-                <section class="panel green">
-                  FOUR
-                </section>
-                <section class="panel gray">
-                  FIVE
-                </section>
-              
+                <div class="pages w-100">
+                    <div class="first">
+                        <div class="cover" id="cover">
+                            <div class="logo">
+                                <img src="just-logo-removebg-preview.png" alt="logo">
+                            </div>
+                            <div class="bookTitle">
+                                <h1>studio abm builders</h1>
+                            </div>
+                        </div>
+                        <div class="coverback" id="coverback">
+                            <img src="just-logo-removebg-preview.png" alt="logo">
+                        </div>
+                    </div>
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Kittchen Remodeling</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page_book">
+                        <div class="side2">
+                            <img src="just-logo-removebg-preview.png" alt="logo">
+                        </div>
+                    </div>
+
+                    
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Electrical</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Plumbing</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Flooring</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Drywall</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Backsplash</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Counter tops</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Clousets</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Interior painting</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page_book">
+                        <div class="side2">
+                            <div class="description">
+                                <h1>Tails</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-              
+              <button id="flip-page">Flip Page</button>
               
             {{-- <div class="line">
                 
@@ -340,6 +482,12 @@
         </div>
     </div>
 </div>
+<script>
+    let divs = document.querySelectorAll('.page_book');
+    for(let i = 0; i < divs.length-1; i++){
+        divs[i].style.zIndex = divs.length - i;
+    }
+</script>
 <script type="importmap">
     {
         "imports": {

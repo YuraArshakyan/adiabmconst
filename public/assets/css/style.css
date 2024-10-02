@@ -506,7 +506,7 @@ html{
 h1, h2, h3, h4 {
 	font-weight: 100;
 	text-transform: uppercase;
-	width: min-content;
+	/* width: min-content; */ /*delete if something*/
 	line-height: 1;
 }
 .frame h2{
