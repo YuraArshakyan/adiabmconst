@@ -97,6 +97,54 @@
 .frontsecond_content{
     height: 100vh;
 }
+.titletext{
+    width: 100%;
+    font-size: 26px;
+    font-weight: 300;
+}
+small{
+    font-weight: 800 !important;
+}
+.card_model:hover{
+    background: black;
+    opacity: 0.8;
+    transition: all .25s ease-in-out;
+    scale: 0.98;
+}
+.text_for_model_card{
+    transition: all .25s ease-in-out;
+}
+.card_model:hover .text_for_model_card{
+    transition: all .25s ease-in-out;
+    color: #ffc600;
+}
+.buttons_for_book {
+    display: flex;
+    justify-content: space-between;
+}
+.buttons_container{
+    width: 100%;
+    left: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+.buttons_for_book button{
+    transition: all .25s ease;
+    border: 0;
+    background: transparent;
+}
+.buttons_for_book button i{
+    color: white;
+    font-size: 70px;
+}
+.buttons_for_book button:hover {
+    transition: all .25s ease;
+    padding: 0;
+    right: 0;
+}
 .company_and_losung{
 
     position: absolute;
@@ -144,6 +192,7 @@
 .frontSecond .slidecontent{
     position: sticky;
     top: 0;
+    width: 100vw;
 }
 .frontTirth {
     position: relative;

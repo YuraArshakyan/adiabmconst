@@ -75,6 +75,12 @@
 .feather-phone::before{
     content: '\e9a7';
 }
+.feather-arrow-right::before{
+    content: '\e912';
+}
+.feather-arrow-left::before{
+    content: '\e910';
+}
 .feather-at-sign::before{
     content: '\e918';
 }

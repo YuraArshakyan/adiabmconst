@@ -82,58 +82,46 @@
     let windows;
     var distance = $('.frontSecond').offset().top,
     $window = $(window);
-    var scrollDisabled = false;
     $window.on('wheel', function(e) {
+        console.log(distance);
         windows = $window.scrollTop();
-        if ($window.scrollTop() >= distance && scale != 1) {
-            scrollDisabled = true;
+        if ($window.scrollTop() >= distance) {
             // $window.scrollTop(distance)
+            
         }
     });
 
+    const element = document.querySelector('.frontSecond');
     const el = document.querySelector('.image_intro');
     
-    window.addEventListener('wheel', function(e){
-        // e.preventDefault();
-        if(scrollDisabled){
-            if(e.deltaY > 0){
-                if(scale != 1){
-                    if(scale > 1){
-                        scale = 1;
-                    }else{
-                        scale += scale + 0.05;
-                    }
-                    
-                    if(scale == 1){
-                        scrollDisabled = false;
-                        el.style = `border-radius: 0; height:100vh`;
-                    }
+    element.addEventListener('wheel', function(e){
+        if(e.deltaY > 0){
+            if(scale != 1){
+                scale += scale + 0.05;
+                if(scale > 1){
+                    scale = 1;
+                }                    
+                if(scale == 1){
+                    // scrollDisabled = false;
+                    el.style = `border-radius: 0; height:100vh`;
                 }
-                el.style.transform = `scale(${scale})`;
-
-                // e.preventDefault();
-            }else{
-                console.log();
-                if(scale != 0.3){
-                    // e.preventDefault();
-                    scrollDisabled = true;
-                }
-                if(scale > 0.3){
-                    scale = scale - 0.05;
-                }else{
-                    scale = 0.3
-                    scrollDisabled = false;
-                }
-                el.style.transform = `scale(${scale})`;
             }
-        }
-        
-        
-    }, {passive:false});
+            el.style.transform = `scale(${scale})`;
+            // e.preventDefault();
+        }else{
+            console.log('stop');
+
+            if(scale != 0.3){
+                scale = 0.3
+            }
+            el.style.transform = `scale(${scale})`;
+        }        
+    });
 </script>
 
 <style>
     .card_model{
+        transition: all .25s ease-in-out;
         height: 350px;
         padding: 0;
         margin: 0;
@@ -159,8 +147,9 @@
         <div class="container" style="">
             <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
                 <div class="titletext text_before_animation color-w">
-                    WE’RE CREATING INSPIRING SPACES THAT ELEVATE LIVING
-                    AND BRING FAMILIES TOGETHER
+                    Welcome to STUDIO ABM BUILDERS Inc.! We specialize in kitchen remodeling, transforming spaces into beautiful, functional areas that reflect your style. With years of experience, our skilled team combines innovative design and quality craftsmanship to bring your vision to life.
+                    At STUDIO ABM BUILDERS, we believe the kitchen is the heart of the home. We prioritize customer satisfaction through clear communication and meticulous execution, making your remodeling journey seamless and enjoyable.
+                    <b>Discover our models and choose your perfect design!</b> Let’s create the kitchen of your dreams together
                 </div>
                     <div class="container">
                         <div class="row">
@@ -350,9 +339,14 @@
                     }
                 </style>
                 <div class="w-100">
-                    <div class="container text-center" style="height: 100vh">
+                    <div class="buttons_container">
+                        <div class="buttons_for_book p-30">
+                            <button id="flip-page-back"><i class="feather feather-arrow-left"></i></button>
+                            <button id="flip-page"><i class="feather feather-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="container text-center d-flex flex-column justify-content-center" style="height: 100vh">
                         <p>What we provide?</p>
-                        
                         <div class="book d-flex ">
                             <div class="w-100">
             
@@ -393,13 +387,27 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="page_book">
+                                    <div class="side2">
+                                        <img src="form-contact-right.jpg" alt="logo">
+                                    </div>
+                                </div>
+
+                                 <div class="page_book">
                                     <div class="side2">
                                         <div class="description">
                                             <h1>Plumbing</h1>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div>
+
                                 <div class="page_book">
                                     <div class="side2">
                                         <div class="description">
@@ -407,6 +415,13 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div>
+
                                 <div class="page_book">
                                     <div class="side2">
                                         <div class="description">
@@ -414,6 +429,13 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div>
+
                                 <div class="page_book">
                                     <div class="side2">
                                         <div class="description">
@@ -421,6 +443,13 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div>
+
                                 <div class="page_book">
                                     <div class="side2">
                                         <div class="description">
@@ -428,6 +457,13 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div>
+
                                 <div class="page_book">
                                     <div class="side2">
                                         <div class="description">
@@ -435,6 +471,13 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div>
+
                                 <div class="page_book">
                                     <div class="side2">
                                         <div class="description">
@@ -442,6 +485,13 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div>
+
                                 <div class="page_book">
                                     <div class="side2">
                                         <div class="description">
@@ -449,10 +499,16 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="page_book">
+                                    <div class="side2">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                </div> 
+
                             </div>
                         </div>
-                          <button id="flip-page">Flip Page</button>
-                          
+                        
                         {{-- <div class="line">
                             
                             <div class="item">

@@ -9,7 +9,7 @@ function projects() {
     const renderer = new THREE.WebGLRenderer();
 
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    renderer.setClearColor(0x000000);
+    renderer.setClearColor(0xffffff);
     renderer.setPixelRatio(window.devicePixelRatio);
 
     renderer.setAnimationLoop( animate );
