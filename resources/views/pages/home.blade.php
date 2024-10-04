@@ -61,7 +61,7 @@
     });
 </script>
 <div class="frontSecond text-center">
-    <div class="frontsecond_content">
+    <div class="frontsecond_content" id="image_intro">
     <small>WELCOME TO ABM STUDIO</small>
         <div class="container p-30">
             <div class="titleforslide d-flex justify-content-center align-items-center">
@@ -71,14 +71,17 @@
             </div>
         </div>
         <div class="fixed_container_for_img top-0 position-absolute">
+            <img src="2slide_scale.jpg" class="image image_intro">
+            
             <div class="slidecontent">
-                <img src="contact.jpg" class="image image_intro br-20">
+               <div class="cube"></div>
             </div>
         </div>
     </div>
 </div>
 <script>
-    let scale = 0.3;
+    let scale =2;
+    let clip = 40;
     let windows;
     var distance = $('.frontSecond').offset().top,
     $window = $(window);
@@ -96,25 +99,15 @@
     
     element.addEventListener('wheel', function(e){
         if(e.deltaY > 0){
-            if(scale != 1){
-                scale += scale + 0.05;
-                if(scale > 1){
-                    scale = 1;
-                }                    
-                if(scale == 1){
-                    // scrollDisabled = false;
-                    el.style = `border-radius: 0; height:100vh`;
-                }
-            }
-            el.style.transform = `scale(${scale})`;
-            // e.preventDefault();
+            if(clip != 0){
+                clip -= 2;
+            } 
+            el.style.clipPath = `inset(${clip}%)` 
         }else{
-            console.log('stop');
-
-            if(scale != 0.3){
-                scale = 0.3
+            if(clip != 40){
+                clip += 2;
             }
-            el.style.transform = `scale(${scale})`;
+            el.style.clipPath = `inset(${clip}%)`;
         }        
     });
 </script>
@@ -135,6 +128,7 @@
         height: 100%;
     }
     .card_model_body img{
+        object-fit: cover;
         border-radius: .25rem;
         width: 100%;
         height: 100%;
@@ -225,7 +219,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="projects" style="
+                    {{-- <div class="projects" style="
                         width: 100vw;
                         height: 100vh;
                         /* position: fixed; */
@@ -233,7 +227,7 @@
                         z-index: 99;
                     " >
                     
-                    </div>
+                    </div> --}}
                     <div class="threeTest">
                 </div>
                 <div class="titleexplanation color-w">
@@ -246,13 +240,9 @@
                 let div_height = document.querySelector('.text_before_animation');
                 let div_position = div_height.getBoundingClientRect();
 
-                
-
-
-
                 let animat_distance = $('.projects').offset().top,
                     $windows = $(window);
-            
+
                     // console.log(animat_distance);
                 var scrollDisabled_for_animate = false;
                 $windows.on('wheel', function(e) {
@@ -269,381 +259,439 @@
                     }
                 }, {passive:false});
             </script>
-            <div class="slidecontent" >
-                <style>
-                    .pages{
-                        position: relative;
-                        width: 48%;
-                    }
-                    .page_book{
-                        z-index: -1;
-                        position: absolute;
-                        top: 0;
-                        display: flex;
-                        width: 100%;
-                        height: 100%;
-                        background: white
-                    }
-                    .side1{
-                        flex-direction: column;
-                        justify-content: center;
-                        display: flex;
-                        width: 50%;
-                        height: 100%;
-                    }
-                    .side1 .item{
-                        padding: 0 !important;
-                    }
-                    .side1 .item img{
-                        width: 100%;
-                    }
-                    .side2{
-                        flex-direction: column;
-                        justify-content: center;
-                        display: flex;
-                        width: 100%;
-                        height: 100%;
-                    }
-                    .cover{
-                        z-index: 1;
-                        position: relative;
-                        background-color: #626262;
-                        color: white;
-                        text-transform: uppercase;
-                        padding: 60px;
-                    }
-                    .bookTitle{
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        padding: 260px 0;
-                    }
-                    .bookTitle h1{
-                        text-align: center;
-                        width: min-content;
-                    }
-                    .book .pages .cover .logo img{
-                        width: 170px !important;
-                    }
-                    .coverback{
-                        top: 0;
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        background: black;
-                    }
-                    .first{
-                        position: relative;
-                        z-index: 99;
-                    }
-                </style>
-                <div class="w-100">
-                    <div class="buttons_container">
-                        <div class="buttons_for_book p-30">
-                            <button id="flip-page-back"><i class="feather feather-arrow-left"></i></button>
-                            <button id="flip-page"><i class="feather feather-arrow-right"></i></button>
+
+        </div>
+    </div>
+    <div class="frontForth text-center p-30" style="">
+        <small class="color-w">Our current projects?</small>
+        <div class="projects" style=" width: 100%; height: 100vh;/* position: fixed; */top: 0;z-index: 99;" >
+        </div>
+        <div class="container" style="">
+            {{-- <div class="threeTest"> --}}
+        </div>
+    </div>
+
+
+    
+    <div class="frontFifth text-center p-30" style="">
+        <small class="color-w">What We Provide?</small>
+        <div class="slidecontent">
+            <div class="w-100">
+                <div class="buttons_container">
+                    <div class="buttons_for_book p-30">
+                        <button id="flip-page-back"><i class="feather feather-arrow-left"></i></button>
+                        <button id="flip-page"><i class="feather feather-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="container text-center d-flex flex-column justify-content-center" style="height: 100vh">
+                    <div class="book d-flex ">
+                        <div class="w-100">
+        
+                        </div>
+                        <div class="pages w-100">
+                            <div class="first">
+                                <div class="cover" id="cover">
+                                    <div class="logo">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                    <div class="bookTitle">
+                                        <h1>studio abm builders Services</h1>
+                                    </div>
+                                </div>
+                                <div class="coverback" id="coverback">
+                                    <img src="services/remodeling.jpg" alt="logo">
+                                </div>
+                            </div>
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Kittchen Remodeling</h1>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Electrical.jpeg" alt="logo">
+                                </div>
+                            </div>
+        
+                            
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Electrical</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Plumbing.jpeg" alt="logo">
+                                </div>
+                            </div>
+
+                                <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Plumbing</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/flooring.png" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Flooring</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Drywall.jpg" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Drywall</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Backsplash.webp" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Backsplash</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Countertops.png" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Counter tops</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/closets.jpg" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Closets</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/InteriorPainting.jpg" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Interior painting</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/tails.jpg" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Tails</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/tails.jpg" alt="logo">
+                                </div>
+                            </div> 
                         </div>
                     </div>
-                    <div class="container text-center d-flex flex-column justify-content-center" style="height: 100vh">
-                        <p>What we provide?</p>
-                        <div class="book d-flex ">
-                            <div class="w-100">
-            
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="frontSixth text-center p-30" style="">
+        <small class="color-w">what our customers says about us</small>
+        {{-- <div class="slidecontent">
+            <div class="w-100">
+                <div class="buttons_container">
+                    <div class="buttons_for_book p-30">
+                        <button id="flip-page-back"><i class="feather feather-arrow-left"></i></button>
+                        <button id="flip-page"><i class="feather feather-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="container text-center d-flex flex-column justify-content-center" style="height: 100vh">
+                    <div class="book d-flex ">
+                        <div class="w-100">
+        
+                        </div>
+                        <div class="pages w-100">
+                            <div class="first">
+                                <div class="cover" id="cover">
+                                    <div class="logo">
+                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                                    </div>
+                                    <div class="bookTitle">
+                                        <h1>studio abm builders Services</h1>
+                                    </div>
+                                </div>
+                                <div class="coverback" id="coverback">
+                                    <img src="services/remodeling.jpg" alt="logo">
+                                </div>
                             </div>
-                            <div class="pages w-100">
-                                <div class="first">
-                                    <div class="cover" id="cover">
-                                        <div class="logo">
-                                            <img src="just-logo-removebg-preview.png" alt="logo">
-                                        </div>
-                                        <div class="bookTitle">
-                                            <h1>studio abm builders</h1>
-                                        </div>
-                                    </div>
-                                    <div class="coverback" id="coverback">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Kittchen Remodeling</h1>
                                     </div>
                                 </div>
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Kittchen Remodeling</h1>
-                                        </div>
-                                    </div>
-                                </div>
-            
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
-                                    </div>
-                                </div>
-            
-                                
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Electrical</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="form-contact-right.jpg" alt="logo">
-                                    </div>
-                                </div>
-
-                                 <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Plumbing</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Flooring</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Drywall</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Backsplash</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Counter tops</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Clousets</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Interior painting</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <div class="description">
-                                            <h1>Tails</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="page_book">
-                                    <div class="side2">
-                                        <img src="just-logo-removebg-preview.png" alt="logo">
-                                    </div>
-                                </div> 
-
                             </div>
+        
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Electrical.jpeg" alt="logo">
+                                </div>
+                            </div>
+        
+                            
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Electrical</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Plumbing.jpeg" alt="logo">
+                                </div>
+                            </div>
+
+                                <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Plumbing</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/flooring.png" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Flooring</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Drywall.jpg" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Drywall</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Backsplash.webp" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Backsplash</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/Countertops.png" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Counter tops</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/closets.jpg" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Closets</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/InteriorPainting.jpg" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Interior painting</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/tails.jpg" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Tails</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/tails.jpg" alt="logo">
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+    </div>
+
+
+    <div class="frontLast text-center p-30" style="">
+        <small class="color-w">ABM STUDIO Contact</small>
+        <div class="iphoneContainer">
+            <div class="titleexplanation213 color-w " style="position: absolute; z-index: 1; display: none;">
+                STUDIO ABM is on a 
+                mission to transform kitchens into the 
+                heart of every home.
+            </div>
+    
+            {{-- <div class="iponemodel" style="height: 100vh; width:100vw; position:absolute; z-index:99"> --}}
+                
+            </div>
+            <div class="frontlast text-center p-30">
+                
+                <div class="container">
+                    <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
+                        <div class="titletext color-w">
+                            LET’S BUILD THE
+                            NEW ERA OF KITCHEN
+                            DESIGN TOGETHER.
+                        </div>
+                        <div class="titleexplanation color-w">
+                            STUDIO ABM is on a 
+                            mission to transform kitchens into the 
+                            heart of every home.
+                        </div>
+                    </div>
+                    <div class="slidecontent">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         
-                        {{-- <div class="line">
-                            
-                            <div class="item">
-                                <div class="in_circle_icone">
-                                    <i class="feather feather-instagram"></i>
-                                </div>
-                                <div class="description">
-                                    <p>kitchen Remodeling</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="in_circle_icone">
-                                    <i class="feather feather-instagram"></i>
-                                </div>
-                                <div class="description">
-                                    <p>Bathroom Remodeling</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="in_circle_icone">
-                                    <i class="feather feather-instagram"></i>
-                                </div>
-                                <div class="description">
-                                    <p>Electrical</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="in_circle_icone">
-                                    <i class="feather feather-instagram"></i>
-                                </div>
-                                <div class="description">
-                                    <p>Plumbing</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="in_circle_icone">
-                                    <i class="feather feather-instagram"></i>
-                                </div>
-                                <div class="description">
-                                    <p>Flooring</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="in_circle_icone">
-                                    <i class="feather feather-instagram"></i>
-                                </div>
-                                <div class="description">
-                                    <p>Counter Tops</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="in_circle_icone">
-                                    <i class="feather feather-instagram"></i>
-                                </div>
-                                <div class="description">
-                                    <p>Clousets</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="in_circle_icone">
-                                    <i class="feather feather-instagram"></i>
-                                </div>
-                                <div class="description">
-                                    <p>Painting Interiors</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="in_circle_icone">
-                                    <i class="feather feather-instagram"></i>
-                                </div>
-                                <div class="description">
-                                    <p>Tails</p>
-                                </div>
-                            </div>
-                        </div> --}}
+                        <div class="input-group">
+                            <textarea class="form-control" placeholder="Message" aria-label="With textarea"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-info mb-3 mt-3">Submit</button>
+                    </div>
                     </div>
                 </div>
-                {{-- <span class="p-30 contentChoose w-100 d-flex flex-column d-flex flex-column align-items-center">
-                    <img src="contact.jpg" class="image br-20" width="300px" style="transform: matrix3d(1, 0, 0, 0.001, 0, 1.1, 0, 0, 0, 0, 1, 0, 470, 0, 0, 1);">
-                </span> --}}
-                {{-- <span class="p-30 content3 w-100 d-flex flex-column d-flex flex-column align-items-center">
-                    <img src="contact.jpg" class="image br-20" width="300px">
-                </span>
-                <span class="p-30 contentChoose2 w-100 d-flex flex-column d-flex flex-column align-items-center">
-                    <img src="contact.jpg" class="image br-20" width="300px">
-                </span> --}}
             </div>
         </div>
     </div>
-    <div class="iphoneContainer">
-        <div class="titleexplanation213 color-w " style="position: absolute; z-index: 1; display: none;">
-            STUDIO ABM is on a 
-            mission to transform kitchens into the 
-            heart of every home.
-        </div>
 
-        <div class="iponemodel" style="height: 100vh; width:100vw; position:absolute; z-index:99">
-            
-        </div>
-        <div class="frontlast text-center p-30">
-            <small class="color-w">ABM STUDIO</small>
-            <div class="container">
-                <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
-                    <div class="titletext color-w">
-                        LET’S BUILD THE
-                        NEW ERA OF KITCHEN
-                        DESIGN TOGETHER.
-                    </div>
-                    <div class="titleexplanation color-w">
-                        STUDIO ABM is on a 
-                        mission to transform kitchens into the 
-                        heart of every home.
-                    </div>
-                </div>
-                <div class="slidecontent">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    
-                    <div class="input-group">
-                        <textarea class="form-control" placeholder="Message" aria-label="With textarea"></textarea>
-                    </div>
-                    <button type="button" class="btn btn-info mb-3 mt-3">Submit</button>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
     let divs = document.querySelectorAll('.page_book');
     for(let i = 0; i < divs.length-1; i++){

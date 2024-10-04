@@ -9,7 +9,17 @@ function projects() {
     const renderer = new THREE.WebGLRenderer();
 
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    renderer.setClearColor(0xffffff);
+    let color = 0x000000;
+    // renderer.setClearColor(color);
+    // setInterval(() => {
+    //     color = 0xffffff;
+    //     rerenderBG();
+    // }, 4000);
+    renderer.setClearColor(color);
+
+    function rerenderBG(){
+        renderer.setClearColor(color);
+    }
     renderer.setPixelRatio(window.devicePixelRatio);
 
     renderer.setAnimationLoop( animate );
@@ -20,27 +30,17 @@ function projects() {
     const texture1 = new THREE.TextureLoader().load('form-contact-right.jpg');
     const images = [];
     const radius = 3; 
-    const spiralHeight = 10;
-    let current_index = 29;
-    for (let i = 0; i < 30; i++) {
+    const spiralHeight = 5;
+    let current_index = 4;
+    for (let i = 0; i < 5; i++) {
         const geometry = new THREE.PlaneGeometry(1.5, 1);
-        if(i == 29){
-            const material = new THREE.MeshBasicMaterial({ map: texture1, side: THREE.DoubleSide });
-            const plane = new THREE.Mesh(geometry, material);
-            const angle = i * 0.5; 
-            const x = radius * Math.cos(angle);
-            const y = (i / 30) * spiralHeight;
-            const z = radius * Math.sin(angle) + 0.5;
-            plane.position.set(x, y, z);
-            images.push(plane);
-            scene.add(plane);
-        }else{
+        {
             const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
             const plane = new THREE.Mesh(geometry, material);
             const angle = i * 0.5; 
             const x = radius * Math.cos(angle);
-            const y = (i / 30) * spiralHeight;
-            const z = radius * Math.sin(angle) + (i === 29 ? 0.5 : 0);
+            const y = (i / 5) * spiralHeight;
+            const z = radius * Math.sin(angle) + (i === 4 ? 0.5 : 0);
             plane.position.set(x, y, z);
             images.push(plane);           
             scene.add(plane);
@@ -216,10 +216,10 @@ function iphoneScreen() {
 
     window.addEventListener('wheel', function(e){
         if(e.deltaY > 0 && camera.position.z < 0){
-            camera.position.z += 0.01;
+            // camera.position.z += 0.01;
         }
         else if(e.deltaY < 0 && camera.position.z >= -0.429){
-            camera.position.z -= 0.01;
+            // camera.position.z -= 0.01;
             // scene.rotateY -= 0.1;
         }
     }, {passive:false});
@@ -247,4 +247,4 @@ function iphoneScreen() {
     // text2.style.left = 0;
     // canvas.appendChild(text2);
 }
-iphoneScreen()
+// iphoneScreen()

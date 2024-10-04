@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header_section p-15">
             <div class="header_section1 d-flex align-items-center justify-content-center">
-                <img src="just-logo-removebg-preview.png" width="70px">
+                <a href="/"><img src="just-logo-removebg-preview.png" width="70px"></a>
             </div>
             <div class="header_section2 d-flex align-items-center justify-content-center">
                 {{-- <button type="button" class="btn btn-info">CONTACTS</button> --}}

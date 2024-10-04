@@ -3,7 +3,7 @@ import { ScrollTrigger } from './ScrollTrigger.js'
 
 let scroll_permited = false;
 window.addEventListener('wheel', function(e){
-  if(scale  == 1){
+  if(clip  == 0){
     scroll_permited = true;
     console.log(scroll_permited);
   }
@@ -14,8 +14,14 @@ gsap.to('.frontSecond', {
     trigger: '.frontSecond',
     pin: true,
     start: 'top top',
-    // No end specified  
-    endTrigger: scroll_permited,
+    endTrigger: scroll_permited ? '+=1000' : 'top top',
+    id: "myScrollTriggerId",
+    onUpdate: (self) => {
+      if (scroll_permited) {
+        console.log('executed');
+        ScrollTrigger.getById("myScrollTriggerId").kill(); // Replace with actual ID
+      }
+    }
   }
 });
 
@@ -28,7 +34,9 @@ flip.addEventListener('click', () => {
   console.log('stop');
   const cover = document.getElementById('cover');
   const coverback = document.getElementById('coverback');
+  const deleteZindex = document.querySelector('.first');
   
+
   const tl = gsap.timeline();
   
   if(open == 0){
@@ -48,7 +56,11 @@ flip.addEventListener('click', () => {
       duration: .6,
       rotateY: 180,
       transformOrigin: "left",
-      ease: "none"
+      ease: "none",
+      onComplete: () => {
+        deleteZindex.classList.add('z-index-auto');
+      }
+
     }, );
     open++;
   }else{
@@ -59,29 +71,29 @@ flip.addEventListener('click', () => {
       page = pages[index]; 
       page_back = pages[index+1];
       const tl_page = gsap.timeline();
-    
+      
       tl_page.to(page, {
-        zIndex: 99,
         duration: .6,
         rotateY: 90,
         transformOrigin: "left",
         ease: "none"
 
-      })
+      }, "<")
       tl_page.to(page_back, {
-        zIndex: 99,
         duration: .6,
         rotateY: 90,
         transformOrigin: "left",
         ease: "none"
 
-      })
+      }, "<")
       tl_page.to(page_back, {
-        zIndex: 99,
         duration: .6,
         rotateY: 180,
         transformOrigin: "left",
-        ease: "none"
+        ease: "none",
+        onComplete: () => {
+          page_back.classList.add('z-index-auto');
+        }
 
       }, ) 
       }else{
@@ -90,20 +102,26 @@ flip.addEventListener('click', () => {
         const tl_page = gsap.timeline();
       
         tl_page.to(page, {
-          zIndex: 99,
           duration: .6,
           rotateY: 90,
           transformOrigin: "left",
           ease: "none"
-        })
-
+        }, "<")
         tl_page.to(page_back, {
-          zIndex: 99,
+          duration: .6,
+          rotateY: 90,
+          transformOrigin: "left",
+          ease: "none"
+        }, "<")
+        tl_page.to(page_back, {
           duration: .6,
           rotateY: 180,
           transformOrigin: "left",
-          ease: "none"
-        })
+          ease: "none",
+          onComplete: () => {
+            page_back.classList.add('z-index-auto');
+          }
+        }, )
         index++;
     }
     index++;
@@ -121,10 +139,15 @@ flipback.addEventListener('click', () => {
 
   const tl = gsap.timeline();
   {
-    if(open == 1 && index == 0){
+    console.log(index);
+    if(open == 1 && index <= 0){
+
       const cover = document.getElementById('cover');
       const coverback = document.getElementById('coverback');
       const tl = gsap.timeline();
+      const deleteZindex = document.querySelector('.first');
+      deleteZindex.classList.remove('z-index-auto');
+      
       tl.to(coverback, {
         duration: .6,
         rotateY: 90,
@@ -146,17 +169,16 @@ flipback.addEventListener('click', () => {
       console.log(page);
       console.log(page_back);
       const tlback = gsap.timeline();
-      tlback.to(page, {
-        
+      tlback.to(page_back, {
         duration: .6,
         rotateY: 0,
         transformOrigin: "left",
         ease: "none"
-      })
-      
-      tlback.to(page_back, {
+        
+      }, "<")
+      tlback.to(page, {
         duration: .6,
-        rotateY: 90,
+        rotateY: 0,
         transformOrigin: "left",
         ease: "none"
       })
