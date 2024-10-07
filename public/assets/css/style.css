@@ -158,6 +158,29 @@ small{
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
 }
+@media screen and (max-width: 1024px) {
+    .company_and_losung{
+        width: 95%;
+    }
+    .slogon {
+        font-size: 9px;
+    }
+    .preloader_title h3 {
+        font-size: 17px !important;
+    }
+    .titleexplanation {
+        width: 100% !important;
+    }
+    .book{
+        flex-direction: column;
+    }
+    .buttons_for_book{
+        padding: 0 !important;
+    }
+    .buttons_for_book button i {
+        font-size: 35px;
+    }
+}
 .company_and_losung.animation{
     z-index: 2;
     left: 0;
@@ -204,6 +227,9 @@ small{
     width: 100vw;
     height: 100vh; */
 }
+.slide_title{
+    text-transform: uppercase;
+}
 .frontTirth {
     position: relative;
 }
@@ -231,6 +257,9 @@ video.deactivated:hover {
 .other{
     position: relative;
     background: black;
+}
+.other.linergradbg{
+    background:linear-gradient(302deg, #4b6cb7, #182848) !important;
 }
 .main_menue{
     position: fixed;
@@ -408,7 +437,7 @@ html{
   border-bottom: 1px solid gray;
   outline: 0;
   font-size: 1.3rem;
-  color: white;
+  color: black;
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -1165,4 +1194,29 @@ content .demoBody code.prettyprint,
 }
 .z-index-auto{
     z-index: auto !important;
+}
+.login_form{
+    height: 100vh;
+}
+.login_form_footer{
+    background: transparent !important;
+}
+.btn-primary {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+.admin_menue .logo img{
+    width: 100px !important;
+}
+.admin_menue{
+    background-color: #000000d6;
+    border-radius: 16px;
+}
+.menue_active{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    background: white;
+    color: black;
+    border-radius: 15px;
 }

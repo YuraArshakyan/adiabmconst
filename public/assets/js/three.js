@@ -6,64 +6,90 @@ import { Vector3 } from 'three';
 
 function projects() {
     const canvas = document.querySelector('.projects')
-    const renderer = new THREE.WebGLRenderer();
+
+
+    canvas.addEventListener('wheel', function(e){
+        e.preventDefault();
+    }, {passive:false});
+
+    const renderer = new THREE.WebGLRenderer( { alpha: true } );
 
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     let color = 0x000000;
-    // renderer.setClearColor(color);
-    // setInterval(() => {
-    //     color = 0xffffff;
-    //     rerenderBG();
-    // }, 4000);
-    renderer.setClearColor(color);
+    renderer.setClearColor(color, 0);
+    setInterval(() => {
+        color = 0x000000;
+        rerenderBG();
+    }, 4000);
+    renderer.setClearColor(color, 0);
 
     function rerenderBG(){
-        renderer.setClearColor(color);
+        renderer.setClearColor(color, 0);
     }
     renderer.setPixelRatio(window.devicePixelRatio);
 
     renderer.setAnimationLoop( animate );
     canvas.appendChild(renderer.domElement);
+
+
+    console.log(canvas.clientWidth);
+
+
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 1000);
-    const texture = new THREE.TextureLoader().load('contact.jpg');
+    const camera = new THREE.PerspectiveCamera(100, canvas.clientWidth / canvas.clientHeight, 1, 1000);
+
+
+    const video = document.createElement('video');
+    video.src = 'first.mov'; // Replace with your video path
+    video.load();
+    video.loop = true;
+    video.muted = true; // Required for autoplay on most browsers
+    video.play();
+
+
+
+
+
+    const texture = new THREE.VideoTexture(video);
+
     const texture1 = new THREE.TextureLoader().load('form-contact-right.jpg');
     const images = [];
     const radius = 3; 
-    const spiralHeight = 5;
+    const spiralHeight = 1;
     let current_index = 4;
     for (let i = 0; i < 5; i++) {
         const geometry = new THREE.PlaneGeometry(1.5, 1);
         {
-            const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+            const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.OneS });
             const plane = new THREE.Mesh(geometry, material);
-            const angle = i * 0.5; 
+
+            const angle = (i / 4) * (Math.PI * 2); // Full circle in radians
             const x = radius * Math.cos(angle);
-            const y = (i / 5) * spiralHeight;
-            const z = radius * Math.sin(angle) + (i === 4 ? 0.5 : 0);
+            const z = radius * Math.sin(angle);
+            const y = 0; // Set y position if needed
+
             plane.position.set(x, y, z);
             images.push(plane);           
             scene.add(plane);
         }
     }
 
-    camera.position.set(0, 10, 5);
-    camera.lookAt(0,8,0);
+    camera.position.set(0, 0, 5);
+    camera.lookAt(0,0,0);
     canvas.addEventListener('wheel', (event) => {
         current_index--;
         if(event.deltaY > 0){
             scene.rotation.y -= 0.1;
-            scene.position.y += 0.065;
+            // scene.position.y += 0.065;
 
         }else{
             scene.rotation.y += 0.1;
-            scene.position.y -= 0.065;
+            // scene.position.y -= 0.065;
 
         }
         if (mesh) {
 
         }
-        console.log(scene.position.y);
 
        
     })
@@ -96,7 +122,7 @@ function projects() {
     const loader = new GLTFLoader().setPath('/assets/js/models/');
     loader.load( 'abmstl.gltf', ( gltf ) => {
         mesh = gltf.scene;
-        mesh.position.set(0, 5, 0);
+        mesh.position.set(0, 0, 0);
         mesh.rotation.x = 0;
         mesh.rotation.y = 90;
         mesh.color = 0xffffff;
@@ -105,6 +131,7 @@ function projects() {
     })
     
     function animate() {
+        scene.rotation.y += 0.001;
         images.forEach(plane => {
             plane.lookAt(camera.position);
         });
@@ -116,6 +143,43 @@ function projects() {
     animate();
 }
 projects();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function iphoneScreen() {

@@ -16,23 +16,27 @@
                             <div class="d-flex">
                                 <div class="left-side w-100 d-flex flex-column align-items-center p-30">
                                     <h5 class="card-title">Contact Us</h5>
-                                    <div class="form__group field">
-                                        <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                                        <label for="name" class="form__label">Name</label>
-                                    </div>
-                                    <div class="form__group field">
-                                        <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                                        <label for="name" class="form__label">Phone</label>
-                                    </div>
-                                    <div class="form__group field">
-                                        <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                                        <label for="name" class="form__label">E-mail</label>
-                                    </div>
-                                    <div class="form__group field">
-                                        <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                                        <label for="name" class="form__label">Message</label>
-                                    </div>
-                                    <button type="button" class="btn btn-primary">Submit</button>
+                                    <form action={{url('/submitForm')}} method="POST">
+                                        @csrf
+                                        <input type="text" name="form_name" class="form-control d-none" value="ContactContact">
+                                        <div class="form__group field">
+                                            <input type="input" name="name" class="form__field" placeholder="Name" name="name" id='name' required />
+                                            <label  class="form__label">Name</label>
+                                        </div>
+                                        <div class="form__group field">
+                                            <input type="input" name="phone" class="form__field" placeholder="Name" name="name" id='name' required />
+                                            <label  class="form__label">Phone</label>
+                                        </div>
+                                        <div class="form__group field">
+                                            <input type="input" name="email" class="form__field" placeholder="Name" name="name" id='name' required />
+                                            <label  class="form__label">E-mail</label>
+                                        </div>
+                                        <div class="form__group field">
+                                            <input type="input" name="message" class="form__field" placeholder="Name" name="name" id='name' required />
+                                            <label  class="form__label">Message</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
                                     <div class="social-icone d-flex w-100">
                                         <i class="d-flex justify-content-center feather feather-instagram"></i>
                                         <i class="d-flex justify-content-center feather feather-facebook"></i>

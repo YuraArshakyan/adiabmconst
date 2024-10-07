@@ -1,3 +1,13 @@
+const other = document.querySelector('.other');
+x = (($(window).scrollTop()) - ($('.frontTirth').offset().top));
+console.log(x);
+if(x > 720){
+  other.classList.add('linergradbg');
+}else{
+  other.classList.remove('linergradbg');
+}
+
+
 // scrolled();
 // function scrolled(){
 //     if(window.scrollY > 0){
@@ -151,8 +161,6 @@ $(document).ready(function (){
 
 
 
-
-
 // process
 $(document).ready(function (){
 	setTimeout(() => {
@@ -242,7 +250,7 @@ $(document).ready(function(){
 			left_next_image = img_for_left_container[currentIndexfor_left];
 
 			left_image_top_offset = left_next_image.offsetTop;
-			console.log(left_next_image);
+			// console.log(left_next_image);
 
 			scroll_index_for_left_bar = left_image_top_offset - (leftContainer.clientHeight / 2) + (left_next_image.clientHeight / 2);
 			leftContainer.scrollTo({
@@ -265,7 +273,7 @@ $(document).ready(function(){
 			
 
 			let currentIndex = 0;
-			console.log(currentIndex);
+			// console.log(currentIndex);
 
 			currentIndex = (currentIndex + 1) % images.length;
 
@@ -275,7 +283,7 @@ $(document).ready(function(){
 	
 			// Calculate the position to center the image
 			const containerHeight = container.clientHeight;
-			console.log(containerHeight);
+			// console.log(containerHeight);
 
 
 			const imageHeight = nextImage.clientHeight;
@@ -317,3 +325,9 @@ $(document).ready(function (){
 			}
 		});
 });
+
+
+var color_change = document.querySelector('.other');
+window.onscroll = function (e) {
+    // console.log(window.scrollY);
+};

@@ -86,7 +86,6 @@
     var distance = $('.frontSecond').offset().top,
     $window = $(window);
     $window.on('wheel', function(e) {
-        console.log(distance);
         windows = $window.scrollTop();
         if ($window.scrollTop() >= distance) {
             // $window.scrollTop(distance)
@@ -137,7 +136,7 @@
 </style>
 <div class="other">    
     <div class="frontTirth text-center p-30" style="">
-        <small class="color-w">WHO WE ARE?</small>
+        <small class="color-w slide_title">WHO WE ARE?</small>
         <div class="container" style="">
             <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
                 <div class="titletext text_before_animation color-w">
@@ -147,7 +146,7 @@
                 </div>
                     <div class="container">
                         <div class="row">
-                            <div class="col-12 p-15">
+                            <div class="col-lg-12 col-md-12 col-sm-12 p-15">
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
@@ -157,7 +156,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-8 p-15">
+                            <div class="col-lg-8  col-md-12 col-sm-12 p-15">
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
@@ -167,7 +166,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 p-15">
+                            <div class="col-lg-4  col-md-12 col-sm-12 p-15">
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
@@ -177,7 +176,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 p-15">
+                            <div class="col-lg-4  col-md-12 col-sm-12 p-15">
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
@@ -187,7 +186,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-8 p-15">
+                            <div class="col-lg-8  col-md-12 col-sm-12 p-15">
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
@@ -197,7 +196,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-7 p-15">
+                            <div class="col-lg-7  col-md-12 col-sm-12 p-15">
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
@@ -207,7 +206,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-5 p-15">
+                            <div class="col-lg-5  col-md-12 col-sm-12 p-15">
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
@@ -229,11 +228,6 @@
                     
                     </div> --}}
                     <div class="threeTest">
-                </div>
-                <div class="titleexplanation color-w">
-                    STUDIO ABM is on a 
-                    mission to transform kitchens into the 
-                    heart of every home.
                 </div>
             </div>
             <script>
@@ -263,8 +257,15 @@
         </div>
     </div>
     <div class="frontForth text-center p-30" style="">
-        <small class="color-w">Our current projects?</small>
-        <div class="projects" style=" width: 100%; height: 100vh;/* position: fixed; */top: 0;z-index: 99;" >
+        <small class="color-w slide_title">Our current projects</small>
+        <div class="Slide_4_Three_animation d-flex">
+            <div class="titleexplanationcolor-w color-w" style=" width: 50%;">
+                STUDIO ABM is on a 
+                mission to transform kitchens into the 
+                heart of every home.
+            </div>
+            <div class="projects" style=" width: 50%; height: 60vh;/* position: fixed; */top: 0;z-index: 99;" >
+            </div>
         </div>
         <div class="container" style="">
             {{-- <div class="threeTest"> --}}
@@ -274,7 +275,7 @@
 
     
     <div class="frontFifth text-center p-30" style="">
-        <small class="color-w">What We Provide?</small>
+        <small class="color-w slide_title">What We Provide?</small>
         <div class="slidecontent">
             <div class="w-100">
                 <div class="buttons_container">
@@ -451,7 +452,7 @@
 
 
     <div class="frontSixth text-center p-30" style="">
-        <small class="color-w">what our customers says about us</small>
+        <small class="color-w slide_title">what our customers says about us</small>
         {{-- <div class="slidecontent">
             <div class="w-100">
                 <div class="buttons_container">
@@ -628,14 +629,8 @@
 
 
     <div class="frontLast text-center p-30" style="">
-        <small class="color-w">ABM STUDIO Contact</small>
-        <div class="iphoneContainer">
-            <div class="titleexplanation213 color-w " style="position: absolute; z-index: 1; display: none;">
-                STUDIO ABM is on a 
-                mission to transform kitchens into the 
-                heart of every home.
-            </div>
-    
+        <small class="color-w slide_title">ABM STUDIO Contact</small>
+        <div class="iphoneContainer">    
             {{-- <div class="iponemodel" style="height: 100vh; width:100vw; position:absolute; z-index:99"> --}}
                 
             </div>
@@ -654,23 +649,26 @@
                             heart of every home.
                         </div>
                     </div>
-                    <div class="slidecontent">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <form action={{url('/submitForm')}} method="POST">
+                        @csrf
+                        <input type="text" name="form_name" class="form-control d-none" value="FrontContact">
+                        <div class="slidecontent">
+                            <div class="input-group mb-3">
+                                <input type="text" name="name" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="number" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            
+                            <div class="input-group">
+                                <textarea class="form-control" name="message" placeholder="Message" aria-label="With textarea"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-info mb-3 mt-3">Submit</button>
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        
-                        <div class="input-group">
-                            <textarea class="form-control" placeholder="Message" aria-label="With textarea"></textarea>
-                        </div>
-                        <button type="button" class="btn btn-info mb-3 mt-3">Submit</button>
-                    </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
