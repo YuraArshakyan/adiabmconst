@@ -3,7 +3,7 @@
         <div class="container">
             <div class="sections">
                 <div class="section1 d-flex flex-column align-items-center p-15 borderr">
-                    <img src="logo.webp">
+                    <img src="just-logo-removebg-preview.png">
                     <div class="company_slogn">
                         create art in your kitchen
                     </div>

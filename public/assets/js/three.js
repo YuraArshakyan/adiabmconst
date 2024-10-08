@@ -131,7 +131,7 @@ function projects() {
     })
     
     function animate() {
-        scene.rotation.y += 0.001;
+        scene.rotation.y -= 0.001;
         images.forEach(plane => {
             plane.lookAt(camera.position);
         });
@@ -187,13 +187,13 @@ function iphoneScreen() {
     const renderer = new THREE.WebGLRenderer({alpha: true});
     let group;
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    renderer.setClearColor(0xffffff, 1);
+    renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(window.devicePixelRatio);
 
     renderer.setAnimationLoop( animate );
     canvas.appendChild(renderer.domElement);
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(100, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
 
 
     // camera.position.z = 0;
@@ -275,40 +275,29 @@ function iphoneScreen() {
 
         
     })
-    camera.position.z = -0.43;
-    camera.position.x = 0.01;
+    camera.position.z = 0;
+    camera.position.x = 0;
 
-    window.addEventListener('wheel', function(e){
-        if(e.deltaY > 0 && camera.position.z < 0){
-            // camera.position.z += 0.01;
-        }
-        else if(e.deltaY < 0 && camera.position.z >= -0.429){
-            // camera.position.z -= 0.01;
-            // scene.rotateY -= 0.1;
-        }
-    }, {passive:false});
+    // window.addEventListener('wheel', function(e){
+    //     if(e.deltaY > 0 && camera.position.z < 0){
+    //         // camera.position.z += 0.01;
+    //     }
+    //     else if(e.deltaY < 0 && camera.position.z >= -0.429){
+    //         // camera.position.z -= 0.01;
+    //         // scene.rotateY -= 0.1;
+    //     }
+    // }, {passive:false});
 
-    // camera.position.x = 0.04;
+    // // camera.position.x = 0.04;
     function animate() {
-
         // camera.rotation.y += 0.01;
         if (mesh) {
             // scene.rotation.y += 0.1;
-            // group.rotateY(0.005)
         }
         
         renderer.render(scene, camera);
 
     }
     animate();
-    // var text2 = document.createElement('div');
-    // text2.style.textAlign = 'center';
-    // //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
-    // text2.style.width = 100;
-    // text2.style.height = 100;
-    // text2.innerHTML = "What we provide?";
-    // text2.style.bottom = 0;
-    // text2.style.left = 0;
-    // canvas.appendChild(text2);
 }
-// iphoneScreen()
+iphoneScreen()

@@ -259,10 +259,11 @@
     <div class="frontForth text-center p-30" style="">
         <small class="color-w slide_title">Our current projects</small>
         <div class="Slide_4_Three_animation d-flex">
-            <div class="titleexplanationcolor-w color-w" style=" width: 50%;">
-                STUDIO ABM is on a 
-                mission to transform kitchens into the 
-                heart of every home.
+            <div class="titleexplanation color-w">
+                STUDIO ABM <img class="cube" src="slide4/1.jpg">
+                is on a 
+                mission to transform kitchens <img class="cube" src="slide4/2.jpg"> into the 
+                heart <img class="cube" src="slide4/3.jpeg"> of every home.
             </div>
             <div class="projects" style=" width: 50%; height: 60vh;/* position: fixed; */top: 0;z-index: 99;" >
             </div>
@@ -450,11 +451,143 @@
         </div>
     </div>
 
+    <script>
+        $(windows).ready(function() {
+            let sctollTopByfrontSixth = 0;
+            let height_by_frontSixth = 0;
+            let value = 1;
+            let frontSixth = document.querySelector('.frontSixth');
+            window.onscroll = function() {
+                height_by_frontSixth = frontSixth.getBoundingClientRect().top;
 
+                value = height_by_frontSixth;
+                if(value < 650){
+                    let leftTestimonial = document.querySelector('.leftTestimonial');
+                    leftTestimonial.classList.add('active');
+                    let rightTestimonial = document.querySelector('.rightTestimonial');
+                    rightTestimonial.classList.add('active');
+                    return; 
+                }
+
+                console.log(value);
+                // console.log(window.scrollY); // Value of scroll Y in px
+            };
+        });
+    </script>
     <div class="frontSixth text-center p-30" style="">
         <small class="color-w slide_title">what our customers says about us</small>
-        {{-- <div class="slidecontent">
-            <div class="w-100">
+        <div class="slidecontent">
+            {{-- <div class="iponemodel" style="height: 100vh; z-index:99"> --}}
+                <div class="leftTestimonial">
+                    <div class="testimonial">
+                        <div class="p-15">
+                            <div class="itemTestimonial">
+                                <div class="header p-15">
+                                    <div class="name">
+                                        Sophia Brooks
+                                    </div>
+                                    <div class="work">
+                                        Bathrook Remodeling
+                                    </div>
+                                </div>
+                                <div class="body p-15 p-sticyTop100">
+                                    I’m thrilled with my bathroom remodel! The team was professional and full of great ideas. They transformed my outdated space into a beautiful oasis, and the attention to detail was fantastic. I highly recommend their services!
+                                </div>
+                                <div class="star">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-15">
+                            <div class="itemTestimonial">
+                                <div class="header p-15">
+                                    <div class="name">
+                                        Liam Bennett
+                                    </div>
+                                    <div class="work">
+                                        Interior Painting 
+                                    </div>
+                                </div>
+                                <div class="body p-15 p-sticyTop100">
+                                    I recently had my interior painted, and the results exceeded my expectations! The team was attentive to detail and worked quickly without compromising quality. My home feels renewed and vibrant!
+                                </div>
+                                <div class="star"></div>
+                            </div>
+                        </div>
+                        <div class="p-15">
+                            <div class="itemTestimonial">
+                                <div class="header p-15">
+                                    <div class="name">
+                                        Isabella Reed
+                                    </div>
+                                    <div class="work">
+                                        Kitchen Remodeling 
+                                    </div>
+                                </div>
+                                <div class="body p-15 p-sticyTop100">
+                                    I couldn't be happier with my kitchen remodel! The team was professional and truly listened to my ideas. They created a stunning, functional space that perfectly fits my style. Cooking has become a joy again!
+                                </div>
+                                <div class="star"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightTestimonial">
+                    <div class="testimonial">
+                        <div class="p-15">
+                            <div class="itemTestimonial">
+                                <div class="header p-15">
+                                    <div class="name">
+                                        Sophia Brooks
+                                    </div>
+                                    <div class="work">
+                                        Bathrook Remodeling
+                                    </div>
+                                </div>
+                                <div class="body p-15 p-sticyTop100">
+                                    I’m thrilled with my bathroom remodel! The team was professional and full of great ideas. They transformed my outdated space into a beautiful oasis, and the attention to detail was fantastic. I highly recommend their services!
+                                </div>
+                                <div class="star">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-15">
+                            <div class="itemTestimonial">
+                                <div class="header p-15">
+                                    <div class="name">
+                                        Liam Bennett
+                                    </div>
+                                    <div class="work">
+                                        Interior Painting 
+                                    </div>
+                                </div>
+                                <div class="body p-15 p-sticyTop100">
+                                    I recently had my interior painted, and the results exceeded my expectations! The team was attentive to detail and worked quickly without compromising quality. My home feels renewed and vibrant!
+                                </div>
+                                <div class="star"></div>
+                            </div>
+                        </div>
+                        <div class="p-15">
+                            <div class="itemTestimonial">
+                                <div class="header p-15">
+                                    <div class="name">
+                                        Isabella Reed
+                                    </div>
+                                    <div class="work">
+                                        Kitchen Remodeling 
+                                    </div>
+                                </div>
+                                <div class="body p-15 p-sticyTop100">
+                                    I couldn't be happier with my kitchen remodel! The team was professional and truly listened to my ideas. They created a stunning, functional space that perfectly fits my style. Cooking has become a joy again!
+                                </div>
+                                <div class="star"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{-- </div> --}}
+            {{-- <div class="w-100">
                 <div class="buttons_container">
                     <div class="buttons_for_book p-30">
                         <button id="flip-page-back"><i class="feather feather-arrow-left"></i></button>
@@ -623,8 +756,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div> --}}
+            </div> --}}
+        </div> 
     </div>
 
 
@@ -636,39 +769,77 @@
             </div>
             <div class="frontlast text-center p-30">
                 
-                <div class="container">
+                <div class="container h-100">
                     <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
                         <div class="titletext color-w">
                             LET’S BUILD THE
                             NEW ERA OF KITCHEN
                             DESIGN TOGETHER.
                         </div>
-                        <div class="titleexplanation color-w">
-                            STUDIO ABM is on a 
-                            mission to transform kitchens into the 
-                            heart of every home.
+                    </div>
+                    <div class="contact_form">
+                        <div class="row h-100">
+                            <div class="col-7 h-100  d-flex flex-column justify-content-center p-0">
+                                <div class="contactFirst p-30">
+                                    <h3>Get in touch</h3>
+                                    <form action={{url('/submitForm')}} method="POST">
+                                        @csrf
+                                        <input type="text" name="form_name" class="form-control d-none" value="FrontContact">
+                                        <div class="slidecontent">
+                                            <div class="input-group mb-3">
+                                                <input type="text" name="name" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input type="number" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                                            </div>
+                                            
+                                            <div class="input-group">
+                                                <textarea class="form-control" name="message" placeholder="Message" aria-label="With textarea"></textarea>
+                                            </div>
+                                            <button type="submit" class="w-100 btn btn-info mb-3 mt-3">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-5 p-0">
+                                <div class="contactSecond d-flex flex-column justify-content-center p-30 color-w">
+                                    <h3>Contact Us</h3>
+                                    <div class="contactItems">
+                                        <div class="contactItem p-15 d-flex">
+                                            <div class="w-50px h-50px bg">
+                                                <i class="feather feather-map-pin h-100 d-flex justify-content-center align-items-center"></i>
+                                            </div>
+                                            <div class="contact_item_header_text"><b>Address:</b> 7040 Garden Grove Ave, Reseda, CA, 91335 </div>
+                                        </div>
+
+                                        <div class="contactItem p-15 d-flex">
+                                            <div class="w-50px h-50px bg">
+                                                <i class="feather feather-phone h-100 d-flex justify-content-center align-items-center"></i>
+                                            </div>
+                                            <div class="contact_item_header_text"><b>Phone:</b> +18189304127</div>
+                                        </div>
+
+                                        <div class="contactItem p-15 d-flex">
+                                            <div class="w-50px h-50px bg">
+                                                <i class="feather feather-phone h-100 d-flex justify-content-center align-items-center"></i>
+                                            </div>
+                                            <div class="contact_item_header_text"><b>Email:</b>info@studioabmbuilder.com</div>
+                                        </div>
+
+                                        <div class="contactItem p-15 d-flex">
+                                            <div class="w-50px h-50px bg">
+                                                <i class="feather feather-instagram h-100 d-flex justify-content-center align-items-center"></i>
+                                            </div>
+                                            <div class="contact_item_header_text"><b>Instagram:</b>studioabm_builders</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <form action={{url('/submitForm')}} method="POST">
-                        @csrf
-                        <input type="text" name="form_name" class="form-control d-none" value="FrontContact">
-                        <div class="slidecontent">
-                            <div class="input-group mb-3">
-                                <input type="text" name="name" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="number" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                            
-                            <div class="input-group">
-                                <textarea class="form-control" name="message" placeholder="Message" aria-label="With textarea"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-info mb-3 mt-3">Submit</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

@@ -1,13 +1,3 @@
-const other = document.querySelector('.other');
-x = (($(window).scrollTop()) - ($('.frontTirth').offset().top));
-console.log(x);
-if(x > 720){
-  other.classList.add('linergradbg');
-}else{
-  other.classList.remove('linergradbg');
-}
-
-
 // scrolled();
 // function scrolled(){
 //     if(window.scrollY > 0){
@@ -97,53 +87,6 @@ let c1 = document.querySelector("#canvas1");
 
 
 
-//Projects 
-// 3D Scroll
-
-let zSpacing = -1000,
-	lastPos = zSpacing / 5,
-	$frames = document.getElementsByClassName('frame'),
-	frames = Array.from($frames),
-	zVals = []
-
-window.onscroll = function() {
-
-	let top = document.documentElement.scrollTop,
-			delta = lastPos - top
-
-	lastPos = top
-
-	frames.forEach(function(n, i) {
-		zVals.push((i * zSpacing) + zSpacing)
-		zVals[i] += delta * -5.5
-		let frame = frames[i],
-				transform = `translateZ(${zVals[i]}px)`,
-				opacity = zVals[i] < Math.abs(zSpacing) / 1.8 ? 1 : 0
-		frame.setAttribute('style', `transform: ${transform}; opacity: ${opacity}`)
-	})
-
-}
-
-window.scrollTo(0, 1)
-
-let soundbutton = document.querySelector('.soundbutton'),
-	audio =document.querySelector('.audio')
-
-// soundbutton.addEventListener('click', e => {
-// 	soundbutton.classList.toggle('paused')
-// 	audio.paused ? audio.play() : audio.pause()
-// })
-
-window.onfocus = function() {
-	soundbutton.classList.contains('paused') ? audio.pause() : audio.play()
-}
-window.onblur = function() {
-	audio.pause()
-}
-
-window.onload = function() {
-	// document.querySelector('.preloader1').classList.add('done');
-}
 
 $(document).ready(function (){
 	setTimeout(() => {
@@ -161,12 +104,15 @@ $(document).ready(function (){
 
 
 
+
+
+
 // process
-$(document).ready(function (){
-	setTimeout(() => {
-		document.querySelector('.process_card').classList.add('active');
-	}, "100");
-});
+// $(document).ready(function (){
+// 	setTimeout(() => {
+// 		document.querySelector('.process_card').classList.add('active');
+// 	}, "100");
+// });
 
 // addEventListener("wheel", (event) => {
 // 	let $card = document.getElementsByClassName('process_card')
@@ -233,7 +179,7 @@ $(document).ready(function(){
 
 	links.forEach(links =>{
 		links.addEventListener("mouseover", function(){
-			
+			console.log('stop');
 			currentIndexfor_right++;
 			right_next_image = img_for_right_container[currentIndexfor_right];
 			right_image_top_offset = right_next_image.offsetTop;
@@ -259,12 +205,12 @@ $(document).ready(function(){
 			});
 
 
-			scroll_index_for_right_bar = 
+			scroll_index_for_right_bar;
 
-			nextContainer.scrollTo({
-				top: scroll_index_for_right_bar,
-				behavior: 'smooth'
-			});
+			// nextContainer.scrollTo({
+			// 	top: scroll_index_for_right_bar,
+			// 	behavior: 'smooth'
+			// });
 
 			var lines = links.querySelectorAll('.transperent_line');
 			lines.forEach(lines => {
@@ -275,7 +221,7 @@ $(document).ready(function(){
 			let currentIndex = 0;
 			// console.log(currentIndex);
 
-			currentIndex = (currentIndex + 1) % images.length;
+			// currentIndex = (currentIndex + 1) % images.length;
 
 			
 			// Get the next image

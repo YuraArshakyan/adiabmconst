@@ -158,7 +158,48 @@ small{
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
 }
+.leftTestimonial{
+    transition: all .5s ease-in-out;
+    position: relative;
+    left: 90%;
+}
+.rightTestimonial{
+    transition: all .5s ease-in-out;
+    position: relative;
+    right: 90%;
+}
+.rightTestimonial.active{
+    right: 0;
+}
+.leftTestimonial.active{
+    left: 0;
+}
+
+.itemTestimonial {
+    height: 100%;
+    background: white;
+    border-radius: 13px;
+}
+.itemTestimonial .name{
+    color: #00000075;
+}
+
+.itemTestimonial .work{
+    font-weight: 900;
+    color: red;
+    letter-spacing: 3px;
+}
+.testimonial{
+    display: inline-flex;
+}
+
 @media screen and (max-width: 1024px) {
+    .Slide_4_Three_animation{
+        flex-direction: column;
+    }
+    .Slide_4_Three_animation .projects{
+        width: 100% !important;
+    }
     .company_and_losung{
         width: 95%;
     }
@@ -260,6 +301,53 @@ video.deactivated:hover {
 }
 .other.linergradbg{
     background:linear-gradient(302deg, #4b6cb7, #182848) !important;
+}
+.Slide_4_Three_animation .titleexplanation{
+    font-size: 43px;
+    width: 50%;
+    padding: 31px;
+}
+.cube{
+    width: 20px;
+    height: 20px;
+    background: white;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 13px;
+    transition: all 2.25s ease-in-out;
+}
+.cube:hover{
+    transition: all 2.25s ease-in-out;
+    width: 250px;
+    height: 250px;
+}
+.contact_form{
+    height: 750px;
+}
+.contactFirst{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100% - 100px);
+    box-shadow: 0px 0px 27px 2px rgba(0, 0, 0, 0.48)
+    
+}
+.contactSecond{
+    border-radius: 5px;
+    height: 100%;
+    background: #00a1ff87;
+}
+.contactItem .bg{
+    background: #ffffffab;
+    border-radius: 100%;
+}
+.contact_item_header_text{
+    text-align: justify;
+    width: 260px;
+    padding: 0 15px;
 }
 .main_menue{
     position: fixed;
@@ -416,7 +504,6 @@ html{
 .contact_form h3{
     width: max-content;
     top: 0;
-    color: #FFF;
     font-size: 30px;
     font-style: normal;
     font-weight: 500;
@@ -890,7 +977,7 @@ h1, h2, h3, h4 {
     font-weight: 700
 }
 .frontlast{
-    height: 100vh;
+   height: calc(100% + 200px);;
 }
 .item {
     padding-right: 100%;

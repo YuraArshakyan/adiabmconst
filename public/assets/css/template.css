@@ -126,6 +126,15 @@
 .p-15{
     padding: 15px;
 }
+.p-0{
+    padding: 0;
+}
+.w-50px{
+    width: 50px;
+}
+.h-50px{
+    height: 50px;
+}
 .flex-column-reverse{
     flex-direction: column-reverse;
 }
@@ -137,4 +146,8 @@
 }
 .menue_padding{
     padding: 0 30px;
+}
+.p-sticyTop100{
+    top: 100%;
+    position: sticky;
 }
