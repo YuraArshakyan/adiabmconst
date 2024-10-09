@@ -39,7 +39,6 @@
     </div>
 </div> 
 <body class="">
-    @include('layout.adminMenue')
     <div class="main-content">
         <div class="page">
             @yield('content')

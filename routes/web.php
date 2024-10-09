@@ -22,8 +22,8 @@ Route::get('/contacts', function () {
     return view('pages/contacts');
 });
 
-Route::get('/Proces', function () {
-    return view('pages/process');
+Route::get('/Proceses', function () {
+    return view('pages/proceses');
 });
 
 
@@ -38,6 +38,7 @@ Route::get('/adminABM', function () {
 Route::controller(authController::class)->group(function(){
     Route::post('/register', [authController::class, 'register']);
     Route::post('/login', [authController::class, 'login']);
+    Route::get('/logOut', [authController::class, 'logOut']);
 });
 
 Route::controller(FormsController::class)->group(function(){
@@ -45,7 +46,12 @@ Route::controller(FormsController::class)->group(function(){
 });
 Route::controller(adminController::class)->group(callback: function(){
     Route::get('/adminForms', [adminController::class, 'forms'])->name('adminController.forms');
+    Route::get('/adminSettings', [adminController::class, 'settings'])->name('adminController.settings');
+    Route::post('/changePassword', [adminController::class, 'changePassword']);
+    Route::post('exportForms', [adminController::class, 'exportVisibleForms']);
 });
+
+Route::post('export-visible-forms', 'YourController@exportVisibleForms');
 
 Route::get('/admin_dash', function () {
     return view('pages/admin_dash');

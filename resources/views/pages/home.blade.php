@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title', 'Contacts')
+@section('title', 'Home')
 @section('content')
 
     
@@ -29,8 +29,9 @@
                 At ABM Studio Builders, we specialize in creating beautiful, functional kitchens tailored to your lifestyle. Our team is dedicated to bringing your vision to life with quality craftsmanship and innovative designs. Transform your culinary space into the heart of your home with ABM Studio!
             </span>
         </div>
+        <div class="company_layer_for_animation"></div>
     </div>
-    <div class="company_layer_for_animation"></div>
+    
 </div>
 <script>
     let mouse = {
@@ -258,7 +259,7 @@
     </div>
     <div class="frontForth text-center p-30" style="">
         <small class="color-w slide_title">Our current projects</small>
-        <div class="Slide_4_Three_animation d-flex">
+        <div class="Slide_4_Three_animation d-flex container">
             <div class="titleexplanation color-w">
                 STUDIO ABM <img class="cube" src="slide4/1.jpg">
                 is on a 
@@ -538,7 +539,7 @@
                             <div class="itemTestimonial">
                                 <div class="header p-15">
                                     <div class="name">
-                                        Sophia Brooks
+                                        Ethan Reynolds
                                     </div>
                                     <div class="work">
                                         Bathrook Remodeling
@@ -556,10 +557,10 @@
                             <div class="itemTestimonial">
                                 <div class="header p-15">
                                     <div class="name">
-                                        Liam Bennett
+                                        Elijah Scott
                                     </div>
                                     <div class="work">
-                                        Interior Painting 
+                                        Kitchen Remodeling 
                                     </div>
                                 </div>
                                 <div class="body p-15 p-sticyTop100">
@@ -572,7 +573,7 @@
                             <div class="itemTestimonial">
                                 <div class="header p-15">
                                     <div class="name">
-                                        Isabella Reed
+                                        Liam Carter
                                     </div>
                                     <div class="work">
                                         Kitchen Remodeling 
@@ -779,7 +780,7 @@
                     </div>
                     <div class="contact_form">
                         <div class="row h-100">
-                            <div class="col-7 h-100  d-flex flex-column justify-content-center p-0">
+                            <div class="col-lg-7 col-md-12 col-sm-12 h-100  d-flex flex-column justify-content-center p-0">
                                 <div class="contactFirst p-30">
                                     <h3>Get in touch</h3>
                                     <form action={{url('/submitForm')}} method="POST">
@@ -804,36 +805,36 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-5 p-0">
+                            <div class="col-lg-5 col-md-12 col-sm-12 p-0">
                                 <div class="contactSecond d-flex flex-column justify-content-center p-30 color-w">
                                     <h3>Contact Us</h3>
                                     <div class="contactItems">
                                         <div class="contactItem p-15 d-flex">
                                             <div class="w-50px h-50px bg">
-                                                <i class="feather feather-map-pin h-100 d-flex justify-content-center align-items-center"></i>
+                                                <i class=" w-50px feather feather-map-pin h-100 d-flex justify-content-center align-items-center"></i>
                                             </div>
-                                            <div class="contact_item_header_text"><b>Address:</b> 7040 Garden Grove Ave, Reseda, CA, 91335 </div>
+                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100"><b class="hide_for_mobile">Address:</b> 7040 Garden Grove Ave, Reseda, CA, 91335 </span></div>
                                         </div>
 
                                         <div class="contactItem p-15 d-flex">
                                             <div class="w-50px h-50px bg">
-                                                <i class="feather feather-phone h-100 d-flex justify-content-center align-items-center"></i>
+                                                <i class=" w-50px feather feather-phone h-100 d-flex justify-content-center align-items-center"></i>
                                             </div>
-                                            <div class="contact_item_header_text"><b>Phone:</b> +18189304127</div>
+                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100"><b class="hide_for_mobile">Phone:</b> +18189304127</span></div>
                                         </div>
 
                                         <div class="contactItem p-15 d-flex">
                                             <div class="w-50px h-50px bg">
-                                                <i class="feather feather-phone h-100 d-flex justify-content-center align-items-center"></i>
+                                                <i class=" w-50px feather feather-phone h-100 d-flex justify-content-center align-items-center"></i>
                                             </div>
-                                            <div class="contact_item_header_text"><b>Email:</b>info@studioabmbuilder.com</div>
+                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100"><b class="hide_for_mobile">Email:</b>info@studioabmbuilder.com</span></div>
                                         </div>
 
                                         <div class="contactItem p-15 d-flex">
                                             <div class="w-50px h-50px bg">
-                                                <i class="feather feather-instagram h-100 d-flex justify-content-center align-items-center"></i>
+                                                <i class=" w-50px feather feather-instagram h-100 d-flex justify-content-center align-items-center"></i>
                                             </div>
-                                            <div class="contact_item_header_text"><b>Instagram:</b>studioabm_builders</div>
+                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100"><b class="hide_for_mobile">Instagram:</b>studioabm_builders</span></div>
                                         </div>
                                     </div>
                                 </div>

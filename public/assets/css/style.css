@@ -146,7 +146,7 @@ small{
     right: 0;
 }
 .company_and_losung{
-
+    max-width: 1000px;
     position: absolute;
     bottom: 0;
     height: 208px;
@@ -192,8 +192,62 @@ small{
 .testimonial{
     display: inline-flex;
 }
-
+.process{
+    height: calc(100vh - 205px);
+}
 @media screen and (max-width: 1024px) {
+    .company_and_losung {
+        height: unset !important;
+    }
+    .contact_form{
+        height: unset !important;
+    }
+    .frontLast{
+        padding: 0 !important;
+    }
+    .frontFifth .container{
+        height: unset !important;
+    }
+    .contact_item_header_text{
+        display: flex;
+        justify-content: center;
+        padding: 0 !important;
+    }
+    .contactItem {
+        padding: 10px 0 !important;
+    }
+    .frontlast .container{
+        padding: 0 !important;
+    }
+    .contactFirst{
+        padding: 10px !important;
+        border-bottom-left-radius: 0 !important;
+        border-top-right-radius: 5px !important;
+        height: unset !important;
+    }
+    .contactSecond {
+        border-bottom-right-radius: 20px !important;
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+        padding: 10px !important;
+        border-bottom-right-radius: 20px;
+    }
+    .contact_item_header_text span{
+        padding: 0px 10px;
+    }
+    .contact_form .row{
+        margin: 0 !important;
+
+    }
+    .testimonial {
+        flex-direction: column !important;
+    }
+    .card_content_process{
+        flex-direction: column;
+    }
+    .card_content_process .section2 .image img{
+        width: 100% !important;
+    }
     .Slide_4_Three_animation{
         flex-direction: column;
     }
@@ -239,13 +293,13 @@ small{
     position: absolute;
     z-index: 3;
     bottom: 0;
-    height: 208px;
-    left: -180%;
-    width: 70%;
+    height: 100%;
+    left: -100%;
+    width: 100%;
     background: red;
 }
 .company_layer_for_animation.animation{
-    animation: slideIn 4s ease-in-out forwards;
+    animation: slideIn 3.5s ease-in-out forwards;
 }
 
 @keyframes slideIn {
@@ -340,12 +394,15 @@ video.deactivated:hover {
     height: 100%;
     background: #00a1ff87;
 }
+.contactItem{
+    align-items: center;
+}
 .contactItem .bg{
     background: #ffffffab;
     border-radius: 100%;
 }
 .contact_item_header_text{
-    text-align: justify;
+    text-align: left;
     width: 260px;
     padding: 0 15px;
 }
@@ -380,6 +437,13 @@ video.deactivated:hover {
     width: 500px;
     height: 1px;
     background: -webkit-linear-gradient(left, rgba(30, 87, 153, 0) 0%, rgba(181, 163, 122, 0.98) 50%, rgba(181, 163, 122, 1) 51%, rgba(225, 228, 226, 0) 99%, rgba(229, 229, 229, 0) 100%);
+}
+.transperent_line_footer {
+    transition: all 0.9s ease;
+    opacity: 1;
+    width: 500px;
+    height: 1px;
+    background: -webkit-linear-gradient(left, rgba(30, 87, 153, 0) 0%, rgba(197, 197, 197, 0.98) 50%, rgba(197, 197, 197, 1) 51%, rgba(225, 228, 226, 0) 99%, rgba(229, 229, 229, 0) 100%);
 }
 .open_menue{
     position: relative;
@@ -456,13 +520,21 @@ video.deactivated:hover {
 }
 .menue_footer{
     z-index: 2;
-    bottom: 0;
+    bottom: 20px;
     position: absolute;
     font-size: 33px;
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
+    align-items: center;
     color: white;
+}
+.contactTextMenue{
+    font-style: italic;
+    text-align: center;
+    font-size: 13px;
+    line-height: 3px;
 }
 .main_video_slide_1 {
     top: 0;
@@ -784,6 +856,7 @@ video.frame-media_left{
 .preloader_under_layer.done{
     top: 100%;
 }
+
 .preloader1.active.done{
     top: 100%;
 }
@@ -842,6 +915,7 @@ video.frame-media_left{
     display: flex;
     height: 100vh;
     align-items: center;
+    justify-content: center;
 }
 .header_text{
     font-size: 50px;

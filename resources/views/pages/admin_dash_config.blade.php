@@ -1,22 +1,9 @@
 @auth
     @extends('layout.admin')
-    @section('title', 'Contacts')
+    @section('title', 'Admin')
     @section('content')
         @notifyCss
         @notifyJs
-        <div class="menue-content p-15">
-            <div class="admin_menue d-flex justify-content-between">
-                <div class="logo">
-                    <a href="/"><img src="just-logo-removebg-preview.png" width="100px"></a>
-                </div>
-                <div class="content d-flex justify-content-center align-items-center color-w">
-                    <a href="" class="menue_padding">Forms</a>
-                    <a href="" class="menue_padding">Settings</a>
-                    <a href="" class="menue_padding">Config</a>
-                    <a href="" class="menue_padding">LogOut</a>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <h1>Welcome {{Auth::user()->name}}</h1>
             <table class="table table-dark table-hover">
@@ -29,6 +16,7 @@
                       <th scope="col">message</th>
                       <th scope="col">form_name</th>
                       <th scope="col">created_at</th>
+                      <th scope="col">action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +29,7 @@
                             <td>{{($forms->message) ? $forms->message : 'NULL'}}</td>
                             <td>{{($forms->form_name) ? $forms->form_name : 'NULL'}}</td>
                             <td>{{($forms->created_at) ? $forms->created_at : 'NULL'}}</td>
+                            <td><button type="submit" class="btn btn-danger">Delete</button></td>
                         </tr>
                     @endforeach
                 </tbody>

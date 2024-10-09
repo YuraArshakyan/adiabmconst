@@ -98,58 +98,6 @@ $(document).ready(function (){
 
 
 
-
-
-
-
-
-
-
-
-
-// process
-// $(document).ready(function (){
-// 	setTimeout(() => {
-// 		document.querySelector('.process_card').classList.add('active');
-// 	}, "100");
-// });
-
-// addEventListener("wheel", (event) => {
-// 	let $card = document.getElementsByClassName('process_card')
-// 		cards = Array.from($card)
-// 	let current_index;
-
-// 	for(let i = 0; i <= cards.length-1; i++){
-// 		if(cards[i].classList.contains('active')){
-// 			current_index = i;
-// 			break;
-// 		}
-// 	}
-
-// 	console.log(current_index);
-// 	var card_active = cards[current_index];
-// 	if(current_index != cards.length-1){
-// 		card_active.classList.remove('active');
-// 		card_active.classList.add('deactive')
-// 		var card_for_active = cards[current_index+1];
-// 		card_for_active.classList.add('active');
-// 	}else{
-// 		for(let i = 0; i <= cards.length-1; i++){
-// 			if(cards[i].classList.contains('deactive')){
-// 				cards[i].classList.remove('deactive');
-// 				// current_index = i;
-// 				// break;
-// 			}else if(cards[i].classList.contains('active')){
-// 				cards[i].classList.remove('active');
-// 			}
-
-// 		}
-// 		cards[0].classList.add('active');
-// 		current_index = 0;
-// 	}
-// });
-// processEnd
-
 //menue click
 $(document).ready(function (){
 	var menue_active = document.querySelector('.open_menue');
@@ -173,14 +121,20 @@ let currentIndexfor_left = 0;
 let scroll_index_for_left_bar = 0;
 let left_image_top_offset;
 let left_next_image;
+let max_index = img_for_left_container.length -1;
 
 $(document).ready(function(){
 	
 
 	links.forEach(links =>{
 		links.addEventListener("mouseover", function(){
-			console.log('stop');
+			
+			
 			currentIndexfor_right++;
+			if(currentIndexfor_right > max_index){
+				currentIndexfor_right = 0;
+			}
+			console.log(currentIndexfor_right);
 			right_next_image = img_for_right_container[currentIndexfor_right];
 			right_image_top_offset = right_next_image.offsetTop;
 			scroll_index_for_right_bar = right_image_top_offset - (rightContainer.clientHeight / 2) + (right_next_image.clientHeight / 2);
@@ -192,11 +146,12 @@ $(document).ready(function(){
 
 
 			currentIndexfor_left++;
-
+			if(currentIndexfor_left > max_index){
+				currentIndexfor_left = 0;
+			}
 			left_next_image = img_for_left_container[currentIndexfor_left];
 
 			left_image_top_offset = left_next_image.offsetTop;
-			// console.log(left_next_image);
 
 			scroll_index_for_left_bar = left_image_top_offset - (leftContainer.clientHeight / 2) + (left_next_image.clientHeight / 2);
 			leftContainer.scrollTo({
@@ -218,29 +173,19 @@ $(document).ready(function(){
 			});
 			
 
-			let currentIndex = 0;
 			// console.log(currentIndex);
 
 			// currentIndex = (currentIndex + 1) % images.length;
 
 			
-			// Get the next image
-			const nextImage = images[currentIndex];
-	
+		
 			// Calculate the position to center the image
-			const containerHeight = container.clientHeight;
 			// console.log(containerHeight);
 
 
-			const imageHeight = nextImage.clientHeight;
-			const scrollTop = nextImage.offsetTop - (containerHeight / 2) + (imageHeight / 2);
-	
+		
 			// Scroll to the calculated position
-			container.scrollTo({
-				top: scrollTop,
-				behavior: 'smooth'
-			});
-	
+			
 		});
 		links.addEventListener("mouseout", function(){
 			var lines = links.querySelectorAll('.transperent_line');

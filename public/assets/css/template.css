@@ -151,3 +151,14 @@
     top: 100%;
     position: sticky;
 }
+.mb-15{
+    margin-bottom: 15px;
+}
+@media screen and (max-width: 1024px) {
+    .hide_for_mobile{
+        display: none;
+    }
+}
+.notify{
+    z-index: 999;
+}

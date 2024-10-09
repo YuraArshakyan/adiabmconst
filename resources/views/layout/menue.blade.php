@@ -31,7 +31,7 @@
             
             <div class="nav_item d-flex flex-column justify-content-center align-items-center">
                 <div class="transperent_line"></div>
-                <a href={{url('/process')}} class="nav">
+                <a href={{url('/Proceses')}} class="nav">
                     About Us
                 </a>
                 <div class="transperent_line"></div>
@@ -62,9 +62,20 @@
         <img src="menue/right/5.jpeg">
     </div>
 </div>
-<div class="menue_footer">
-    <i class="feather feather-instagram p-15"></i>
-    <i class="feather feather-facebook p-15"></i>
-</div>    
+    
+        <div class="menue_footer">
+            <div class="transperent_line_footer mb-15"></div>
+            <div class="contactTextMenue">
+                <p><b>Phone: </b>+18189304127</p>
+                <p><b>Working Hours: </b>24/7, 365</p>
+                <p><b>Email: </b>info@studioabmbuilders.com</p>
+            </div>
+            <div class="menue_icone_footer">
+                
+                <i class="feather feather-instagram p-15"></i>
+                <i class="feather feather-facebook p-15"></i>
+            </div>
+            <div class="transperent_line_footer"></div>
+        </div>  
 <div class="transparent_bg_menue_footer"></div>
 

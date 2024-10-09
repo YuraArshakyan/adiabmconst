@@ -1,5 +1,5 @@
-@extends('layout.admin')
-@section('title', 'Contacts')
+@extends('layout.adminLogin')
+@section('title', 'Admin')
 @section('content')
 @notifyCss
 @notifyJs

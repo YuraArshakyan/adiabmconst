@@ -7,7 +7,7 @@
              
         
             <div class="contact_form d-flex flex-column align-items-center">
-                <h3 class="text-center p-20">
+                <h3 class="text-center p-20 color-w">
                     LET’S BUILD SOMETHING GREAT TOGETHER
                 </h3>  
                 <div class="container">

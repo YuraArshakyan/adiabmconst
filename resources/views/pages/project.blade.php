@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title', 'Home')
+@section('title', 'Projects')
 @section('content')
 
     {{-- <div class="slide1 w-100" style="height: 100vh">
