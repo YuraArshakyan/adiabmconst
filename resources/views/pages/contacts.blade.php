@@ -1,3 +1,17 @@
+@php
+    use App\Models\config;
+
+    $FrontEmail = config::where('key','FrontEmail')->get();
+
+    $FrontPhone = config::where('key','FrontPhone')->get();
+
+    $FacebookLink = config::where('key','FacebookLink')->get();
+
+    $InstagramLink = config::where('key','InstagramLink')->get();
+
+    $workingHoursFront = config::where('key','workingHoursFront')->get();
+@endphp
+
 @extends('layout.index')
 @section('title', 'Contacts')
 @section('content')
@@ -38,8 +52,8 @@
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                     <div class="social-icone d-flex w-100">
-                                        <i class="d-flex justify-content-center feather feather-instagram"></i>
-                                        <i class="d-flex justify-content-center feather feather-facebook"></i>
+                                        <a href={!!$InstagramLink[0]->value!!} target="_blank"><i class="d-flex justify-content-center feather feather-instagram"></i></a>
+                                        <a href={!!$FacebookLink[0]->value!!} target="_blank"><i class="d-flex justify-content-center feather feather-facebook"></i></a>
                                     </div>
                                 </div>
                                 <div class="rigt-side w-100">
@@ -62,14 +76,14 @@
                                             <i class="d-flex justify-content-center mb-15 feather feather-at-sign"></i>
                                             <div class="info_bar d-flex flex-column justify-content-center mb-15 ml-10">
                                                 <span class="header_for_info_bar">Emial:</span>
-                                                <span class="text_for_info_bar">info@studioabmbuilders.com</span>
+                                                <span class="text_for_info_bar">{!! $FrontEmail[0]->value !!}</span>
                                             </div>
                                         </div>
                                         <div class="map_pin_location d-flex">
                                             <i class="d-flex justify-content-center mb-15 feather feather-clock"></i>
                                             <div class="info_bar d-flex flex-column justify-content-center mb-15 ml-10">
                                                 <span class="header_for_info_bar">Working Hours:</span>
-                                                <span class="text_for_info_bar">24/7, 365</span>
+                                                <span class="text_for_info_bar">{!! $workingHoursFront[0]->value !!}</span>
                                             </div>
                                         </div>
                                     </div>

@@ -1,39 +1,80 @@
 import { ScrollTrigger } from './ScrollTrigger.js'
 
+import "./ScrollToPlugin.js";
+
+
+
+let contacts = document.getElementById('Contacts');
+let about = document.getElementById('AboutUs');
+let menue = document.querySelector('.open_menue');
+let menue_buttton = document.querySelector('.header_section3');
+
+$(document).ready(function(){
+  $(contacts).on('click', function(){
+    console.log('stop');
+    menue.classList.remove('active');
+    menue_buttton.classList.remove('active');
+    gsap.to(window, { duration: 6, scrollTo: "#ContactsScrollTo" });
+  });
+  $(about).on('click', function(){
+    console.log('stop');
+    menue.classList.remove('active');
+    menue_buttton.classList.remove('active');
+    gsap.to(window, { duration: 6, scrollTo: "#aboutUsScrollId" });
+  });
+})
+function contactUs(){
+  // gsap.to(window, { duration: 2, scrollTo: "#someID" });
+}
+ 
+
+
 
 let scroll_permited = false;
 let myDiv = document.getElementById('.frontTirth');
 let x;
 const other = document.querySelector('.other');
-window.addEventListener('wheel', function(e){
-  if(clip  == 0){
-    scroll_permited = true;
-  }
-  // console.log($(window).scrollTop());
-
-  x = (($(window).scrollTop()) - ($('.frontTirth').offset().top));
-  if(x > 720){
-    other.classList.add('linergradbg');
-  }else{
-    other.classList.remove('linergradbg');
-  }
-})
-gsap.to('.frontSecond', {
-  scrollTrigger: {
-    trigger: '.frontSecond',
-    pin: true,
-    start: 'top top',
-    endTrigger: scroll_permited ? '+=900' : 'top top',
-    id: "myScrollTriggerId",
-    onUpdate: (self) => {
-      if (scroll_permited) {
-        // $('.frontSecond').scrollTop(0);
-        // myDiv.scrollTop = 0;
-        // ScrollTrigger.getById("myScrollTriggerId").kill(); // Replace with actual ID
-      }
+if(window.screen.width >= 1024){
+  window.addEventListener('wheel', function(e){
+    if(clip  == 0){
+      scroll_permited = true;
     }
-  }
-});
+    // console.log($(window).scrollTop());
+  
+    x = (($(window).scrollTop()) - ($('.frontTirth').offset().top));
+    if(x > 720){
+      other.classList.add('linergradbg');
+    }else{
+      other.classList.remove('linergradbg');
+    }
+  })
+}else{
+  window.addEventListener('touchmove', function(e) {
+    var scrollY = window.pageYOffset;
+    if(scrollY >= 4700){
+      other.classList.add('linergradbg');
+    }else{
+      other.classList.remove('linergradbg');
+    }
+  });
+}
+
+// gsap.to('.frontSecond', {
+//   scrollTrigger: {
+//     trigger: '.frontSecond',
+//     pin: true,
+//     start: 'top top',
+//     endTrigger: scroll_permited ? '+=900' : 'top top',
+//     id: "myScrollTriggerId",
+//     onUpdate: (self) => {
+//       if (scroll_permited) {
+//         // $('.frontSecond').scrollTop(0);
+//         // myDiv.scrollTop = 0;
+//         // ScrollTrigger.getById("myScrollTriggerId").kill(); // Replace with actual ID
+//       }
+//     }
+//   }
+// });
 
 
 const flip = document.getElementById('flip-page');
@@ -272,15 +313,15 @@ if (window.screen.width >= 1024){
 
 }
 
-// gsap.to('.projects', {
-//   scrollTrigger: {
-//     trigger: '.projects',
-//     pin: true,
-//     start: 'top top',
-//     end: '+=2400',
-//     scrub: 1
-//   }
-// });
+// // gsap.to('.projects', {
+// //   scrollTrigger: {
+// //     trigger: '.projects',
+// //     pin: true,
+// //     start: 'top top',
+// //     end: '+=2400',
+// //     scrub: 1
+// //   }
+// // });
 
 
 

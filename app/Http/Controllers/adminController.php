@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\forms;
 use App\Models\User;
+use App\Models\config;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\FormsExport;
 
@@ -75,7 +76,16 @@ class adminController extends Controller
     
 
 
-    function config(){
-        
+    function configs(){
+        $email = config::where('key', 'email')->get();
+        $title = config::where('key', 'title')->get();
+        $favicon = config::where('key', 'favicon')->get();
+        $FrontEmail = config::where('key', 'FrontEmail')->get();
+        $FrontPhone = config::where('key', 'FrontPhone')->get();
+        $FacebookLink = config::where('key', 'FacebookLink')->get();
+        $InstagramLink = config::where('key', 'InstagramLink')->get();
+        $workingHoursFront = config::where('key', 'workingHoursFront')->get();
+
+        return view('pages/admin_dash_config')->with(compact('email', 'title', 'favicon', 'FrontEmail', 'FrontPhone', 'FacebookLink', 'InstagramLink', 'workingHoursFront'));   
     }
 }

@@ -1,29 +1,74 @@
+
 <footer>
     <div class="footer">        
         <div class="container">
             <div class="sections">
-                <div class="section1 d-flex flex-column align-items-center p-15 borderr">
+                <div class="section1 d-flex p-15 ">
+                    <div class="stage1">
+                        <h3>Join our community today!</h3>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control emailUpdates" placeholder="Your email" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary formUpdates" type="button" id="button-addon2">Submit</button>
+                        </div>
+                    </div>
+                    <script>
+                        $(document).ready(function(){
+                            let get_button_listener = document.querySelector('.formUpdates');
+                            
+                            $(get_button_listener).on('click', function(){
+                                let email = document.querySelector('.emailUpdates').value;
+                                console.log(email);
+
+                                // $.ajax({
+                                //     type: "POST",
+                                //     headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+                                //     url: "/submitForm",
+                                //     data: {
+                                //         'email': get_email.email
+                                //     },
+                                //     success: function(response){
+                                //         console.log(response.status); // show response from the php script.
+                                //     }
+                                // })
+                            })                            
+                        });
+                    </script>
+                    <div class="stage2">
+                        <div class="footel_links">
+                            <div class="links_first_section">
+                                <h3>Resources</h3>
+                                <a href="/" >Home</a>
+                                <a href={{url('/contacts')}} >Contacts</a>
+                                <a href={{url('/Proceses')}} >About Us</a>
+                                <a href={{url('/process')}} >Process</a>
+                                <a href={{"/project"}} >Projects</a>
+                            </div>
+                            <div class="links_second_section">
+                                <h3>Contacts</h3>
+                                <a href={!!$FacebookLink[0]->value!!} target="_blank">Facebook</a>
+                                <a href={!!$InstagramLink[0]->value!!} target="_blank">Instagram</a>
+                                <a href={{url('/Proceses')}} >{!! $FrontPhone[0]->value !!}</a>
+                                <a href={{url('/process')}} >{!! $FrontEmail[0]->value !!}</a>
+                                <a href={{"/project"}} >7040 Garden Grove Ave, Reseda, CA, 91335</a>
+                                <a href={{"/project"}} >{!! $workingHoursFront[0]->value !!}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="devider w-100"></div>
+
+                <div class="section2 d-flex flex-column justify-content-center align-items-center p-15 ">
                     <img src="just-logo-removebg-preview.png">
                     <div class="company_slogn">
-                        create art in your kitchen
+                        STUDIO ABM BUILDERS
                     </div>
-                    
                 </div>
-                <div class="section2 d-flex justify-content-center flex-column p-15 borderr">
-                    <h4 class="color-w header_for_info_bar text-center">SUBSCRIBE TO OUR EXCLUSIVE UPDATES</h4>
-                    <form class="d-flex justify-content-between align-items-center">
-                        <div class="form-group w-85 m-0">
-                            {{-- <label class="color-w">SUBSCRIBE TO OUR EXCLUSIVE UPDATES</label> --}}
-                            <input type="email" class="form-control borderradius0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-                        </div>
-                        <button type="button" class="btn btn-info h-40 btn-email">Submit</button>
-                    </form>
-                    
-                </div>
-                <div class="section3 d-flex justify-content-center flex-column p-15">
-                    <div class="header_for_info_bar color-w">Follow us:<span style="font-weight: 100;" class="feather feather-facebook"><span style="font-weight: 100;" class="feather feather-instagram"></div>
-                    <div class="header_for_info_bar color-w">Call us: (818) 930-4127</div>
+
+                <div class="devider w-100"></div>
+
+                <div class="section3 d-flex flex-column justify-content-center align-items-center  ">
+                    <p class="mt-3 color-w">&copy; 2024-{{date('Y', strtotime('+1 year'))}}</p>
                 </div>
             </div>
         </div>

@@ -17,7 +17,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/template.css">
-    <title>@yield('title') - {{ config('app.name') }}</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon20241010-11-1.png"> 
+    
+    @php
+        use App\Models\config;
+        $title = config::where('key', 'title')->get();
+    @endphp
+    <title>@yield('title') - {{ $title[0]->value }}</title>
     @include('notify::components.notify')
 </head>
 

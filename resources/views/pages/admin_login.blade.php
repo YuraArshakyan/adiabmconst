@@ -18,7 +18,7 @@
                 </div>
                 <div class="card-footer login_form_footer mt-3">
                     <div class="card-footer-content">
-                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        <button type="submit" class="btn btn-primary w-100">Sign In</button>
                     </div>
                 </div>
             </div>

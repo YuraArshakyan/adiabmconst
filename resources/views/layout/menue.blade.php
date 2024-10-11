@@ -23,7 +23,7 @@
 
             <div class="nav_item d-flex flex-column justify-content-center align-items-center">
                 <div class="transperent_line"></div>
-                <a href={{url('/contacts')}} class="nav">
+                <a href="#" class="nav" id="Contacts">
                     Contacts
                 </a>
                 <div class="transperent_line"></div>
@@ -31,7 +31,7 @@
             
             <div class="nav_item d-flex flex-column justify-content-center align-items-center">
                 <div class="transperent_line"></div>
-                <a href={{url('/Proceses')}} class="nav">
+                <a href="#" class="nav" id="AboutUs">
                     About Us
                 </a>
                 <div class="transperent_line"></div>
@@ -66,14 +66,13 @@
         <div class="menue_footer">
             <div class="transperent_line_footer mb-15"></div>
             <div class="contactTextMenue">
-                <p><b>Phone: </b>+18189304127</p>
-                <p><b>Working Hours: </b>24/7, 365</p>
-                <p><b>Email: </b>info@studioabmbuilders.com</p>
+                <p><b>Phone: </b>{!! $FrontPhone[0]->value !!}</p>
+                <p><b>Working Hours: </b>{!! $workingHoursFront[0]->value !!}</p>
+                <p><b>Email: </b>{!! $FrontEmail[0]->value !!}</p>
             </div>
             <div class="menue_icone_footer">
-                
-                <i class="feather feather-instagram p-15"></i>
-                <i class="feather feather-facebook p-15"></i>
+                <a href={!!$InstagramLink[0]->value!!} target="_blank"><i class="feather feather-instagram p-15"></i></a>
+                <a href={!!$FacebookLink[0]->value!!}><i class="feather feather-facebook p-15"></i></a>
             </div>
             <div class="transperent_line_footer"></div>
         </div>  

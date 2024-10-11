@@ -2,7 +2,20 @@
 @section('title', 'Home')
 @section('content')
 
-    
+@php
+    use App\Models\config;
+
+    $FrontEmail = config::where('key','FrontEmail')->get('value');
+
+    $FrontPhone = config::where('key','FrontPhone')->get();
+
+    $FacebookLink = config::where('key','FacebookLink')->get();
+
+    $InstagramLink = config::where('key','InstagramLink')->get();
+
+    $workingHoursFront = config::where('key','workingHoursFront')->get();
+
+@endphp
     
 <div class="frontFirst" >
     <div class="frontFirstImg">
@@ -19,13 +32,13 @@
     </div>
     <div class="company_and_losung d-grid">
         <div class="name d-flex flex-column align-items-center justify-content-center">
-            <span class="firstline">A<span class="p-30">B</span>M</span>
-            <span class="slogon">
+            <span class="firstline text_Dosis500">A<span class="p-30">B</span>M</span>
+            <span class="slogon text_Dosis300">
                 Create art in your kitchen
             </span>
         </div>
         <div class="name d-flex flex-column justify-content-center">
-            <span class="slogon p-15">
+            <span class="slogon p-15 text_Dosis400">
                 At ABM Studio Builders, we specialize in creating beautiful, functional kitchens tailored to your lifestyle. Our team is dedicated to bringing your vision to life with quality craftsmanship and innovative designs. Transform your culinary space into the heart of your home with ABM Studio!
             </span>
         </div>
@@ -63,19 +76,19 @@
 </script>
 <div class="frontSecond text-center">
     <div class="frontsecond_content" id="image_intro">
-    <small>WELCOME TO ABM STUDIO</small>
+    <small class="text_Dosis300">WELCOME TO ABM STUDIO</small>
         <div class="container p-30">
             <div class="titleforslide d-flex justify-content-center align-items-center">
-                <div class="titletext">
+                <div class="titletext text_Dosis500 start_text">
                     DISCOVER THE ART OF KITCHEN CRAFTSMANSHIP, DESIGNED AND BUILT FOR YOUR LIFESTYLE.
                 </div>
             </div>
         </div>
-        <div class="fixed_container_for_img top-0 position-absolute">
+        <div class="fixed_container_for_img position-absolute">
             <img src="2slide_scale.jpg" class="image image_intro">
             
             <div class="slidecontent">
-               <div class="cube"></div>
+               {{-- <div class="cube"></div> --}}
             </div>
         </div>
     </div>
@@ -83,33 +96,86 @@
 <script>
     let scale =2;
     let clip = 40;
+    let top_position = 25;
     let windows;
     var distance = $('.frontSecond').offset().top,
     $window = $(window);
-    $window.on('wheel', function(e) {
+    $window.on('scroll', function(e) {
         windows = $window.scrollTop();
         if ($window.scrollTop() >= distance) {
             // $window.scrollTop(distance)
             
         }
-    });
+    });    
 
     const element = document.querySelector('.frontSecond');
     const el = document.querySelector('.image_intro');
-    
-    element.addEventListener('wheel', function(e){
-        if(e.deltaY > 0){
-            if(clip != 0){
-                clip -= 2;
-            } 
-            el.style.clipPath = `inset(${clip}%)` 
+    if(distance > 670){
+        if (window.screen.width >= 1024){
+            element.addEventListener('wheel', function(e){
+                let top_move = document.querySelector('.fixed_container_for_img ');
+
+                if(e.deltaY > 0){
+                    // if(top_position != 0){
+                    //     top_position -= 2;
+                    // } 
+                    if(clip != 0){
+                        clip -= 2;
+                    } 
+                }else{
+                    if(clip != 40){
+                        clip += 2;
+                    }
+                    // if(top_position != 25){
+                    //     top_position += 2;
+                    // } 
+                }   
+                top_move.style.top = `${top_position}%`;
+                el.style.clipPath = `inset(${clip}%)`;  
+            });
+
         }else{
-            if(clip != 40){
-                clip += 2;
-            }
-            el.style.clipPath = `inset(${clip}%)`;
-        }        
-    });
+            element.addEventListener('touchmove', function(e) {
+
+                let top_move = document.querySelector('.fixed_container_for_img ');
+                const touch = e.touches[0]; // Get the first touch point
+                const deltaY = touch.clientY - (this.lastTouchY || touch.clientY); // Calculate the change in Y position
+                this.lastTouchY = touch.clientY; // Update the last touch Y position
+
+                if (deltaY < 0) {
+                    if(top_position != 0){
+                        top_position -= 2;
+                    } 
+
+                    if(top_position > 0){
+                        top_position = 0;
+                    }
+
+                    if (clip > 0 && top_position == 0) {
+                        clip -= 2;
+                    }
+                } else {
+                    console.log('top_position');
+                    if(top_position != 25){
+                        top_position += 2;
+                    }
+
+                    if(top_position > 25){
+                        top_position = 25;
+                    }
+
+                    if (clip < 40 && top_position == 25) {
+                        clip += 2;
+                    }
+                }
+                
+
+                top_move.style.top = `${top_position}%`;
+                el.style.clipPath = `inset(${clip}%)`;
+            });
+        }
+    }
+
 </script>
 
 <style>
@@ -136,14 +202,17 @@
     .text_for_model_card{}
 </style>
 <div class="other">    
-    <div class="frontTirth text-center p-30" style="">
-        <small class="color-w slide_title">WHO WE ARE?</small>
-        <div class="container" style="">
+    <div class="frontTirth text-center p-30 pb-0 pt-10" id="aboutUsScrollId">
+        <small class="color-w slide_title text_Dosis300">WHO WE ARE?</small>
+        <div class="container pt-10">
             <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
-                <div class="titletext text_before_animation color-w">
-                    Welcome to STUDIO ABM BUILDERS Inc.! We specialize in kitchen remodeling, transforming spaces into beautiful, functional areas that reflect your style. With years of experience, our skilled team combines innovative design and quality craftsmanship to bring your vision to life.
-                    At STUDIO ABM BUILDERS, we believe the kitchen is the heart of the home. We prioritize customer satisfaction through clear communication and meticulous execution, making your remodeling journey seamless and enjoyable.
-                    <b>Discover our models and choose your perfect design!</b> Let’s create the kitchen of your dreams together
+                <div class="titletext text_models color-w text_Dosis300">
+                    Studio ABM is a leading kitchen design company that is committed to creating functional and beautiful kitchens for our clients. We
+                    understand that a kitchen is more than just a place to cook and eat, it’s the heart of the home where memories are made and
+                    cherished. That’s why we take great care in designing kitchens that are not only aesthetically pleasing, but also highly functional and efficient.
+                    Our team of talented designers and skilled craftsmen work closely with each client to understand their unique needs and tastes and create a
+                    customized kitchen design that is tailored to their lifestyle. With a focus on quality, attention to detail and customer satisfaction, Studio ABM
+                    is the trusted choice for all your kitchen design needs.<b>Let’s create the kitchen of your dreams together!</b>
                 </div>
                     <div class="container">
                         <div class="row">
@@ -151,9 +220,9 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1>Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
                                         </div>
-                                        <img src="styles/1405446421782.webp" alt="">
+                                        <img src="styles/1405446421782.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -161,9 +230,9 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1>Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
                                         </div>
-                                        <img src="styles/1495149887363.webp" alt="">
+                                        <img src="styles/1495149887363.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -171,9 +240,9 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1>Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
                                         </div>
-                                        <img src="styles/1549664897706.webp" alt="">
+                                        <img src="styles/1549664897706.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -181,9 +250,9 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1>Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
                                         </div>
-                                        <img src="styles/1592932554591.webp" alt="">
+                                        <img src="styles/1592932554591.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -191,9 +260,9 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1>Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
                                         </div>
-                                        <img src="styles/1625682166094.webp" alt="">
+                                        <img src="styles/1625682166094.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -201,9 +270,9 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1>Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
                                         </div>
-                                        <img src="styles/1657576773385.webp" alt="">
+                                        <img src="styles/1657576773385.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -211,9 +280,9 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1>Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
                                         </div>
-                                        <img src="styles/1663013872428.webp" alt="">
+                                        <img src="styles/1663013872428.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -257,14 +326,16 @@
 
         </div>
     </div>
-    <div class="frontForth text-center p-30" style="">
-        <small class="color-w slide_title">Our current projects</small>
+    <div class="frontForth text-center p-30 pt-0" style="">
+        <small class="color-w slide_title text_Dosis300">Our current projects</small>
         <div class="Slide_4_Three_animation d-flex container">
-            <div class="titleexplanation color-w">
-                STUDIO ABM <img class="cube" src="slide4/1.jpg">
-                is on a 
-                mission to transform kitchens <img class="cube" src="slide4/2.jpg"> into the 
-                heart <img class="cube" src="slide4/3.jpeg"> of every home.
+            <div class="titleexplanation d-flex flex-column justify-content-center color-w">
+                <div class="text_cube text_Dosis300">
+                    STUDIO ABM <img class="cube" src="slide4/1.jpg">
+                    is on a 
+                    mission to transform kitchens <img class="cube" src="slide4/2.jpg"> into the 
+                    heart <img class="cube" src="slide4/3.jpeg"> of every home.
+                </div>
             </div>
             <div class="projects" style=" width: 50%; height: 60vh;/* position: fixed; */top: 0;z-index: 99;" >
             </div>
@@ -276,17 +347,17 @@
 
 
     
-    <div class="frontFifth text-center p-30" style="">
-        <small class="color-w slide_title">What We Provide?</small>
-        <div class="slidecontent">
-            <div class="w-100">
+    <div class="frontFifth text-center p-30 pb-10" style="">
+        <small class="color-w slide_title text_Dosis300">What We Provide?</small>
+        <div class="slidecontent pt-10">
+            <div class="w-100 d-flex justify-content-center align-items-center">
                 <div class="buttons_container">
                     <div class="buttons_for_book p-30">
                         <button id="flip-page-back"><i class="feather feather-arrow-left"></i></button>
                         <button id="flip-page"><i class="feather feather-arrow-right"></i></button>
                     </div>
                 </div>
-                <div class="container text-center d-flex flex-column justify-content-center" style="height: 100vh">
+                <div class="container text-center d-flex flex-column justify-content-center">
                     <div class="book d-flex ">
                         <div class="w-100">
         
@@ -453,6 +524,7 @@
     </div>
 
     <script>
+
         $(windows).ready(function() {
             let sctollTopByfrontSixth = 0;
             let height_by_frontSixth = 0;
@@ -470,28 +542,26 @@
                     return; 
                 }
 
-                console.log(value);
-                // console.log(window.scrollY); // Value of scroll Y in px
             };
         });
     </script>
-    <div class="frontSixth text-center p-30" style="">
-        <small class="color-w slide_title">what our customers says about us</small>
-        <div class="slidecontent">
+    <div class="frontSixth overflow-hidden text-center p-30 pt-0 pb-10" style="">
+        <small class="color-w slide_title text_Dosis300">what our customers says about us</small>
+        <div class="slidecontent pt-10">
             {{-- <div class="iponemodel" style="height: 100vh; z-index:99"> --}}
                 <div class="leftTestimonial">
                     <div class="testimonial">
-                        <div class="p-15">
-                            <div class="itemTestimonial">
-                                <div class="header p-15">
+                        <div class="p-15 pt-0">
+                            <div class="itemTestimonial btlr-45-bbrr-45">
+                                <div class="header p-15 text_Dosis300">
                                     <div class="name">
                                         Sophia Brooks
                                     </div>
-                                    <div class="work">
+                                    <div class="work text_Dosis300">
                                         Bathrook Remodeling
                                     </div>
                                 </div>
-                                <div class="body p-15 p-sticyTop100">
+                                <div class="body p-15 p-sticyTop100 text_Dosis300">
                                     I’m thrilled with my bathroom remodel! The team was professional and full of great ideas. They transformed my outdated space into a beautiful oasis, and the attention to detail was fantastic. I highly recommend their services!
                                 </div>
                                 <div class="star">
@@ -499,33 +569,33 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-15">
-                            <div class="itemTestimonial">
-                                <div class="header p-15">
-                                    <div class="name">
+                        <div class="p-15 pt-0">
+                            <div class="itemTestimonial btrr-45-bblr-45">
+                                <div class="header p-15 text_Dosis300">
+                                    <div class="name text_Dosis300">
                                         Liam Bennett
                                     </div>
-                                    <div class="work">
+                                    <div class="work text_Dosis300">
                                         Interior Painting 
                                     </div>
                                 </div>
-                                <div class="body p-15 p-sticyTop100">
+                                <div class="body p-15 p-sticyTop100 text_Dosis300">
                                     I recently had my interior painted, and the results exceeded my expectations! The team was attentive to detail and worked quickly without compromising quality. My home feels renewed and vibrant!
                                 </div>
                                 <div class="star"></div>
                             </div>
                         </div>
-                        <div class="p-15">
-                            <div class="itemTestimonial">
+                        <div class="p-15 pt-0">
+                            <div class="itemTestimonial btlr-45-bbrr-45">
                                 <div class="header p-15">
-                                    <div class="name">
+                                    <div class="name text_Dosis300">
                                         Isabella Reed
                                     </div>
-                                    <div class="work">
+                                    <div class="work text_Dosis300">
                                         Kitchen Remodeling 
                                     </div>
                                 </div>
-                                <div class="body p-15 p-sticyTop100">
+                                <div class="body p-15 p-sticyTop100 text_Dosis300">
                                     I couldn't be happier with my kitchen remodel! The team was professional and truly listened to my ideas. They created a stunning, functional space that perfectly fits my style. Cooking has become a joy again!
                                 </div>
                                 <div class="star"></div>
@@ -534,18 +604,18 @@
                     </div>
                 </div>
                 <div class="rightTestimonial">
-                    <div class="testimonial">
-                        <div class="p-15">
-                            <div class="itemTestimonial">
+                    <div class="testimonial ">
+                        <div class="p-15 pb-0">
+                            <div class="itemTestimonial btrr-45-bblr-45">
                                 <div class="header p-15">
-                                    <div class="name">
+                                    <div class="name text_Dosis300">
                                         Ethan Reynolds
                                     </div>
-                                    <div class="work">
+                                    <div class="work text_Dosis300">
                                         Bathrook Remodeling
                                     </div>
                                 </div>
-                                <div class="body p-15 p-sticyTop100">
+                                <div class="body p-15 p-sticyTop100 text_Dosis300">
                                     I’m thrilled with my bathroom remodel! The team was professional and full of great ideas. They transformed my outdated space into a beautiful oasis, and the attention to detail was fantastic. I highly recommend their services!
                                 </div>
                                 <div class="star">
@@ -553,33 +623,33 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-15">
-                            <div class="itemTestimonial">
+                        <div class="p-15 pb-0">
+                            <div class="itemTestimonial btlr-45-bbrr-45">
                                 <div class="header p-15">
-                                    <div class="name">
+                                    <div class="name text_Dosis300">
                                         Elijah Scott
                                     </div>
-                                    <div class="work">
+                                    <div class="work text_Dosis300">
                                         Kitchen Remodeling 
                                     </div>
                                 </div>
-                                <div class="body p-15 p-sticyTop100">
+                                <div class="body p-15 p-sticyTop100 text_Dosis300">
                                     I recently had my interior painted, and the results exceeded my expectations! The team was attentive to detail and worked quickly without compromising quality. My home feels renewed and vibrant!
                                 </div>
                                 <div class="star"></div>
                             </div>
                         </div>
-                        <div class="p-15">
-                            <div class="itemTestimonial">
+                        <div class="p-15 pb-0">
+                            <div class="itemTestimonial btrr-45-bblr-45">
                                 <div class="header p-15">
-                                    <div class="name">
+                                    <div class="name text_Dosis300">
                                         Liam Carter
                                     </div>
-                                    <div class="work">
+                                    <div class="work text_Dosis300">
                                         Kitchen Remodeling 
                                     </div>
                                 </div>
-                                <div class="body p-15 p-sticyTop100">
+                                <div class="body p-15 p-sticyTop100 text_Dosis300">
                                     I couldn't be happier with my kitchen remodel! The team was professional and truly listened to my ideas. They created a stunning, functional space that perfectly fits my style. Cooking has become a joy again!
                                 </div>
                                 <div class="star"></div>
@@ -762,17 +832,17 @@
     </div>
 
 
-    <div class="frontLast text-center p-30" style="">
-        <small class="color-w slide_title">ABM STUDIO Contact</small>
-        <div class="iphoneContainer">    
+    <div class="frontLast text-center p-30 pt-0" id="ContactsScrollTo">
+        <div class="iphoneContainer">  
+            <small class="color-w slide_title text_Dosis300">STUDIO ABM Builders Contacts</small>  
             {{-- <div class="iponemodel" style="height: 100vh; width:100vw; position:absolute; z-index:99"> --}}
                 
             </div>
-            <div class="frontlast text-center p-30">
+            <div class="frontlast text-center pt-10">
                 
                 <div class="container h-100">
                     <div class="titleforslide d-flex flex-column justify-content-center align-items-center">
-                        <div class="titletext color-w">
+                        <div class="titletext color-w text_Dosis400">
                             LET’S BUILD THE
                             NEW ERA OF KITCHEN
                             DESIGN TOGETHER.
@@ -782,19 +852,19 @@
                         <div class="row h-100">
                             <div class="col-lg-7 col-md-12 col-sm-12 h-100  d-flex flex-column justify-content-center p-0">
                                 <div class="contactFirst p-30">
-                                    <h3>Get in touch</h3>
+                                    <h3 class="text_Dosis500">Get in touch</h3>
                                     <form action={{url('/submitForm')}} method="POST">
                                         @csrf
                                         <input type="text" name="form_name" class="form-control d-none" value="FrontContact">
                                         <div class="slidecontent">
                                             <div class="input-group mb-3">
-                                                <input type="text" name="name" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input required type="text" name="name" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                             <div class="input-group mb-3">
-                                                <input type="number" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input required type="number" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                             <div class="input-group mb-3">
-                                                <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input required type="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                             
                                             <div class="input-group">
@@ -807,34 +877,41 @@
                             </div>
                             <div class="col-lg-5 col-md-12 col-sm-12 p-0">
                                 <div class="contactSecond d-flex flex-column justify-content-center p-30 color-w">
-                                    <h3>Contact Us</h3>
+                                    <h3 class="text_Dosis500">Contact Us</h3>
                                     <div class="contactItems">
                                         <div class="contactItem p-15 d-flex">
                                             <div class="w-50px h-50px bg">
                                                 <i class=" w-50px feather feather-map-pin h-100 d-flex justify-content-center align-items-center"></i>
                                             </div>
-                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100"><b class="hide_for_mobile">Address:</b> 7040 Garden Grove Ave, Reseda, CA, 91335 </span></div>
+                                            <div class="contact_item_header_text "><span class="d-flex align-items-center h-100 text_Dosis300"><b class="hide_for_mobile pr-1 text_Dosis600">Address:</b> 7040 Garden Grove Ave, Reseda, CA, 91335 </span></div>
                                         </div>
 
                                         <div class="contactItem p-15 d-flex">
                                             <div class="w-50px h-50px bg">
                                                 <i class=" w-50px feather feather-phone h-100 d-flex justify-content-center align-items-center"></i>
                                             </div>
-                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100"><b class="hide_for_mobile">Phone:</b> +18189304127</span></div>
+                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100 text_Dosis300"><b class="hide_for_mobile pr-1 text_Dosis600">Phone:</b> {!! $FrontPhone[0]->value !!}</span></div>
                                         </div>
 
                                         <div class="contactItem p-15 d-flex">
                                             <div class="w-50px h-50px bg">
-                                                <i class=" w-50px feather feather-phone h-100 d-flex justify-content-center align-items-center"></i>
+                                                <i class=" w-50px feather feather-mail h-100 d-flex justify-content-center align-items-center"></i>
                                             </div>
-                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100"><b class="hide_for_mobile">Email:</b>info@studioabmbuilder.com</span></div>
+                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100 text_Dosis300"><b class="hide_for_mobile pr-1 text_Dosis600">Email:</b>{!! $FrontEmail[0]->value !!}</span></div>
+                                        </div>
+
+                                        <div class="contactItem p-15 d-flex">
+                                            <div class="w-50px h-50px bg">
+                                                <i class=" w-50px feather feather-clock h-100 d-flex justify-content-center align-items-center"></i>
+                                            </div>
+                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100 text_Dosis300"><b class="hide_for_mobile pr-1 text_Dosis600">Email:</b>{!! $workingHoursFront[0]->value !!}</span></div>
                                         </div>
 
                                         <div class="contactItem p-15 d-flex">
                                             <div class="w-50px h-50px bg">
                                                 <i class=" w-50px feather feather-instagram h-100 d-flex justify-content-center align-items-center"></i>
                                             </div>
-                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100"><b class="hide_for_mobile">Instagram:</b>studioabm_builders</span></div>
+                                            <div class="contact_item_header_text"><span class="d-flex align-items-center h-100 text_Dosis300"><b class="hide_for_mobile pr-1 text_Dosis600">Instagram:</b>studioabm_builders</span></div>
                                         </div>
                                     </div>
                                 </div>

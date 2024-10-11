@@ -1,9 +1,23 @@
+@php
+    use App\Models\config;
+
+    $FrontEmail = config::where('key','FrontEmail')->get();
+
+    $FrontPhone = config::where('key','FrontPhone')->get();
+
+    $FacebookLink = config::where('key','FacebookLink')->get();
+
+    $InstagramLink = config::where('key','InstagramLink')->get();
+
+    $workingHoursFront = config::where('key','workingHoursFront')->get();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap" rel="stylesheet">
@@ -14,10 +28,18 @@
     <script src="/assets/libs/gsap/ScrollTrigger.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/template.css">
-    <title>@yield('title') - {{ config('app.name') }}</title>
+    <link rel="icon" type="image/x-icon" href="favicon20241010-11-1.png"> 
+    @php
+        $title = config::where('key', 'title')->get();
+    @endphp
+    <title>@yield('title') - {{ $title[0]->value }}</title>
     @include('notify::components.notify')
 </head>
 

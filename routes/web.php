@@ -43,10 +43,14 @@ Route::controller(authController::class)->group(function(){
 
 Route::controller(FormsController::class)->group(function(){
     Route::post('/submitForm', [FormsController::class, 'store']);
+    Route::post('/addFormConfig', [FormsController::class, 'addFormConfig']);
+    Route::post('/changeConfig', [FormsController::class, 'changeConfig']);
+    Route::post('/changeConfigFront', [FormsController::class, 'changeConfigFront']);
 });
 Route::controller(adminController::class)->group(callback: function(){
     Route::get('/adminForms', [adminController::class, 'forms'])->name('adminController.forms');
     Route::get('/adminSettings', [adminController::class, 'settings'])->name('adminController.settings');
+    Route::get('/adminConfigs', [adminController::class, 'configs'])->name('adminController.configs');
     Route::post('/changePassword', [adminController::class, 'changePassword']);
     Route::post('exportForms', [adminController::class, 'exportVisibleForms']);
 });

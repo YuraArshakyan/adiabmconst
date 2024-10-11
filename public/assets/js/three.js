@@ -8,7 +8,7 @@ function projects() {
     const canvas = document.querySelector('.projects')
 
 
-    canvas.addEventListener('wheel', function(e){
+    canvas.addEventListener('scroll', function(e){
         e.preventDefault();
     }, {passive:false});
 
@@ -76,7 +76,7 @@ function projects() {
 
     camera.position.set(0, 0, 5);
     camera.lookAt(0,0,0);
-    canvas.addEventListener('wheel', (event) => {
+    canvas.addEventListener('scroll', (event) => {
         current_index--;
         if(event.deltaY > 0){
             scene.rotation.y -= 0.1;
@@ -95,7 +95,7 @@ function projects() {
     })
 
     let disabledScroll = false;  
-    window.addEventListener('wheel', function(e){
+    window.addEventListener('scroll', function(e){
         if(scrollY >= 3403 && scene.position.y < 9){
             disabledScroll = true;
         }else{
@@ -143,161 +143,3 @@ function projects() {
     animate();
 }
 projects();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function iphoneScreen() {
-    const canvas = document.querySelector('.iponemodel')
-    const renderer = new THREE.WebGLRenderer({alpha: true});
-    let group;
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    renderer.setClearColor(0x000000, 0);
-    renderer.setPixelRatio(window.devicePixelRatio);
-
-    renderer.setAnimationLoop( animate );
-    canvas.appendChild(renderer.domElement);
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(100, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-
-
-    // camera.position.z = 0;
-    camera.lookAt(0,0,0);
-
-    const bgGeometry = new THREE.PlaneGeometry(0.01, 0.01); // Adjust size as needed
-    const bgMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-    const backgroundPlane = new THREE.Mesh(bgGeometry, bgMaterial);
-    backgroundPlane.position.z = -1; // Position it behind the transparent plane
-    scene.add(backgroundPlane);
-
-  
-
-    let mesh;
-    let cutScreen;
-   
-
-    const Ambient = new THREE.SpotLight(0xffffff, 2)
-    // const Ambient = new THREE.AmbientLight(0xffffff, 45);
-    Ambient.shadow.mapSize.width = 1024;
-    Ambient.shadow.mapSize.height = 1024;
-    Ambient.position.set(90, 50, 60);
-
-    scene.add(Ambient);
-  
-//    const controls = new OrbitControls( camera, renderer.domElement );
-//     controls.update();
-    const loader = new GLTFLoader().setPath('/assets/js/models/');
-    loader.load( 'Sketchfab_Scene1.gltf', ( gltf ) => {
-        mesh = gltf.scene;
-        
-        mesh.position.z = -0.5433;
-
-
-        const box = new THREE.Box3().setFromObject(mesh);
-
-        const size = box.getSize(new THREE.Vector3());
-
-        const desiredWidth = size.x * 0.898; 
-        const desiredHeight = size.y * 0.96;
-    
-        const borderRadius = 0.037; // Adjust for rounded corners
-        const shape = new THREE.Shape();
-        shape.absarc(borderRadius, borderRadius, borderRadius, Math.PI, Math.PI * 1.5, false); // Top-left corner
-        shape.lineTo(desiredWidth - borderRadius, 0);
-        shape.absarc(desiredWidth - borderRadius, borderRadius, borderRadius, Math.PI * 1.5, 0, false); // Top-right corner
-        shape.lineTo(desiredWidth, desiredHeight - borderRadius);
-        shape.absarc(desiredWidth - borderRadius, desiredHeight - borderRadius, borderRadius, 0, Math.PI / 2, false); // Bottom-right corner
-        shape.lineTo(borderRadius, desiredHeight);
-        shape.absarc(borderRadius, desiredHeight - borderRadius, borderRadius, Math.PI / 2, Math.PI, false); // Bottom-left corner
-        shape.lineTo(0, borderRadius);
-        shape.absarc(borderRadius, borderRadius, borderRadius, Math.PI, Math.PI * 1.5, false); // Top-left corner close
-    
-        const cutoutScreen = new THREE.ShapeGeometry(shape);
-        const cutoutMaterial = new THREE.MeshBasicMaterial({
-            color: 0x000000, 
-            opacity: 0.0, 
-        });
-        
-        cutScreen = new THREE.Mesh(cutoutScreen, cutoutMaterial);
-        cutScreen.geometry.center();
-      
-
-        cutScreen.position.set(box.getCenter(new THREE.Vector3()).x+0.0801, 
-        box.getCenter(new THREE.Vector3()).y, 
-        0); 
-
-        cutScreen.position.z = -0.53; 
-        
-        
-        mesh.rotation.y = 91.11;
-
-        scene.add(mesh);
-
-        group = new THREE.Group();
-        group.add(cutScreen);
-        group.add(mesh);
-        scene.add(group);
-
-        
-    })
-    camera.position.z = 0;
-    camera.position.x = 0;
-
-    // window.addEventListener('wheel', function(e){
-    //     if(e.deltaY > 0 && camera.position.z < 0){
-    //         // camera.position.z += 0.01;
-    //     }
-    //     else if(e.deltaY < 0 && camera.position.z >= -0.429){
-    //         // camera.position.z -= 0.01;
-    //         // scene.rotateY -= 0.1;
-    //     }
-    // }, {passive:false});
-
-    // // camera.position.x = 0.04;
-    function animate() {
-        // camera.rotation.y += 0.01;
-        if (mesh) {
-            // scene.rotation.y += 0.1;
-        }
-        
-        renderer.render(scene, camera);
-
-    }
-    animate();
-}
-iphoneScreen()

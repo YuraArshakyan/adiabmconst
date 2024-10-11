@@ -10,7 +10,7 @@
 //     console.log(window.scrollY); // Value of scroll Y in px
 // }
 
-window.addEventListener('wheel', function(e){
+window.addEventListener('scroll', function(e){
     // e.preventDefault();
     if(e.deltaY  == 100){
         // document.getElementById('page_content1').scrollIntoView();

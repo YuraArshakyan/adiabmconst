@@ -149,39 +149,96 @@
             }, "100");
         });
 
-        addEventListener("wheel", (event) => {
-            let $card = document.getElementsByClassName('process_card')
-                cards = Array.from($card)
-            let current_index;
 
-            for(let i = 0; i <= cards.length-1; i++){
-                if(cards[i].classList.contains('active')){
-                    current_index = i;
-                    break;
-                }
-            }
 
-            console.log(current_index);
-            var card_active = cards[current_index];
-            if(current_index != cards.length-1){
-                card_active.classList.remove('active');
-                card_active.classList.add('deactive')
-                var card_for_active = cards[current_index+1];
-                card_for_active.classList.add('active');
-            }else{
+       
+        let $card = document.getElementsByClassName('process_card')
+            cards = Array.from($card)
+        let current_index;
+
+        if(window.screen.width >= 1024){
+            addEventListener("wheel", (event) => {
                 for(let i = 0; i <= cards.length-1; i++){
-                    if(cards[i].classList.contains('deactive')){
-                        cards[i].classList.remove('deactive');
-                        // current_index = i;
-                        // break;
-                    }else if(cards[i].classList.contains('active')){
-                        cards[i].classList.remove('active');
+                    if(cards[i].classList.contains('active')){
+                        current_index = i;
+                        break;
                     }
-
                 }
-                cards[0].classList.add('active');
-                current_index = 0;
-            }
-        });
+
+                var card_active = cards[current_index];
+                if(current_index != cards.length-1){
+                    card_active.classList.remove('active');
+                    card_active.classList.add('deactive')
+                    var card_for_active = cards[current_index+1];
+                    card_for_active.classList.add('active');
+                }else{
+                    for(let i = 0; i <= cards.length-1; i++){
+                        if(cards[i].classList.contains('deactive')){
+                            cards[i].classList.remove('deactive');
+                            // current_index = i;
+                            // break;
+                        }else if(cards[i].classList.contains('active')){
+                            cards[i].classList.remove('active');
+                        }
+
+                    }
+                    cards[0].classList.add('active');
+                    current_index = 0;
+                }
+            });
+               
+        }else{
+            let startY = 0;
+            document.addEventListener('touchmove', (e) => {
+                for(let i = 0; i <= cards.length-1; i++){
+                    if(cards[i].classList.contains('active')){
+                        current_index = i;
+                        break;
+                    }
+                }
+
+
+
+                const touch = e.touches[0]; // Get the first touch point
+                const deltaY = touch.clientY - (this.lastTouchY || touch.clientY); // Calculate the change in Y position
+                this.lastTouchY = touch.clientY; // Update the last touch Y position
+
+
+                if (deltaY > 0) {
+                    
+                    var card_active = cards[current_index];
+
+
+
+                    console.log(current_index);
+
+                    if(current_index != cards.length-1){
+                        card_active.classList.remove('active');
+                        card_active.classList.add('deactive')
+                        var card_for_active = cards[current_index+1];
+                        card_for_active.classList.add('active');
+                    }else{
+                        for(let i = 0; i <= cards.length-1; i++){
+                            if(cards[i].classList.contains('deactive')){
+                                cards[i].classList.remove('deactive');
+                                // current_index = i;
+                                // break;
+                            }else if(cards[i].classList.contains('active')){
+                                cards[i].classList.remove('active');
+                            }
+                        }
+                        cards[0].classList.add('active');
+                        current_index = 0;
+                    }
+                } 
+            });  
+        }
+
+
+
+
+
+
+        
     </script>
 @endsection

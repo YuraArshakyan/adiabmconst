@@ -24,39 +24,40 @@
 
             <button type="submit" class="btn btn-outline-info w-100">Export to excel</button>
 
-
-            <table class="table table-dark table-hover mt-3" id="submissionTable">
-                <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">status</th>
-                      <th scope="col">error</th>
-                      <th scope="col">name</th>
-                      <th scope="col">email</th>
-                      <th scope="col">phone</th>
-                      <th scope="col">message</th>
-                      <th scope="col">form_name</th>
-                      <th scope="col">created_at</th>
-                      <th scope="col">action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($forms as $forms)
+            <div class="responsiv_table">
+                <table class="table table-dark table-hover mt-3" id="submissionTable">
+                    <thead>
                         <tr>
-                            <th class="" scope="row">{{$forms->id}}</th>
-                            <th class="">done</th>
-                            <th class="">-</th>
-                            <td class="">{{($forms->name) ? $forms->name : 'NULL'}}</td>
-                            <td class="">{{($forms->email) ? $forms->email : 'NULL'}}</td>
-                            <td class="">{{($forms->phone) ? $forms->phone : 'NULL'}}</td>
-                            <td class="">{{($forms->message) ? $forms->message : 'NULL'}}</td>
-                            <td class="">{{($forms->form_name) ? $forms->form_name : 'NULL'}}</td>
-                            <td class="">{{($forms->created_at) ? $forms->created_at : 'NULL'}}</td>
-                            <td class=""><button type="submit" class="btn btn-danger">Delete</button></td>
+                        <th scope="col">#</th>
+                        <th scope="col">status</th>
+                        <th scope="col">error</th>
+                        <th scope="col">name</th>
+                        <th scope="col">email</th>
+                        <th scope="col">phone</th>
+                        <th scope="col">message</th>
+                        <th scope="col">form_name</th>
+                        <th scope="col">created_at</th>
+                        <th scope="col">action</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach($forms as $forms)
+                            <tr>
+                                <th class="" scope="row">{{$forms->id}}</th>
+                                <th class="">done</th>
+                                <th class="">-</th>
+                                <td class="">{{($forms->name) ? $forms->name : 'NULL'}}</td>
+                                <td class="">{{($forms->email) ? $forms->email : 'NULL'}}</td>
+                                <td class="">{{($forms->phone) ? $forms->phone : 'NULL'}}</td>
+                                <td class="">{{($forms->message) ? $forms->message : 'NULL'}}</td>
+                                <td class="">{{($forms->form_name) ? $forms->form_name : 'NULL'}}</td>
+                                <td class="">{{($forms->created_at) ? $forms->created_at : 'NULL'}}</td>
+                                <td class=""><button type="submit" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     @endsection
@@ -114,19 +115,6 @@
                 });
 
                 // Send the data to the server
-                $.ajax({
-                    url: '/exportForms',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        _token: "{{ csrf_token() }}",
-                        forms: visibleData
-                    }),
-                    success: function(response) {
-                        console.log('success')
-                        // window.location.href = response.downloadUrl; // Assuming you get a download URL
-                    }
-                });
             });
         });
 
