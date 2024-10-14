@@ -1581,3 +1581,24 @@ content .demoBody code.prettyprint,
   background: var(--color);
   color: #fff;
 }   
+
+
+.menue_padding a{
+    color: white;
+}
+.menue_padding.active{
+    color: black !important;
+    background: white;
+    height: 90%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.deny{
+    color: red;
+}
+
+.success{
+    color: green;
+}

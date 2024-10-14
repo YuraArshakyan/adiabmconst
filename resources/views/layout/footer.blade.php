@@ -10,26 +10,62 @@
                             <input type="email" class="form-control emailUpdates" placeholder="Your email" aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-outline-secondary formUpdates" type="button" id="button-addon2">Submit</button>
                         </div>
+                        <div class="status">
+                            <div class="UpdatesFormSuccess success d-none">
+                                Success thank you for your submission
+                            </div>
+                            <div class="UpdatesFormDeny deny d-none">
+                                Error
+                            </div>
+                        </div>
                     </div>
                     <script>
                         $(document).ready(function(){
                             let get_button_listener = document.querySelector('.formUpdates');
+                            let success = document.querySelector('.UpdatesFormSuccess');
+                            let error = document.querySelector('.UpdatesFormDeny');
                             
                             $(get_button_listener).on('click', function(){
-                                let email = document.querySelector('.emailUpdates').value;
-                                console.log(email);
+                                if(!success.classList.contains('d-none')){
+                                    success.classList.add('d-none');
+                                }
+                                if(!error.classList.contains('d-none')){
+                                    error.classList.add('d-none');
+                                }
 
-                                // $.ajax({
-                                //     type: "POST",
-                                //     headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
-                                //     url: "/submitForm",
-                                //     data: {
-                                //         'email': get_email.email
-                                //     },
-                                //     success: function(response){
-                                //         console.log(response.status); // show response from the php script.
-                                //     }
-                                // })
+                                let email = document.querySelector('.emailUpdates').value;
+                                $.ajax({
+                                    type: "POST",
+                                    headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+                                    url: "/submitForm",
+                                    data: {
+                                        'name': null,
+                                        'email': email,
+                                        'phone': null,
+                                        'message': null,
+                                        'form_name': 'Updates'
+                                    },
+                                    success: function(response){
+                                        if(response.status == "success"){
+                                            if(success.classList.contains('d-none')){
+                                                success.classList.remove('d-none');
+
+                                                setInterval(hide, 5000);
+                                                function hide(){
+                                                    success.classList.add('d-none');
+                                                }
+                                            }
+                                        }else{
+                                            if(error.classList.contains('d-none')){
+                                                error.classList.remove('d-none');
+                                                setInterval(hide, 5000);
+                                                function hide(){
+                                                    error.classList.add('d-none');
+                                                }
+                                            }
+                                        }
+                                    }
+                                })
                             })                            
                         });
                     </script>
@@ -40,7 +76,7 @@
                                 <a href="/" >Home</a>
                                 <a href={{url('/contacts')}} >Contacts</a>
                                 <a href={{url('/Proceses')}} >About Us</a>
-                                <a href={{url('/process')}} >Process</a>
+                                {{-- <a href={{url('/process')}} >Process</a> --}}
                                 <a href={{"/project"}} >Projects</a>
                             </div>
                             <div class="links_second_section">

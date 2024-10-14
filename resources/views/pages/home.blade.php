@@ -98,40 +98,74 @@
     let clip = 40;
     let top_position = 25;
     let windows;
+    let reached= false;
+    let code_done_count = 0;
     var distance = $('.frontSecond').offset().top,
     $window = $(window);
     $window.on('scroll', function(e) {
-        windows = $window.scrollTop();
-        if ($window.scrollTop() >= distance) {
-            // $window.scrollTop(distance)
-            
+        if(code_done_count == 0){
+            windows = $window.scrollTop();
+            if ($window.scrollTop() >= distance) {
+                console.log('distance');
+                    code_done_count = 1;
+                    $window.scrollTop(distance);
+                
+                reached = true;            
+            }
         }
+       
     });    
 
     const element = document.querySelector('.frontSecond');
     const el = document.querySelector('.image_intro');
     if(distance > 670){
         if (window.screen.width >= 1024){
+            
             element.addEventListener('wheel', function(e){
                 let top_move = document.querySelector('.fixed_container_for_img ');
-
-                if(e.deltaY > 0){
-                    // if(top_position != 0){
-                    //     top_position -= 2;
-                    // } 
-                    if(clip != 0){
-                        clip -= 2;
+                if(reached){
+                    console.log('distance1');
+                    $window.scrollTop(distance);
+                    e.preventDefault();
+                }
+                if (e.deltaY > 0) {
+                    if(top_position != 0){
+                        top_position -= 2;
                     } 
-                }else{
-                    if(clip != 40){
+
+                    if(top_position > 0){
+                        top_position = 0;
+                    }
+
+                    if (clip > 0 && top_position == 0) {
+                        clip -= 2;
+                    }
+
+                    if(top_position == 0 && clip == 0){
+                        reached = false;
+                    }
+                } else {
+                    if(top_position != 25){
+                        top_position += 2;
+                    }
+
+                    if(top_position > 25){
+                        top_position = 25;
+                    }
+
+                    if (clip < 40 && top_position == 25) {
                         clip += 2;
                     }
-                    // if(top_position != 25){
-                    //     top_position += 2;
-                    // } 
-                }   
+
+                    
+                }
+                
+
                 top_move.style.top = `${top_position}%`;
-                el.style.clipPath = `inset(${clip}%)`;  
+                el.style.clipPath = `inset(${clip}%)`;
+
+                
+
             });
 
         }else{
@@ -155,7 +189,6 @@
                         clip -= 2;
                     }
                 } else {
-                    console.log('top_position');
                     if(top_position != 25){
                         top_position += 2;
                     }
@@ -168,8 +201,6 @@
                         clip += 2;
                     }
                 }
-                
-
                 top_move.style.top = `${top_position}%`;
                 el.style.clipPath = `inset(${clip}%)`;
             });
@@ -201,6 +232,7 @@
     }
     .text_for_model_card{}
 </style>
+
 <div class="other">    
     <div class="frontTirth text-center p-30 pb-0 pt-10" id="aboutUsScrollId">
         <small class="color-w slide_title text_Dosis300">WHO WE ARE?</small>
@@ -220,9 +252,12 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Temple city</h1>
+                                            <p class="text_Dosis300 t-start f-size-13">
+                                                This style combines traditional charm with modern convenience. It features classic cabinetry, warm wood tones, and inviting color palettes. Open spaces are enhanced with practical layouts, often including cozy breakfast nooks and functional islands. Decorative details like tile backsplashes and vintage-inspired fixtures bring a touch of character, creating a welcoming atmosphere perfect for family gatherings.
+                                            <p>
                                         </div>
-                                        <img src="styles/1405446421782.webp" class="model_img" alt="">
+                                        <img src="styles/Temple_city.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -230,9 +265,12 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card t-start">Europian style</h1>
+                                            <p class="text_Dosis300 t-start f-size-13">
+                                                Characterized by elegant cabinetry and natural stone countertops, this style features warm, inviting colors and ornate details. Decorative accents like wrought iron and intricate tile work add charm, creating a sophisticated yet cozy atmosphere.
+                                            <p>
                                         </div>
-                                        <img src="styles/1495149887363.webp" class="model_img" alt="">
+                                        <img src="styles/Europian_style.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -240,9 +278,13 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card t-start">culver city</h1>
+                                            <p class="text_Dosis300 t-start f-size-13">
+                                                This style blends mid-century modern aesthetics with contemporary elements. It features clean lines, vibrant colors, and a mix of natural materials. Open layouts and large windows create a bright, airy feel, while stylish fixtures and unique tile patterns add a touch of artistic flair, reflecting the creative spirit of the area.
+                                            <p>
                                         </div>
-                                        <img src="styles/1549664897706.webp" class="model_img" alt="">
+                                        
+                                        <img src="styles/culver_city.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -250,9 +292,12 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card t-start">Traditional</h1>
+                                            <p class="text_Dosis300 t-start f-size-13">
+                                                Features classic designs with ornate details, raised panel cabinetry, and a warm color palette. Often includes decorative molding and elegant finishes
+                                            <p>
                                         </div>
-                                        <img src="styles/1592932554591.webp" class="model_img" alt="">
+                                        <img src="styles/Traditional.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -260,9 +305,12 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Modern</h1>
+                                            <p class="text_Dosis300 f-size-13">
+                                                Characterized by clean lines, minimalist design, and a neutral color palette. Stainless steel appliances and sleek cabinetry are common.
+                                            <p>
                                         </div>
-                                        <img src="styles/1625682166094.webp" class="model_img" alt="">
+                                        <img src="styles/Modern.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -270,9 +318,12 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card">Transitional</h1>
+                                            <p class="text_Dosis300 f-size-13">
+                                                A blend of traditional and contemporary styles, it balances classic elements with modern touches for a timeless look.
+                                            <p>
                                         </div>
-                                        <img src="styles/1657576773385.webp" class="model_img" alt="">
+                                        <img src="styles/Transitional.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -280,9 +331,12 @@
                                 <div class="card card_model bg_img1">
                                     <div class="card-body card_model_body">
                                         <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card">Old Style</h1>
+                                            <h1 class="text_Dosis600 text_front_card t-start">Rustic</h1>
+                                            <p class="text_Dosis300 t-start f-size-13">
+                                                This style emphasizes natural materials and a cozy, homey feel. It often features reclaimed wood, stone countertops, and earthy colors. Open shelving and vintage accents enhance its charm, creating a warm and inviting atmosphere.
+                                            <p>
                                         </div>
-                                        <img src="styles/1663013872428.webp" class="model_img" alt="">
+                                        <img src="styles/Rustic.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -853,26 +907,31 @@
                             <div class="col-lg-7 col-md-12 col-sm-12 h-100  d-flex flex-column justify-content-center p-0">
                                 <div class="contactFirst p-30">
                                     <h3 class="text_Dosis500">Get in touch</h3>
-                                    <form action={{url('/submitForm')}} method="POST">
-                                        @csrf
-                                        <input type="text" name="form_name" class="form-control d-none" value="FrontContact">
-                                        <div class="slidecontent">
-                                            <div class="input-group mb-3">
-                                                <input required type="text" name="name" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input required type="number" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input required type="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-                                            </div>
-                                            
-                                            <div class="input-group">
-                                                <textarea class="form-control" name="message" placeholder="Message" aria-label="With textarea"></textarea>
-                                            </div>
-                                            <button type="submit" class="w-100 btn btn-info mb-3 mt-3">Submit</button>
+                                    <input type="text" name="form_name" class="form-control d-none" value="FrontContact">
+                                    <div class="slidecontent">
+                                        <div class="input-group mb-3">
+                                            <input required type="text" name="name" class="contactsName form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
-                                    </form>
+                                        <div class="input-group mb-3">
+                                            <input required type="number" name="phone" class="contactsPhone form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input required type="email" name="email" class="contactsEmail form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                        
+                                        <div class="input-group">
+                                            <textarea class="contactsMessage form-control mh-263" name="message" placeholder="Message" aria-label="With textarea"></textarea>
+                                        </div>
+                                        <button type="button" class="w-100 btn btn-info mb-3 mt-3 formContacts">Submit</button>
+                                        <div class="status">
+                                            <div class="ContactsFormSuccess success d-none">
+                                                We will contact you soon!
+                                            </div>
+                                            <div class="ContactsFormDeny deny d-none">
+                                                Error
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-12 col-sm-12 p-0">
@@ -929,7 +988,69 @@
 
 
 
+<script>
+    $(document).ready(function(){
+        let get_button_listener_formContacts = document.querySelector('.formContacts');
+        let success_contacts = document.querySelector('.ContactsFormSuccess');
+        let error_contacts = document.querySelector('.ContactsFormDeny');
+        
+        $(get_button_listener_formContacts).on('click', function(){
+            if(!success_contacts.classList.contains('d-none')){
+                success_contacts.classList.add('d-none');
+            }
+            if(!error_contacts.classList.contains('d-none')){
+                error_contacts.classList.add('d-none');
+            }
+            let name = document.querySelector('.contactsName').value;
+            let email = document.querySelector('.contactsEmail').value;
+            let phone = document.querySelector('.contactsPhone').value;
+            let message = document.querySelector('.contactsMessage').value;
 
+            if(name == null || email == null || phone == null || message == null){
+                if(error_contacts.classList.contains('d-none')){
+                    error_contacts.classList.remove('d-none');
+                    setInterval(hide, 5000);
+                    function hide(){
+                        error_contacts.classList.add('d-none');
+                    }
+                }
+            }else{
+                $.ajax({
+                    type: "POST",
+                    headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+                    url: "/submitForm",
+                    data: {
+                        'name': name,
+                        'email': email,
+                        'phone': phone,
+                        'message': message,
+                        'form_name': 'Contacts'
+                    },
+                    success: function(response){
+                        if(response.status == "success"){
+                            if(success_contacts.classList.contains('d-none')){
+                                success_contacts.classList.remove('d-none');
+
+                                setInterval(hide, 5000);
+                                function hide(){
+                                    success_contacts.classList.add('d-none');
+                                }
+                            }
+                        }else{
+                            if(error_contacts.classList.contains('d-none')){
+                                error_contacts.classList.remove('d-none');
+                                setInterval(hide, 5000);
+                                function hide(){
+                                    error_contacts.classList.add('d-none');
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+        })                            
+    });
+</script>
 
 
 

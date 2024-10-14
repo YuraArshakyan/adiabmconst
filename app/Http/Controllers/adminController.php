@@ -51,27 +51,24 @@ class adminController extends Controller
         }
     }
 
-    public function exportVisibleForms(Request $request)
+    public function exportVisibleForms($id)
     {
-        // $visibleForms = $request->input(); // Get the JSON data
-    
-        // // Convert it to a suitable format for exporting
-        // $exportData = collect($visibleForms)->map(function ($form) {
-        //     return [
-        //         $form['id'],
-        //         $form['status'],
-        //         $form['error'],
-        //         $form['name'],
-        //         $form['email'],
-        //         $form['phone'],
-        //         $form['message'],
-        //         $form['form_name'],
-        //         $form['created_at'],
-        //     ];
-        // });
-    
-        // // Use the Laravel Excel export class or create a new one
-        // return Excel::download(new FormsExport($exportData), 'visible_forms.xlsx');
+        switch ($id){
+            case(1):
+                $name = 'form_all_' . date('m-d-y') .'.xlsx';
+                break;
+            case(2):
+                $name = 'form_Updates_' . date('m-d-y') .'.xlsx';
+                break;
+
+            default:
+                $name = 'form_Contacts_' . date('m-d-y') .'.xlsx';
+                break;
+        }
+
+
+        return Excel::download(new FormsExport($id), $name);
+        
     }
     
 

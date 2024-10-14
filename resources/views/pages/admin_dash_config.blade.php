@@ -24,7 +24,7 @@
                             <input type="email" value="{{$email[0]->value}}" name="email" class="email form-control" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Favicon <span class="t-red">(ico Format only)</span></label>
+                            <label for="exampleInputEmail1" class="form-label">Favicon</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                 <input type="file" name="favicon" class="custom-file-input" id="inputGroupFile01">

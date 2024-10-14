@@ -30,16 +30,22 @@ class FormsController extends Controller
      */
     public function store(Request $request)
     {
-        // $form = forms::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'phone' => $request->phone,
-        //     'message' => $request->message,
-        //     'form_name' => $request->form_name
-        // ]);
-        // $form->save();
-        // return redirect()->back();
-        return response()->json(['status' => $request->email]);
+
+        $email = $request->email;
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return response()->json(['status' => $email]);
+        }
+        
+
+        $form = forms::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
+            'form_name' => $request->form_name
+        ]);
+        $form->save();
+        return response()->json(['status' => 'success']);
     }
 
     public function addFormConfig(Request $request){
@@ -182,8 +188,13 @@ class FormsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(forms $forms)
+    public function destroy($id)
     {
-        //
+        $take_for_delete = forms::findOrFail($id);
+
+        $take_for_delete->delete();
+
+        notify()->success('done');
+        return redirect()->back();
     }
 }

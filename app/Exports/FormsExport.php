@@ -2,37 +2,33 @@
 
 namespace App\Exports;
 
-use App\Models\Form;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+use App\Models\forms;
 
-class FormsExport implements FromCollection
+class FormsExport implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     protected $data;
-    public function __construct($data)
+    public function __construct($id)
     {
-        $this->data = $data;
+        if($id == 1){
+            $this->data = forms::all();
+        }else if($id == 2){
+            $this->data = forms::where('form_name', 'Updates')->get();
+        }else{
+            $this->data = forms::where('form_name', 'Contacts')->get();
+        }
+        
     }
-    public function collection()
-    {
-        return $this->data;
-    }
-    public function headings(): array
-    {
-        return [
-            '#',
-            'Status',
-            'Error',
-            'Name',
-            'Email',
-            'Phone',
-            'Message',
-            'Form Name',
-            'Created At',
-        ];
+
+    public function view(): View{
+        return view('exports.forms_export_updates', [
+
+            'forms' => $this->data
+        ]);
     }
 
 }

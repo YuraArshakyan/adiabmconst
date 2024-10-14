@@ -37,13 +37,13 @@
                 <div class="transperent_line"></div>
             </div>
 
-            <div class="nav_item d-flex flex-column justify-content-center align-items-center">
+            {{-- <div class="nav_item d-flex flex-column justify-content-center align-items-center">
                 <div class="transperent_line"></div>
                 <a href={{url('/process')}} class="nav">
                     Process
                 </a>
                 <div class="transperent_line"></div>
-            </div>
+            </div> --}}
 
             <div class="nav_item d-flex flex-column justify-content-center align-items-center">
                 <div class="transperent_line"></div>
