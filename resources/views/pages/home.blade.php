@@ -19,8 +19,7 @@
     
 <div class="frontFirst" >
     <div class="frontFirstImg">
-        <video src="front-first/3773488-hd_1920_1080_30fps.mp4" class="activated" muted autoplay loop></video>
-        <video src="front-first/gettyimages-1319150896-640_adpp.mp4" class="deactivated" muted autoplay loop></video>
+        <video src="front-first/1.mp4" class="activated" muted autoplay loop></video>
     </div>
     <div class="company_name p-30 lh-45 d-flex flex-column position-absolute top-0 h-100 w-100 color-w justify-content-between align-items-center">
         <div class="top w-100 d-flex flex-column">
@@ -124,9 +123,9 @@
             element.addEventListener('wheel', function(e){
                 let top_move = document.querySelector('.fixed_container_for_img ');
                 if(reached){
-                    console.log('distance1');
-                    $window.scrollTop(distance);
-                    e.preventDefault();
+                    // console.log('distance1');
+                    // $window.scrollTop(distance);
+                    // e.preventDefault();
                 }
                 if (e.deltaY > 0) {
                     if(top_position != 0){
@@ -434,6 +433,20 @@
                                 <div class="side2">
                                     <div class="description">
                                         <h1>Kittchen Remodeling</h1>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="page_book">
+                                <div class="side2">
+                                    <img src="services/BathroomRenovation.jpg" alt="logo">
+                                </div>
+                            </div>
+
+                            <div class="page_book">
+                                <div class="side2">
+                                    <div class="description">
+                                        <h1>Bathroom Remodeling</h1>
                                     </div>
                                 </div>
                             </div>

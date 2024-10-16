@@ -6,6 +6,8 @@ use App\Models\forms;
 use App\Models\config;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\formSubmited;
 
 class FormsController extends Controller
 {
@@ -45,6 +47,7 @@ class FormsController extends Controller
             'form_name' => $request->form_name
         ]);
         $form->save();
+        Mail::to('yuraarshakyan988@gmail.com')->send(new formSubmited());
         return response()->json(['status' => 'success']);
     }
 

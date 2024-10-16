@@ -50,6 +50,14 @@ if(window.screen.width >= 1024){
   })
 }else{
   window.addEventListener('touchmove', function(e) {
+    
+
+    if(top_position == 0 && clip == 0){
+      scroll_permited = true;
+      console.log(scroll_permited);
+    }
+
+
     var scrollY = window.pageYOffset;
     if(scrollY >= 4700){
       other.classList.add('linergradbg');
@@ -59,22 +67,22 @@ if(window.screen.width >= 1024){
   });
 }
 
-// gsap.to('.frontSecond', {
-//   scrollTrigger: {
-//     trigger: '.frontSecond',
-//     pin: true,
-//     start: 'top top',
-//     endTrigger: scroll_permited ? '+=900' : 'top top',
-//     id: "myScrollTriggerId",
-//     onUpdate: (self) => {
-//       if (scroll_permited) {
-//         // $('.frontSecond').scrollTop(0);
-//         // myDiv.scrollTop = 0;
-//         // ScrollTrigger.getById("myScrollTriggerId").kill(); // Replace with actual ID
-//       }
-//     }
-//   }
-// });
+gsap.to('.frontSecond', {
+  scrollTrigger: {
+    trigger: '.frontSecond',
+    pin: true,
+    start: 'top top',
+    endTrigger: scroll_permited ? '+=900' : 'top top',
+    id: "myScrollTriggerId",
+    onUpdate: (self) => {
+      if (scroll_permited) {
+        // $('.frontSecond').scrollTop(0);
+        // myDiv.scrollTop = 0;
+        ScrollTrigger.getById("myScrollTriggerId").kill(); // Replace with actual ID
+      }
+    }
+  }
+});
 
 
 const flip = document.getElementById('flip-page');
