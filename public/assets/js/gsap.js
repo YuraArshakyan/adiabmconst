@@ -26,9 +26,6 @@ $(document).ready(function(){
 function contactUs(){
   // gsap.to(window, { duration: 2, scrollTo: "#someID" });
 }
- 
-
-
 
 let scroll_permited = false;
 let myDiv = document.getElementById('.frontTirth');
@@ -67,22 +64,22 @@ if(window.screen.width >= 1024){
   });
 }
 
-gsap.to('.frontSecond', {
-  scrollTrigger: {
-    trigger: '.frontSecond',
-    pin: true,
-    start: 'top top',
-    endTrigger: scroll_permited ? '+=900' : 'top top',
-    id: "myScrollTriggerId",
-    onUpdate: (self) => {
-      if (scroll_permited) {
-        // $('.frontSecond').scrollTop(0);
-        // myDiv.scrollTop = 0;
-        ScrollTrigger.getById("myScrollTriggerId").kill(); // Replace with actual ID
-      }
-    }
-  }
-});
+// gsap.to('.frontSecond', {
+//   scrollTrigger: {
+//     trigger: '.frontSecond',
+//     pin: true,
+//     start: 'top top',
+//     endTrigger: scroll_permited ? '+=900' : 'top top',
+//     id: "myScrollTriggerId",
+//     onUpdate: (self) => {
+//       if (scroll_permited) {
+//         // $('.frontSecond').scrollTop(0);
+//         // myDiv.scrollTop = 0;
+//         ScrollTrigger.getById("myScrollTriggerId").kill(); // Replace with actual ID
+//       }
+//     }
+//   }
+// });
 
 
 const flip = document.getElementById('flip-page');

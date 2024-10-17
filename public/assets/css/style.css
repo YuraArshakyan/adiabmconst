@@ -212,8 +212,10 @@ small{
 .process{
     height: calc(100vh - 205px);
 }
-
-
+svg{
+    overflow: visible !important;
+    height: 100%;
+}
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&display=swap');
 .text_Dosis400 {
     font-family: "Dosis", sans-serif;
@@ -222,8 +224,25 @@ small{
     font-style: normal;
 }
 @media screen and (max-width: 1024px) {
+    .group_of_card {
+        grid-template-columns: 100% !important;
+    }
+    .height2row{
+        grid-row-start: auto !important;
+        grid-row-end: auto !important;
+        grid-column-start: auto !important;
+    }
     .process{
         height: 100vh !important;
+    }
+    .height2row .card_model {
+        height: 350px !important;
+    }
+    .preloader_svg svg .layer1{
+        scale: 0.5;
+    }
+    .preloader_svg svg .layer2{
+        scale: 0.5;
     }
     .contact_item_header_text{
         text-align: center !important;
@@ -930,7 +949,7 @@ video.frame-media_left{
 .preloader_title h3{
     font-size: 77px;
     width: min-content;
-    letter-spacing: 17px;
+    line-height: 117%;
 }
 
 .preloader1.active{
@@ -965,6 +984,20 @@ video.frame-media_left{
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+.group_of_card {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+.height2row{
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-row-end: 3;
+}
+.height2row .card_model{
+    height: 100%;
+}
+
 @keyframes changewidth {
     from {
         transform: translate(124px, 10px) rotate(0deg);

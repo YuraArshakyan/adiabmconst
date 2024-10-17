@@ -92,6 +92,9 @@
         </div>
     </div>
 </div>
+<div class="d-none-container frontSecond text-center bg-transparent">
+  
+</div>
 <script>
     let scale =2;
     let clip = 40;
@@ -99,112 +102,221 @@
     let windows;
     let reached= false;
     let code_done_count = 0;
+    let permission = true;
+    let top_move = document.querySelector('.fixed_container_for_img ');
     var distance = $('.frontSecond').offset().top,
-    $window = $(window);
-    $window.on('scroll', function(e) {
-        if(code_done_count == 0){
-            windows = $window.scrollTop();
-            if ($window.scrollTop() >= distance) {
-                console.log('distance');
-                    code_done_count = 1;
-                    $window.scrollTop(distance);
-                
-                reached = true;            
-            }
-        }
-       
-    });    
+        $window = $(window);
+    
+        // $window.on('scroll', function(e) {
+        //     if(permission){
+        //         if(code_done_count == 0){
+        //             console.log('stop');
+        //             windows = $window.scrollTop();
+        //             if ($window.scrollTop() >= distance) {
+        //                 console.log('distance');
+        //                     code_done_count = 1;
+        //                     $window.scrollTop(distance);
+                        
+        //                 reached = true;            
+        //             }
+        //         }
+        //     }
+        
+        // });    
+    
 
     const element = document.querySelector('.frontSecond');
     const el = document.querySelector('.image_intro');
-    if(distance > 670){
-        if (window.screen.width >= 1024){
-            
-            element.addEventListener('wheel', function(e){
-                let top_move = document.querySelector('.fixed_container_for_img ');
-                if(reached){
-                    // console.log('distance1');
-                    // $window.scrollTop(distance);
-                    // e.preventDefault();
-                }
-                if (e.deltaY > 0) {
+    var scrollPosition = [
+            self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
+            self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
+        ];
+        $window.scroll(function() {
+            if ( $window.scrollTop() >= distance  && !reached) {
+                if(!reached){
+                    scrollPosition = [
+                        distance,
+                        self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
+                    ];
+
+                    var previousScrollTop = 0;
+
+                    var currentScrollTop = $(this).scrollTop();
+                    
+                    window.scrollTo({top: scrollPosition[0], behavior: 'smooth'});
+
+                    
+
                     if(top_position != 0){
                         top_position -= 2;
                     } 
-
                     if(top_position > 0){
                         top_position = 0;
                     }
-
                     if (clip > 0 && top_position == 0) {
                         clip -= 2;
                     }
 
                     if(top_position == 0 && clip == 0){
-                        reached = false;
+                        reached = true;
+
+                        $( ".d-none-container" ).height(0);
+                        $( ".d-none-container" ).hide();
+
                     }
-                } else {
+                    top_move.style.top = `${top_position}%`;
+                    el.style.clipPath = `inset(${clip}%)`;
+                }else if(reached && top_position == 0 && clip == 0){
+
                     if(top_position != 25){
                         top_position += 2;
                     }
-
                     if(top_position > 25){
                         top_position = 25;
                     }
-
                     if (clip < 40 && top_position == 25) {
                         clip += 2;
                     }
+                }
+
+                
+
+
+                // if (e.deltaY > 0) {
+                //     
+
+                //     
+
+                //     
+                // } else {
+                //     if(top_position != 25){
+                //         top_position += 2;
+                //     }
+
+                //     if(top_position > 25){
+                //         top_position = 25;
+                //     }
+
+                //     if (clip < 40 && top_position == 25) {
+                //         clip += 2;
+                //     }
 
                     
-                }
+                // }
                 
+
+                // top_move.style.top = `${top_position}%`;
+                // el.style.clipPath = `inset(${clip}%)`;
+            }else if( $window.scrollTop() < distance  && reached) {
+                console.log('stop');
+                top_position = 25;
+                clip = 40;
 
                 top_move.style.top = `${top_position}%`;
                 el.style.clipPath = `inset(${clip}%)`;
+                $( ".d-none-container" ).height('25px');
+                $( ".d-none-container" ).show();
+                reached = false;
+            }
+        });
+
+        // $window.on('scroll', function(e) {
+        //     if ( $window.scrollTop() >= distance ) {
+
+        //         e.preventDefault();
+        //         window.scrollTo({top: distance, behavior: 'smooth'});
+
+        //     }
+        
+        // });
+
+       
+
+
+
+        element.addEventListener('wheel', function(e){
+
+            // console.log(distance);
+            // e.preventDefault();
+
+            // let top_move = document.querySelector('.fixed_container_for_img ');
+            // if (e.deltaY > 0) {
+            //     if(top_position != 0){
+            //         top_position -= 2;
+            //     } 
+
+            //     if(top_position > 0){
+            //         top_position = 0;
+            //     }
+
+            //     if (clip > 0 && top_position == 0) {
+            //         clip -= 2;
+            //     }
+
+            //     if(top_position == 0 && clip == 0){
+            //         reached = false;
+            //     }
+            // } else {
+            //     if(top_position != 25){
+            //         top_position += 2;
+            //     }
+
+            //     if(top_position > 25){
+            //         top_position = 25;
+            //     }
+
+            //     if (clip < 40 && top_position == 25) {
+            //         clip += 2;
+            //     }
 
                 
+            // }
+            
 
-            });
+            // top_move.style.top = `${top_position}%`;
+            // el.style.clipPath = `inset(${clip}%)`;
 
-        }else{
-            element.addEventListener('touchmove', function(e) {
+            
 
-                let top_move = document.querySelector('.fixed_container_for_img ');
-                const touch = e.touches[0]; // Get the first touch point
-                const deltaY = touch.clientY - (this.lastTouchY || touch.clientY); // Calculate the change in Y position
-                this.lastTouchY = touch.clientY; // Update the last touch Y position
+        });
 
-                if (deltaY < 0) {
-                    if(top_position != 0){
-                        top_position -= 2;
-                    } 
+    // }else{
+    //     element.addEventListener('touchmove', function(e) {
 
-                    if(top_position > 0){
-                        top_position = 0;
-                    }
+    //         let top_move = document.querySelector('.fixed_container_for_img ');
+    //         const touch = e.touches[0]; // Get the first touch point
+    //         const deltaY = touch.clientY - (this.lastTouchY || touch.clientY); // Calculate the change in Y position
+    //         this.lastTouchY = touch.clientY; // Update the last touch Y position
 
-                    if (clip > 0 && top_position == 0) {
-                        clip -= 2;
-                    }
-                } else {
-                    if(top_position != 25){
-                        top_position += 2;
-                    }
+    //         if (deltaY < 0) {
+    //             if(top_position != 0){
+    //                 top_position -= 2;
+    //             } 
 
-                    if(top_position > 25){
-                        top_position = 25;
-                    }
+    //             if(top_position > 0){
+    //                 top_position = 0;
+    //             }
 
-                    if (clip < 40 && top_position == 25) {
-                        clip += 2;
-                    }
-                }
-                top_move.style.top = `${top_position}%`;
-                el.style.clipPath = `inset(${clip}%)`;
-            });
-        }
-    }
+    //             if (clip > 0 && top_position == 0) {
+    //                 clip -= 2;
+    //             }
+    //         } else {
+    //             if(top_position != 25){
+    //                 top_position += 2;
+    //             }
+
+    //             if(top_position > 25){
+    //                 top_position = 25;
+    //             }
+
+    //             if (clip < 40 && top_position == 25) {
+    //                 clip += 2;
+    //             }
+    //         }
+    //         top_move.style.top = `${top_position}%`;
+    //         el.style.clipPath = `inset(${clip}%)`;
+    //     });
+    // }
 
 </script>
 
@@ -287,55 +399,44 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4  col-md-12 col-sm-12 p-15">
-                                <div class="card card_model bg_img1">
-                                    <div class="card-body card_model_body">
-                                        <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card t-start">Traditional</h1>
-                                            <p class="text_Dosis300 t-start f-size-13">
-                                                Features classic designs with ornate details, raised panel cabinetry, and a warm color palette. Often includes decorative molding and elegant finishes
-                                            <p>
+                            <div class="group_of_card col-12">
+                                <div class="col-12  p-15 height2row">
+                                    <div class="card card_model bg_img1">
+                                        <div class="card-body card_model_body">
+                                            <div class="text_for_model_card position-absolute p-15">
+                                                <h1 class="text_Dosis600 text_front_card t-start">Traditional</h1>
+                                                <p class="text_Dosis300 t-start f-size-13">
+                                                    Features classic designs with ornate details, raised panel cabinetry, and a warm color palette. Often includes decorative molding and elegant finishes
+                                                <p>
+                                            </div>
+                                            <img src="styles/Traditional.webp" class="model_img" alt="">
                                         </div>
-                                        <img src="styles/Traditional.webp" class="model_img" alt="">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-8  col-md-12 col-sm-12 p-15">
-                                <div class="card card_model bg_img1">
-                                    <div class="card-body card_model_body">
-                                        <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card">Modern</h1>
-                                            <p class="text_Dosis300 f-size-13">
-                                                Characterized by clean lines, minimalist design, and a neutral color palette. Stainless steel appliances and sleek cabinetry are common.
-                                            <p>
+                                <div class="col-12  p-15">
+                                    <div class="card card_model bg_img1">
+                                        <div class="card-body card_model_body">
+                                            <div class="text_for_model_card position-absolute p-15">
+                                                <h1 class="text_Dosis600 text_front_card">Modern</h1>
+                                                <p class="text_Dosis300 f-size-13">
+                                                    Characterized by clean lines, minimalist design, and a neutral color palette. Stainless steel appliances and sleek cabinetry are common.
+                                                <p>
+                                            </div>
+                                            <img src="styles/Modern.webp" class="model_img" alt="">
                                         </div>
-                                        <img src="styles/Modern.webp" class="model_img" alt="">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-7  col-md-12 col-sm-12 p-15">
-                                <div class="card card_model bg_img1">
-                                    <div class="card-body card_model_body">
-                                        <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card">Transitional</h1>
-                                            <p class="text_Dosis300 f-size-13">
-                                                A blend of traditional and contemporary styles, it balances classic elements with modern touches for a timeless look.
-                                            <p>
+                                <div class="col-12  p-15">
+                                    <div class="card card_model bg_img1">
+                                        <div class="card-body card_model_body">
+                                            <div class="text_for_model_card position-absolute p-15">
+                                                <h1 class="text_Dosis600 text_front_card t-start">Rustic</h1>
+                                                <p class="text_Dosis300 t-start f-size-13">
+                                                    This style emphasizes natural materials and a cozy, homey feel. It often features reclaimed wood, stone countertops, and earthy colors. Open shelving and vintage accents enhance its charm, creating a warm and inviting atmosphere.
+                                                <p>
+                                            </div>
+                                            <img src="styles/Rustic.webp" class="model_img" alt="">
                                         </div>
-                                        <img src="styles/Transitional.webp" class="model_img" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5  col-md-12 col-sm-12 p-15">
-                                <div class="card card_model bg_img1">
-                                    <div class="card-body card_model_body">
-                                        <div class="text_for_model_card position-absolute p-15">
-                                            <h1 class="text_Dosis600 text_front_card t-start">Rustic</h1>
-                                            <p class="text_Dosis300 t-start f-size-13">
-                                                This style emphasizes natural materials and a cozy, homey feel. It often features reclaimed wood, stone countertops, and earthy colors. Open shelving and vintage accents enhance its charm, creating a warm and inviting atmosphere.
-                                            <p>
-                                        </div>
-                                        <img src="styles/Rustic.webp" class="model_img" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -380,7 +481,7 @@
         </div>
     </div>
     <div class="frontForth text-center p-30 pt-0" style="">
-        <small class="color-w slide_title text_Dosis300">Our current projects</small>
+        <small class="color-w slide_title text_Dosis300">some Our projects</small>
         <div class="Slide_4_Three_animation d-flex container">
             <div class="titleexplanation d-flex flex-column justify-content-center color-w">
                 <div class="text_cube text_Dosis300">

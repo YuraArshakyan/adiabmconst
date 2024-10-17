@@ -236,9 +236,15 @@
 .t-start{
     text-align: start;
 }
+.t-center{
+    text-align: center;
+}
 .f-size-13{
     font-size: 13px;
 }
 .mh-263{
     max-height: 263px;
+}
+.space-9{
+    padding: 0 9px;
 }

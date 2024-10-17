@@ -47,6 +47,9 @@ class FormsController extends Controller
             'form_name' => $request->form_name
         ]);
         $form->save();
+
+
+        
         Mail::to('yuraarshakyan988@gmail.com')->send(new formSubmited());
         return response()->json(['status' => 'success']);
     }

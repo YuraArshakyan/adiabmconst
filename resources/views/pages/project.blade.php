@@ -2,115 +2,6 @@
 @section('title', 'Projects')
 @section('content')
 
-    {{-- <div class="slide1 w-100" style="height: 100vh">
-        <video  width= "100%" autoplay loop muted id = "vid" class="d-none">
-            <source src="first.mov" type="video/mp4">
-        </video>
-
-
-        <section class="part1">
-            <canvas id="canvas0" ></canvas>
-        </section>
-        <section class="part2">
-            <canvas id="canvas1"></canvas>
-        </section>
-    </div> --}}
-
-
-
-
-    {{-- <div class="slide2 slide projects-portfolio" id="page_content1">
-        <div class="container">
-            <section class="gallary">
-                <div class="frame">
-                    <div class="frame__content">
-                        <h2>Beautiful World</h2>
-                    </div>
-                </div>
-    
-                <div class="frame">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_left" style="background-image: url(projects/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <video class="frame-media frame-media_right" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-    
-                <div class="frame">
-                    <div class="frame__content text-right">
-                        <h3>Pure planet</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur elit adipisicing. Nemo fugit, rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus.</p>
-                    </div>
-                </div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_left" style="background-image: url(projects/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_right" style="background-image: url(projects/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-    
-                <div class="frame">
-                    <div class="frame__content text-left">
-                        <h3>Ask the Mountains</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus omnis quae eaque aliquam esse unde accusamus dolores non soluta.</p>
-                    </div>
-                </div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_right" style="background-image: url(images/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame">
-                    <div class="frame__content">
-                        <video class="frame-media frame-media_left" src="media/video_optimized.mp4" autoplay loop muted></video>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-                <div class="frame"></div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <div class="frame-media frame-media_right" style="background-image: url(images/1.jpg)"></div>
-                    </div>
-                </div>
-    
-                <div class="frame frame_bg">
-                    <div class="frame__content">
-                        <video class="frame-media" src="media/video_optimized.mp4" autoplay loop muted></video>
-                    </div>
-                </div>
-    
-                <div class="frame"></div>
-                <div class="frame"></div>
-    
-                <div class="frame">
-                    <div class="frame__content">© WebDesign Master</div>
-                </div>
-    
-            </section>
-        </div>
-    </div> --}}
-
-
     <img src="projects/sound.gif" alt="sound_button" class="soundbutton">
     <audio class="audio" src="projects/ambient.mp3" loop></audio>
     <div class="slide2 slide projects-portfolio" id="page_content1">
@@ -124,7 +15,7 @@
 
                 <div class="frame">
                     <div class="frame__content frame_bg">
-                        <div class="frame-media frame-media_left" style="background-image: url('projects/1.webp')"></div>
+                        <div class="frame-media frame-media_left" style="background-image: url('projects/1.jpg')"></div>
                     </div>
                 </div>
 
@@ -132,8 +23,8 @@
 
                 <div class="frame">
                     <div class="frame__content text-right">
-                        <h3>White Style</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur elit adipisicing. Nemo fugit, rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus.</p>
+                        <h3>Europian Style</h3>
+                        <p>European-style kitchen design combines sleek, high-quality cabinetry with neutral tones and bold accents. Open layouts connect the kitchen to dining and living areas, promoting social interaction. Durable materials like marble and quartz are used for countertops, often paired with integrated appliances for a streamlined look. Stylish lighting, including pendant fixtures, adds warmth, while backsplashes in tile or stone provide character. Natural flooring materials like hardwood or stone enhance elegance and durability, creating a functional yet inviting space.</p>
                     </div>
                 </div>
 
@@ -141,7 +32,7 @@
 
                 <div class="frame ">
                     <div class="frame__content">
-                        <div class="frame-media frame-media_right" style="background-image: url('projects/3.webp')"></div>
+                        <div class="frame-media frame-media_right" style="background-image: url('projects/2.jpg')"></div>
                         {{-- <h2>Beautiful World</h2> --}}
                     </div>
                 </div>
@@ -150,81 +41,8 @@
 
                 <div class="frame frame_bg">
                     <div class="frame__content">
-                        <div class="frame-media frame-media_left" style="background-image: url('projects/4.webp')"></div>
+                        <div class="frame-media frame-media_left" style="background-image: url('projects/3.jpg')"></div>
                         {{-- <h2>Beautiful World</h2> --}}
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
-                    </div>
-                </div>
-
-                <div class="frame ">
-                    <div class="frame__content">
-                        <video class="frame-media" src="first.mov" autoplay loop muted></video>
                     </div>
                 </div>
 
